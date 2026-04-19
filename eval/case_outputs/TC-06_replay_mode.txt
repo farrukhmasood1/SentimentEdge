@@ -1,0 +1,16 @@
+TC-06 — Replay Mode: Output Runs Without API Calls
+Verified: 2026-04-12
+Command: python main.py --replay
+
+Terminal output:
+  SentimentEdge — Replaying most recent run: outputs/runs/run_20260412_110302
+  [full three-report output rendered]
+
+Verification:
+  - No ANTHROPIC_API_KEY required
+  - Agents 1-4 skipped entirely
+  - emotions and tickers columns restored from CSV string repr via ast.literal_eval
+  - All three reports rendered: SPY, TSLA, TACO ticker reports + trend alerts + comparison
+  - Completed in under 5 seconds
+
+RESULT: PASS — replay mode works without API calls.

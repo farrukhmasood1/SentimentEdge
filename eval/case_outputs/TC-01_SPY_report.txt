@@ -1,0 +1,84 @@
+TC-01 — Happy Path: Full Ticker Report
+Run: outputs/runs/run_20260412_110302/
+Evidence: SPY report as rendered by Output Agent
+
+══════════════════════════════════════════════════════════════
+  TICKER REPORT — $SPY
+══════════════════════════════════════════════════════════════
+
+  SENTIMENT SUMMARY
+  ──────────────────────────────────────────────────────────
+  Posts analysed   35        Avg confidence   0.67
+  Avg relevance    0.73      Sarcastic posts  14
+
+  🟢 Bullish  ██████               31.4%
+  🔴 Bearish  ███████████          57.1%
+  🟡 Neutral  ██                   11.4%
+
+  ⚠  High sarcasm rate (40%) — scores adjusted by Claude
+
+  EMOTION BREAKDOWN
+  ──────────────────────────────────────────────────────────
+  humor            █████                29 mentions (29%)
+  frustration      ████                 23 mentions (23%)
+  sarcasm          ███                  15 mentions (15%)
+  euphoria         █                    9 mentions (9%)
+  panic            █                    8 mentions (8%)
+  fear             █                    5 mentions (5%)
+  hope                                  4 mentions (4%)
+  greed                                 3 mentions (3%)
+  relief                                2 mentions (2%)
+  curiosity                             1 mentions (1%)
+  surprise                              1 mentions (1%)
+
+  POST TYPE BREAKDOWN
+  ──────────────────────────────────────────────────────────
+  loss            posts:   9   🟢   0.0%   🔴 100.0%
+  meme            posts:   9   🟢  44.4%   🔴  44.4%
+  gain            posts:   6   🟢 100.0%   🔴   0.0%
+  other           posts:   4   🟢  25.0%   🔴  25.0%
+  YOLO            posts:   3   🟢   0.0%   🔴 100.0%
+  DD              posts:   2   🟢   0.0%   🔴  50.0%
+  news            posts:   2   🟢   0.0%   🔴 100.0%
+
+  MONTHLY SENTIMENT TIMELINE
+  ──────────────────────────────────────────────────────────
+  🔴 2026-04   🟢  31.4%   🔴  57.1%   posts: 35
+
+  TOP KEY INSIGHTS
+  ──────────────────────────────────────────────────────────
+
+  🟡 What Are Your Moves Tomorrow, April 08, 2026  [SARCASTIC]
+     Market showed resilience by closing slightly green despite major geopolitical or economic crisis negotiations
+     conf: 0.70   type: other   score: 284
+     reddit.com/r/wallstreetbets/comments/1sf6vyv/what_are_your_moves_tomorrow_april_08_2026/
+
+  🟡 Cash gang watching the news alongside the SPY chart  [SARCASTIC]
+     Meme post joking about cash holders waiting for market dips while markets continue rising
+     conf: 0.30   type: meme   score: 2955
+     reddit.com/r/wallstreetbets/comments/1scfwlv/cash_gang_watching_the_news_alongside_the_spy/
+
+  🔴 Sold puts by accident pt.2
+     User accidentally sold puts and created a significant account issue with their broker, highlighting risks of options trading mistakes.
+     conf: 0.70   type: loss   score: 2593
+     reddit.com/r/wallstreetbets/comments/1sgbzov/sold_puts_by_accident_pt2/
+
+  ⚠  RUMOUR ALERTS
+  ──────────────────────────────────────────────────────────
+  Type        regulatory_decision
+  Summary     Claims Iran launched massive missile salvo against multiple Middle Eastern countries including Israel
+  Confidence  0.70
+  Source      reddit.com/r/wallstreetbets/comments/1sfdw8e/oil_calls_spy_puts/
+  ⚠  Unverified social media speculation only.
+  Type        regulatory_decision
+  Summary     S&P 500 and Nasdaq allegedly dropping 12-month waiting periods for OpenAI, Anthropic, and SpaceX IPO index inclusion
+  Confidence  0.70
+  Source      reddit.com/r/wallstreetbets/comments/1sdd2i0/ipo_grift_how_ai_companies_will_be_bypassing/
+  ⚠  Unverified social media speculation only.
+
+  ──────────────────────────────────────────────────────────
+  ⚠  Not financial advice. Source: r/wallstreetbets
+  Data up to: 2026-04-09
+══════════════════════════════════════════════════════════════
+
+RESULT: All 6 sections rendered. No crash. No missing fields. Rumour alerts present with disclaimer.

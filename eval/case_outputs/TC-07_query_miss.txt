@@ -1,0 +1,16 @@
+TC-07 — Ticker Not Found: Graceful No-Data Response
+Verified: 2026-04-12
+Method: Called query_ticker('XYZ', ...) against saved run outputs
+
+Terminal output:
+  No data found for $XYZ.
+  Available tickers: ['SPY', 'TSLA', 'TACO', 'QQQ', 'META', 'INTC', 'MSFT', ...]
+
+Verification:
+  - No crash
+  - No KeyError
+  - Clear "No data found" message printed
+  - Full list of 59 available tickers displayed
+  - Remaining pipeline output unaffected
+
+RESULT: PASS — graceful no-data response, no exception raised.

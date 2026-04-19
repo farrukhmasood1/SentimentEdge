@@ -1,0 +1,8 @@
+# SentimentEdge — Phase 2 Requirements
+# Install with: pip install -r requirements.txt
+
+# Core data processing
+pandas>=2.0.0
+
+# Anthropic Claude API (>=0.40.0 required for prompt caching support)
+anthropic>=0.40.0

@@ -1,0 +1,42 @@
+TC-03 — Low Confidence Warning: Below-Threshold Ticker Flagged
+Run: outputs/runs/run_20260412_110302/
+Evidence: TSLA report header showing LOW CONFIDENCE warning
+
+══════════════════════════════════════════════════════════════
+  TICKER REPORT — $TSLA
+══════════════════════════════════════════════════════════════
+
+  ⚠  LOW CONFIDENCE
+
+  SENTIMENT SUMMARY
+  ──────────────────────────────────────────────────────────
+  Posts analysed   8         Avg confidence   0.51
+  Avg relevance    0.50      Sarcastic posts  4
+
+  🟢 Bullish  ██                   12.5%
+  🔴 Bearish  ██████████           50.0%
+  🟡 Neutral  ███████              37.5%
+
+  ⚠  High sarcasm rate (50%) — scores adjusted by Claude
+
+[... full report rendered across all sections ...]
+
+  ──────────────────────────────────────────────────────────
+  ⚠  Not financial advice. Source: r/wallstreetbets
+  Data up to: 2026-04-09
+══════════════════════════════════════════════════════════════
+
+ticker_summary.csv — TSLA row:
+  avg_confidence  = 0.51
+  low_confidence  = True   (threshold: 0.60)
+  post_count      = 8
+  low_sample      = False
+
+Confidence breakdown across TSLA posts:
+  JPMorgan news post (bearish, non-sarcastic): conf = 0.85
+  Meme posts (sarcastic):                      conf = 0.40
+  Other posts:                                 conf = 0.40
+  Average pulled down by high sarcasm volume.
+
+RESULT: LOW CONFIDENCE warning displayed at report header. Full report rendered.
+No crash. Threshold correctly applied (0.51 < 0.60). PASS.

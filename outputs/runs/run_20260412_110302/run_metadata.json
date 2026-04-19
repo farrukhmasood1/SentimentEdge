@@ -1,0 +1,23 @@
+{
+  "run_timestamp": "2026-04-12T11:21:42.866866",
+  "run_dir": "outputs/runs/run_20260412_110302",
+  "config": {
+    "batch_size": 500,
+    "min_post_score": 10,
+    "rumour_threshold": 0.7,
+    "low_conf_threshold": 0.6,
+    "top_n_comments": 5,
+    "shift_threshold": 15,
+    "min_posts_per_day": 3
+  },
+  "pipeline_duration_seconds": 1120.0,
+  "n_posts_raw": 1559,
+  "n_comments_raw": 224952,
+  "n_filtered": 283,
+  "n_analyzed": 283,
+  "errors": 217,
+  "tickers_found": 59,
+  "rumours_flagged": 3,
+  "avg_confidence": 0.56,
+  "sarcastic_count": 140
+}

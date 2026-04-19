@@ -1,0 +1,426 @@
+SentimentEdge — Run started at 2026-04-12 11:03:02
+Run directory: outputs/runs/run_20260412_110302
+Batch size:    500 posts
+Model:         claude-sonnet-4-20250514 (prompt caching enabled)
+=======================================================
+AGENT 1 — COLLECTOR
+=======================================================
+Loading posts...
+  ✓ Loaded 1559 posts
+Loading comments...
+  ✓ Loaded 224952 comments
+
+✓ Collector complete
+   Posts loaded:    1559
+   Comments loaded: 224952
+
+=======================================================
+AGENT 2 — FILTER AGENT
+=======================================================
+Input: 1559 posts
+  Bundled comments for 436 unique posts
+  Posts with body content:      396
+  Posts with bundled comments:  398
+  Posts with body OR comments:  568
+  Posts removed by score (<10): 284
+  After score filter:           284
+  After stickied-post removal:  283
+
+✓ Filter Agent complete
+   Input:     1559
+   Output:    283
+   Removed:   1276
+   Retention: 18.2%
+   Engagement max: 15864
+   Engagement avg: 705
+
+=======================================================
+AGENT 3 — SENTIMENT AGENT
+=======================================================
+  Posts selected:   283
+  Engagement range: 9 → 15864
+  Prompt caching:   enabled (system prompt cached after call #1)
+  Estimated cost:   ~$0.75 (uncached) → ~$0.07 (cached after first call)
+  Estimated time:   ~33 min
+
+  Progress: 10/283 | Elapsed: 40s | ETA: 1088s | Errors: 0
+  Progress: 20/283 | Elapsed: 79s | ETA: 1041s | Errors: 0
+  Progress: 30/283 | Elapsed: 123s | ETA: 1037s | Errors: 0
+  Progress: 40/283 | Elapsed: 163s | ETA: 989s | Errors: 0
+  Progress: 50/283 | Elapsed: 199s | ETA: 927s | Errors: 0
+  Progress: 60/283 | Elapsed: 239s | ETA: 887s | Errors: 0
+  Progress: 70/283 | Elapsed: 277s | ETA: 842s | Errors: 0
+  Progress: 80/283 | Elapsed: 316s | ETA: 802s | Errors: 0
+  Progress: 90/283 | Elapsed: 356s | ETA: 763s | Errors: 0
+  Progress: 100/283 | Elapsed: 396s | ETA: 725s | Errors: 0
+  Progress: 110/283 | Elapsed: 436s | ETA: 685s | Errors: 0
+  Progress: 120/283 | Elapsed: 476s | ETA: 647s | Errors: 0
+  Progress: 130/283 | Elapsed: 516s | ETA: 608s | Errors: 0
+  Progress: 140/283 | Elapsed: 558s | ETA: 570s | Errors: 0
+  Progress: 150/283 | Elapsed: 596s | ETA: 528s | Errors: 0
+  Progress: 160/283 | Elapsed: 636s | ETA: 489s | Errors: 0
+  Progress: 170/283 | Elapsed: 675s | ETA: 449s | Errors: 0
+  Progress: 180/283 | Elapsed: 713s | ETA: 408s | Errors: 0
+  Progress: 190/283 | Elapsed: 751s | ETA: 368s | Errors: 0
+  Progress: 200/283 | Elapsed: 791s | ETA: 328s | Errors: 0
+  Progress: 210/283 | Elapsed: 830s | ETA: 288s | Errors: 0
+  Progress: 220/283 | Elapsed: 871s | ETA: 249s | Errors: 0
+  Progress: 230/283 | Elapsed: 909s | ETA: 209s | Errors: 0
+  Progress: 240/283 | Elapsed: 949s | ETA: 170s | Errors: 0
+  Progress: 250/283 | Elapsed: 988s | ETA: 130s | Errors: 0
+  Progress: 260/283 | Elapsed: 1026s | ETA: 91s | Errors: 0
+  Progress: 270/283 | Elapsed: 1064s | ETA: 51s | Errors: 0
+  Progress: 280/283 | Elapsed: 1102s | ETA: 12s | Errors: 0
+
+✓ Sentiment Agent complete
+   Processed: 283
+   Errors:    0
+   Time:      1113s
+
+   Sentiment breakdown:
+sentiment
+bearish    119
+bullish    100
+neutral     64
+
+   Avg confidence:  0.56
+   Sarcastic posts: 140
+   Rumour posts:    29
+
+=======================================================
+AGENT 4 — AGGREGATOR
+=======================================================
+Input: 283 analyzed posts
+
+  Ticker summary (59 tickers):
+                post_count  bullish_pct  bearish_pct  neutral_pct  avg_confidence  avg_relevance  sarcastic_count  avg_engagement  low_confidence  low_sample
+primary_ticker                                                                                                                                               
+SPY                     35         31.4         57.1         11.4            0.67           0.73               14          665.30           False       False
+TSLA                     8         12.5         50.0         37.5            0.51           0.50                4         1031.12            True       False
+TACO                     5         60.0         20.0         20.0            0.62           0.60                2           69.48           False       False
+QQQ                      4         50.0         50.0          0.0            0.78           0.80                1          340.75           False        True
+META                     4         25.0         50.0         25.0            0.75           0.85                1          287.80           False        True
+INTC                     4        100.0          0.0          0.0            0.72           0.78                0         1318.75           False        True
+MSFT                     3          0.0        100.0          0.0            0.77           0.80                2          381.43           False        True
+SPX                      3         66.7         33.3          0.0            0.67           0.77                0           78.10           False        True
+MU                       2          0.0        100.0          0.0            0.75           0.75                1          234.85           False        True
+USO                      2         50.0         50.0          0.0            0.75           0.85                0           65.15           False        True
+
+  Rumour alerts (confidence >= 0.7): 3
+
+  Monthly trend:
+    🔴 2026-04 | 🟢 35.3% | 🔴 42.0% | posts: 283
+  Saved → outputs/runs/run_20260412_110302/sentiment_results.csv
+  Saved → outputs/runs/run_20260412_110302/ticker_summary.csv
+  Saved → outputs/runs/run_20260412_110302/rumour_alerts.csv
+
+✓ Aggregator complete
+   Tickers found:   59
+   Rumours flagged: 3
+
+══════════════════════════════════════════════════════════════
+  TICKER REPORT — $SPY
+══════════════════════════════════════════════════════════════
+
+  SENTIMENT SUMMARY
+  ──────────────────────────────────────────────────────────
+  Posts analysed   35        Avg confidence   0.67
+  Avg relevance    0.73      Sarcastic posts  14
+
+  🟢 Bullish  ██████               31.4%
+  🔴 Bearish  ███████████          57.1%
+  🟡 Neutral  ██                   11.4%
+
+  ⚠  High sarcasm rate (40%) — scores adjusted by Claude
+
+  EMOTION BREAKDOWN
+  ──────────────────────────────────────────────────────────
+  humor            █████                29 mentions (29%)
+  frustration      ████                 23 mentions (23%)
+  sarcasm          ███                  15 mentions (15%)
+  euphoria         █                    9 mentions (9%)
+  panic            █                    8 mentions (8%)
+  fear             █                    5 mentions (5%)
+  hope                                  4 mentions (4%)
+  greed                                 3 mentions (3%)
+  relief                                2 mentions (2%)
+  curiosity                             1 mentions (1%)
+  surprise                              1 mentions (1%)
+
+  POST TYPE BREAKDOWN
+  ──────────────────────────────────────────────────────────
+  loss            posts:   9   🟢   0.0%   🔴 100.0%
+  meme            posts:   9   🟢  44.4%   🔴  44.4%
+  gain            posts:   6   🟢 100.0%   🔴   0.0%
+  other           posts:   4   🟢  25.0%   🔴  25.0%
+  YOLO            posts:   3   🟢   0.0%   🔴 100.0%
+  DD              posts:   2   🟢   0.0%   🔴  50.0%
+  news            posts:   2   🟢   0.0%   🔴 100.0%
+
+  MONTHLY SENTIMENT TIMELINE
+  ──────────────────────────────────────────────────────────
+  🔴 2026-04   🟢  31.4%   🔴  57.1%   posts: 35
+
+  TOP KEY INSIGHTS
+  ──────────────────────────────────────────────────────────
+
+  🟡 What Are Your Moves Tomorrow, April 08, 2026  [SARCASTIC]
+     Market showed resilience by closing slightly green despite major geopolitical or economic crisis negotiations
+     conf: 0.70   type: other   score: 284
+     reddit.com/r/wallstreetbets/comments/1sf6vyv/what_are_your_moves_tomorrow_april_08_2026/
+
+  🟡 Cash gang watching the news alongside the SPY chart  [SARCASTIC]
+     Meme post joking about cash holders waiting for market dips while markets continue rising
+     conf: 0.30   type: meme   score: 2955
+     reddit.com/r/wallstreetbets/comments/1scfwlv/cash_gang_watching_the_news_alongside_the_spy/
+
+  🔴 Sold puts by accident pt.2
+     User accidentally sold puts and created a significant account issue with their broker, highlighting risks of options trading mistakes.
+     conf: 0.70   type: loss   score: 2593
+     reddit.com/r/wallstreetbets/comments/1sgbzov/sold_puts_by_accident_pt2/
+
+  ⚠  RUMOUR ALERTS
+  ──────────────────────────────────────────────────────────
+  Type        regulatory_decision
+  Summary     Claims Iran launched massive missile salvo against multiple Middle Eastern countries including Israel
+  Confidence  0.70
+  Source      reddit.com/r/wallstreetbets/comments/1sfdw8e/oil_calls_spy_puts/
+  ⚠  Unverified social media speculation only.
+  Type        regulatory_decision
+  Summary     S&P 500 and Nasdaq allegedly dropping 12-month waiting periods for OpenAI, Anthropic, and SpaceX IPO index inclusion
+  Confidence  0.70
+  Source      reddit.com/r/wallstreetbets/comments/1sdd2i0/ipo_grift_how_ai_companies_will_be_bypassing/
+  ⚠  Unverified social media speculation only.
+
+  ──────────────────────────────────────────────────────────
+  ⚠  Not financial advice. Source: r/wallstreetbets
+  Data up to: 2026-04-09
+══════════════════════════════════════════════════════════════
+
+══════════════════════════════════════════════════════════════
+  TICKER REPORT — $TSLA
+══════════════════════════════════════════════════════════════
+
+  ⚠  LOW CONFIDENCE
+
+  SENTIMENT SUMMARY
+  ──────────────────────────────────────────────────────────
+  Posts analysed   8         Avg confidence   0.51
+  Avg relevance    0.50      Sarcastic posts  4
+
+  🟢 Bullish  ██                   12.5%
+  🔴 Bearish  ██████████           50.0%
+  🟡 Neutral  ███████              37.5%
+
+  ⚠  High sarcasm rate (50%) — scores adjusted by Claude
+
+  EMOTION BREAKDOWN
+  ──────────────────────────────────────────────────────────
+  sarcasm          ███████              8 mentions (36%)
+  humor            ██████               7 mentions (32%)
+  frustration      ████                 5 mentions (23%)
+  fear                                  1 mentions (5%)
+  greed                                 1 mentions (5%)
+
+  POST TYPE BREAKDOWN
+  ──────────────────────────────────────────────────────────
+  meme            posts:   3   🟢   0.0%   🔴  33.3%
+  gain            posts:   2   🟢  50.0%   🔴  50.0%
+  news            posts:   2   🟢   0.0%   🔴  50.0%
+  other           posts:   1   🟢   0.0%   🔴 100.0%
+
+  MONTHLY SENTIMENT TIMELINE
+  ──────────────────────────────────────────────────────────
+  🔴 2026-04   🟢  12.5%   🔴  50.0%   posts: 8
+
+  TOP KEY INSIGHTS
+  ──────────────────────────────────────────────────────────
+
+  🔴 JPMorgan warns Tesla stock could sink 60% in new not
+     JPMorgan issues strong sell rating on Tesla with 60% downside target due to missed delivery targets and inventory buildup
+     conf: 0.85   type: news   score: 5922
+     reddit.com/r/wallstreetbets/comments/1se0z9t/jpmorgan_warns_tesla_stock_could_sink_60_in_new/
+
+  🔴 What Are Your Moves Tomorrow, April 08, 2026
+     Daily discussion thread with mixed comments including TSLA bet loss and general trading frustration.
+     conf: 0.40   type: other   score: 192
+     reddit.com/r/wallstreetbets/comments/1sg4flz/what_are_your_moves_tomorrow_april_08_2026/
+
+  🔴 “put order filled” MARKET:  [SARCASTIC]
+     Meme post about put orders being filled with sarcastic commentary about market movements and Tesla price expectations
+     conf: 0.40   type: meme   score: 404
+     reddit.com/r/wallstreetbets/comments/1sfgp8s/put_order_filled_market/
+
+  ──────────────────────────────────────────────────────────
+  ⚠  Not financial advice. Source: r/wallstreetbets
+  Data up to: 2026-04-09
+══════════════════════════════════════════════════════════════
+
+══════════════════════════════════════════════════════════════
+  TICKER REPORT — $TACO
+══════════════════════════════════════════════════════════════
+
+  SENTIMENT SUMMARY
+  ──────────────────────────────────────────────────────────
+  Posts analysed   5         Avg confidence   0.62
+  Avg relevance    0.60      Sarcastic posts  2
+
+  🟢 Bullish  ████████████         60.0%
+  🔴 Bearish  ████                 20.0%
+  🟡 Neutral  ████                 20.0%
+
+  ⚠  High sarcasm rate (40%) — scores adjusted by Claude
+
+  EMOTION BREAKDOWN
+  ──────────────────────────────────────────────────────────
+  humor            ████████             5 mentions (42%)
+  euphoria         █████                3 mentions (25%)
+  sarcasm          █                    1 mentions (8%)
+  hope             █                    1 mentions (8%)
+  frustration      █                    1 mentions (8%)
+  panic            █                    1 mentions (8%)
+
+  POST TYPE BREAKDOWN
+  ──────────────────────────────────────────────────────────
+  gain            posts:   3   🟢 100.0%   🔴   0.0%
+  loss            posts:   1   🟢   0.0%   🔴 100.0%
+  meme            posts:   1   🟢   0.0%   🔴   0.0%
+
+  MONTHLY SENTIMENT TIMELINE
+  ──────────────────────────────────────────────────────────
+  🟢 2026-04   🟢  60.0%   🔴  20.0%   posts: 5
+
+  TOP KEY INSIGHTS
+  ──────────────────────────────────────────────────────────
+
+  🟡 AMA: I’m the most successful insider trader of all t  [SARCASTIC]
+     Satirical post joking about insider trading with minimal actual market content except for one ticker mention in comments
+     conf: 0.20   type: meme   score: 133
+     reddit.com/r/wallstreetbets/comments/1see3uo/ama_im_the_most_successful_insider_trader_of_all/
+
+  🟢 Gay bear 🐻 converts to Islam, gets forgiven
+     User recovered from 50% loss by switching from bearish to bullish position with 1DTE TACO calls
+     conf: 0.70   type: gain   score: 106
+     reddit.com/r/wallstreetbets/comments/1sfuhur/gay_bear_converts_to_islam_gets_forgiven/
+
+  🟢 Finally have something WSB worthy 🌮
+     User celebrating significant gains on TACO stock position that exceeded expectations
+     conf: 0.70   type: gain   score: 103
+     reddit.com/r/wallstreetbets/comments/1sfu013/finally_have_something_wsb_worthy/
+
+  ──────────────────────────────────────────────────────────
+  ⚠  Not financial advice. Source: r/wallstreetbets
+  Data up to: 2026-04-09
+══════════════════════════════════════════════════════════════
+
+══════════════════════════════════════════════════════════════
+  TREND ALERTS — LAST 7 DAYS
+══════════════════════════════════════════════════════════════
+
+  Period: 2026-04-02 → 2026-04-09   Shift threshold: 15%
+
+  $SPY
+  ──────────────────────────────────────────────────────────
+  2026-04-03  🟢   🟢 100.0%   🔴   0.0%   posts: 1
+  2026-04-04  🔴   🟢  25.0%   🔴  25.0%   posts: 4   ↑ 🔴 BEARISH SWING -75%
+  2026-04-05  🔴   🟢  25.0%   🔴  75.0%   posts: 4   ↑ 🔴 BEARISH SWING +50%
+  2026-04-06  🔴   🟢   0.0%   🔴 100.0%   posts: 3   ↑ 🔴 BEARISH SWING -25%
+  2026-04-07  🔴   🟢  30.0%   🔴  60.0%   posts: 10   ↑ 🟢 BULLISH SWING +30%
+  2026-04-08  🔴   🟢  36.4%   🔴  54.5%   posts: 11
+  2026-04-09  🔴   🟢  50.0%   🔴  50.0%   posts: 2
+
+  ──────────────────────────────────────────────────────────
+  ⚠  Not financial advice. Source: r/wallstreetbets
+  Data up to: 2026-04-09
+══════════════════════════════════════════════════════════════
+
+══════════════════════════════════════════════════════════════
+  TICKER COMPARISON — $SPY vs $TSLA
+══════════════════════════════════════════════════════════════
+
+  SENTIMENT SUMMARY
+  ──────────────────────────────────────────────────────────
+
+  $SPY  (35 posts)
+  🟢 Bullish  ██████               31.4%
+  🔴 Bearish  ███████████          57.1%
+  🟡 Neutral  ██                   11.4%
+
+  $TSLA  (8 posts)   ⚠  LOW CONFIDENCE
+  🟢 Bullish  ██                   12.5%
+  🔴 Bearish  ██████████           50.0%
+  🟡 Neutral  ███████              37.5%
+
+  SIGNAL QUALITY
+  ──────────────────────────────────────────────────────────
+
+  Metric                 $SPY             $TSLA           
+  ──────────────────────────────────────────────────────────
+  Avg confidence         0.67             0.51            
+  Avg relevance          0.73             0.50            
+  Post count             35               8               
+  Sarcasm rate           40%              50%             
+  Avg engagement         665              1031            
+
+  EMOTION BREAKDOWN
+  ──────────────────────────────────────────────────────────
+
+  Emotion                $SPY             $TSLA           
+  ──────────────────────────────────────────────────────────
+  curiosity              1%               0%              
+  euphoria               9%               0%              
+  fear                   5%               4%              
+  frustration            23%              23%             
+  greed                  3%               4%              
+  hope                   4%               0%              
+  humor                  29%              32%             
+  panic                  8%               0%              
+  relief                 2%               0%              
+  sarcasm                15%              36%             
+  surprise               1%               0%              
+
+  MONTHLY SENTIMENT TIMELINE
+  ──────────────────────────────────────────────────────────
+
+  $SPY:
+  🔴 2026-04   🟢  31.4%   🔴  57.1%   posts: 35
+
+  $TSLA:
+  🔴 2026-04   🟢  12.5%   🔴  50.0%   posts: 8
+
+  TOP KEY INSIGHTS
+  ──────────────────────────────────────────────────────────
+
+  $SPY:
+
+  🟡 What Are Your Moves Tomorrow, April 08, 2026  [SARCASTIC]
+     Market showed resilience by closing slightly green despite major geopolitical or economic crisis negotiations
+     conf: 0.70   type: other   score: 284
+     reddit.com/r/wallstreetbets/comments/1sf6vyv/what_are_your_moves_tomorrow_april_08_2026/
+
+  🟡 Cash gang watching the news alongside the SPY chart  [SARCASTIC]
+     Meme post joking about cash holders waiting for market dips while markets continue rising
+     conf: 0.30   type: meme   score: 2955
+     reddit.com/r/wallstreetbets/comments/1scfwlv/cash_gang_watching_the_news_alongside_the_spy/
+
+  $TSLA:
+
+  🔴 JPMorgan warns Tesla stock could sink 60% in new not
+     JPMorgan issues strong sell rating on Tesla with 60% downside target due to missed delivery targets and inventory buildup
+     conf: 0.85   type: news   score: 5922
+     reddit.com/r/wallstreetbets/comments/1se0z9t/jpmorgan_warns_tesla_stock_could_sink_60_in_new/
+
+  🔴 What Are Your Moves Tomorrow, April 08, 2026
+     Daily discussion thread with mixed comments including TSLA bet loss and general trading frustration.
+     conf: 0.40   type: other   score: 192
+     reddit.com/r/wallstreetbets/comments/1sg4flz/what_are_your_moves_tomorrow_april_08_2026/
+
+  ──────────────────────────────────────────────────────────
+  ⚠  Not financial advice. Source: r/wallstreetbets
+  Data up to: 2026-04-09
+══════════════════════════════════════════════════════════════
+
+  run_metadata.json saved → outputs/runs/run_20260412_110302/run_metadata.json
+
+Total pipeline time: 1120.0s
+All outputs saved to: outputs/runs/run_20260412_110302

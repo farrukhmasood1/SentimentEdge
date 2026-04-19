@@ -1,0 +1,29 @@
+TC-08 — Filter Zero Result: Pipeline Stops Before API Calls
+Verified: 2026-04-12
+Method: Set MIN_POST_SCORE=100000 in config.py, ran python main.py
+
+Terminal output:
+  =======================================================
+  AGENT 1 — COLLECTOR
+  =======================================================
+  ...
+  ✓ Collector complete
+     Posts loaded:    1559
+     Comments loaded: 224952
+
+  =======================================================
+  AGENT 2 — FILTER AGENT
+  =======================================================
+  Input: 1559 posts
+  ...
+  After score filter (>=100000): 0
+
+  ✗ Pipeline stopped — no posts survived filtering.
+
+Verification:
+  - Pipeline halted after Agent 2
+  - No AGENT 3 — SENTIMENT AGENT header in output (no API calls made)
+  - run_metadata.json written with n_filtered=0, n_analyzed=0, errors=0
+  - trace.txt captured Agent 1 and Agent 2 output only
+
+RESULT: PASS — pipeline stops cleanly before any Claude API calls. Metadata saved.

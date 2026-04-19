@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+*.egg-info/
+dist/
+build/
+
+# Environment / secrets
+.env
+.env.*
+
+# Data files (may contain sensitive/large data)
+data/*.jsonl
+data/*.csv
+data/*.json
+
+# Run outputs
+data/runs/
+
+# Reports
+reports/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/

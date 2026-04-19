@@ -1,0 +1,62 @@
+TC-05 — Rumour Detection: Posts Routed to Separate Track
+Run: outputs/runs/run_20260412_110302/
+Evidence: rumour_alerts.csv (3 rows) + SPY Rumour Alerts section in trace.txt
+
+--- rumour_alerts.csv contents (3 flagged posts) ---
+
+Post 1:
+  post_id         = 1sfbxx0
+  title           = Oil Prices and News - U.S. oil prices plunge 16% to below $100 after Trump agrees to two-week ceasefire in Iran war
+  primary_ticker  = UNKNOWN
+  is_rumour       = True
+  rumour_type     = regulatory_decision
+  rumour_confidence = 0.80
+  rumour_summary  = Trump allegedly agreed to two-week ceasefire in Iran conflict causing oil price drop, though users question validity given reports of Iranian Supreme Leader being unconscious.
+  permalink       = /r/wallstreetbets/comments/1sfbxx0/...
+
+Post 2:
+  post_id         = 1sfdw8e
+  title           = oil calls spy puts
+  primary_ticker  = SPY
+  is_rumour       = True
+  rumour_type     = regulatory_decision
+  rumour_confidence = 0.70
+  rumour_summary  = Claims Iran launched massive missile salvo against multiple Middle Eastern countries including Israel
+  permalink       = /r/wallstreetbets/comments/1sfdw8e/...
+
+Post 3:
+  post_id         = 1sdd2i0
+  title           = IPO Grift: How AI companies will be bypassing index safety rules...
+  primary_ticker  = SPY
+  is_rumour       = True
+  rumour_type     = regulatory_decision
+  rumour_confidence = 0.70
+  rumour_summary  = S&P 500 and Nasdaq allegedly dropping 12-month waiting periods for OpenAI, Anthropic, and SpaceX IPO index inclusion
+  permalink       = /r/wallstreetbets/comments/1sdd2i0/...
+
+--- SPY Report: Rumour Alerts Section (from trace.txt) ---
+
+  ⚠  RUMOUR ALERTS
+  ──────────────────────────────────────────────────────────
+  Type        regulatory_decision
+  Summary     Claims Iran launched massive missile salvo against multiple Middle Eastern countries including Israel
+  Confidence  0.70
+  Source      reddit.com/r/wallstreetbets/comments/1sfdw8e/oil_calls_spy_puts/
+  ⚠  Unverified social media speculation only.
+  Type        regulatory_decision
+  Summary     S&P 500 and Nasdaq allegedly dropping 12-month waiting periods for OpenAI, Anthropic, and SpaceX IPO index inclusion
+  Confidence  0.70
+  Source      reddit.com/r/wallstreetbets/comments/1sdd2i0/ipo_grift_how_ai_companies_will_be_bypassing/
+  ⚠  Unverified social media speculation only.
+
+--- Routing verification ---
+All 3 flagged posts appear in rumour_alerts.csv (Track 2).
+Posts with primary_ticker=SPY also appear in the SPY ticker summary aggregate (Track 1).
+Posts are not mutually exclusive between tracks — confirmed by design (aggregator.py).
+Post with primary_ticker=UNKNOWN appears in rumour_alerts.csv but not in any ticker report.
+
+run_metadata.json: rumours_flagged = 3
+
+RESULT: All 3 posts routed correctly to rumour_alerts.csv. Rumour Alerts section
+rendered in SPY report with disclaimer. UNKNOWN-ticker rumour saved to CSV but
+correctly excluded from ticker reports. PASS.

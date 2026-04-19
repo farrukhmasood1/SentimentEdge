@@ -1,0 +1,43 @@
+TC-02 — Sarcasm Detection: High Sarcasm Rate Warning Triggers
+Run: outputs/runs/run_20260412_110302/
+Evidence: SPY and TSLA sarcasm warnings + [SARCASTIC] labels in key insights
+
+--- SPY (14/35 posts sarcastic = 40%) ---
+
+  ⚠  High sarcasm rate (40%) — scores adjusted by Claude
+
+  TOP KEY INSIGHTS (sarcastic posts labelled):
+
+  🟡 What Are Your Moves Tomorrow, April 08, 2026  [SARCASTIC]
+     conf: 0.70   type: other   score: 284
+
+  🟡 Cash gang watching the news alongside the SPY chart  [SARCASTIC]
+     conf: 0.30   type: meme   score: 2955
+
+ticker_summary.csv — SPY row:
+  sarcastic_count = 14
+  post_count      = 35
+  sarcasm_rate    = 40%
+
+--- TSLA (4/8 posts sarcastic = 50%) ---
+
+  ⚠  LOW CONFIDENCE
+  ⚠  High sarcasm rate (50%) — scores adjusted by Claude
+
+  TOP KEY INSIGHTS (sarcastic posts labelled):
+
+  🔴 "put order filled" MARKET:  [SARCASTIC]
+     conf: 0.40   type: meme   score: 404
+
+ticker_summary.csv — TSLA row:
+  sarcastic_count = 4
+  post_count      = 8
+  sarcasm_rate    = 50%
+
+--- Confidence comparison (SPY) ---
+Sarcastic post (meme):  conf = 0.30
+Non-sarcastic post (DD): conf = 0.70
+Difference: 0.40 — Claude correctly assigns lower confidence to sarcastic posts.
+
+RESULT: Sarcasm warning triggered on both tickers. [SARCASTIC] labels present.
+Confidence scores on sarcastic posts lower than on non-sarcastic posts. PASS.

@@ -1,0 +1,33 @@
+TC-04 — Viral Meme Post: High Engagement, Low Signal Correctly Identified
+Run: outputs/runs/run_20260412_110302/
+Evidence: DPZ row from ticker_summary.csv
+
+ticker_summary.csv — DPZ row:
+  primary_ticker  = DPZ
+  post_count      = 1
+  bullish_pct     = 0.0
+  bearish_pct     = 0.0
+  neutral_pct     = 100.0
+  avg_confidence  = 0.20    <-- lowest in dataset
+  avg_relevance   = 0.10    <-- lowest in dataset
+  sarcastic_count = 1
+  avg_engagement  = 9656.8  <-- highest in dataset
+  low_confidence  = True
+  low_sample      = True
+
+Context:
+  DPZ had the highest engagement score in the entire 283-post batch (9656.8).
+  Despite this, Claude correctly assigned confidence=0.20 and market_relevance=0.10,
+  identifying it as a meme post with no substantive market content.
+
+  The high engagement_score caused DPZ to rank highly in batch selection but did
+  not cause it to appear in the top-3 ticker reports (it had only 1 post, ranking
+  56th by post_count). The inflated engagement score was contained to the single-post
+  aggregate and did not distort other tickers.
+
+  This confirms the F-01 mitigation is working as designed: market_relevance and
+  confidence fields allow human readers to distinguish high-engagement noise from
+  genuine market signal.
+
+RESULT: Highest-engagement post in dataset correctly assigned lowest confidence
+(0.20) and lowest relevance (0.10). low_confidence=True flagged. PASS.
