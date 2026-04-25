@@ -13,10 +13,14 @@ build/
 .env
 .env.*
 
-# Data files (may contain sensitive/large data)
-data/*.jsonl
-data/*.csv
-data/*.json
+# Data files — JSONL files excluded from version control.
+# r_wallstreetbets_comments.jsonl is 401MB (exceeds GitHub 100MB limit).
+# r_wallstreetbets_posts.jsonl is 5.4MB.
+# To run the pipeline, place both JSONL files in data/raw/ manually.
+# Source: r/wallstreetbets dataset (PushShift archive).
+data/**/*.jsonl
+data/**/*.csv
+data/**/*.json
 
 # Run outputs
 data/runs/
