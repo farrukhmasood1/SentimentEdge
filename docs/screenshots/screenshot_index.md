@@ -1,21 +1,12 @@
-# SentimentEdge — Screenshot Index
+# Screenshot Index
 
-| # | File | What It Shows | Why It Matters | Report Section |
-|---|---|---|---|---|
-| 1 | 01_pipeline_run.png | Full pipeline run in terminal — all 5 agents printing in sequence | Proves end-to-end execution and shows agent coordination | Architecture & Implementation |
-| 2 | 02_spy_ticker_report.png | SPY ticker report — sentiment bars, emotion breakdown, post type table, monthly timeline | Main output artifact; shows Report 1 in action | Evaluation Results |
-| 3 | 03_trend_alerts.png | Trend Alerts report — daily sentiment shift table for qualifying tickers | Shows Report 2 and the shift detection logic | Evaluation Results |
-| 4 | 04_ticker_comparison.png | SPY vs TSLA side-by-side comparison report | Shows Report 3 and signal quality table | Evaluation Results |
-| 5 | 05_rumour_alerts.png | Rumour Alerts section within SPY report — 3 flagged posts with type, confidence, disclaimer | Shows two-track routing and governance layer | Failure Analysis & Governance |
-| 6 | 06_replay_mode.png | Terminal showing replay completing in under 5 seconds without API key | Confirms TC-06 and reproducibility for graders | Evaluation Results |
-| 7 | 07_failure_case.png | TC-08 — pipeline halted after filter gate when MIN_POST_SCORE=100000 | Shows graceful failure handling | Failure Analysis |
-| 8 | 08_ticker_summary_csv.png | ticker_summary.csv open — 59 tickers with all aggregated columns | Shows the evaluation data layer and saved run artifacts | Evidence Package |
-
-## How to capture all screenshots using replay mode (no API key needed)
-
-```
-python main.py --replay outputs/sample_runs/run_20260412_110302
-```
-
-Scroll through the terminal output and screenshot each report section.
-For TC-08, temporarily set MIN_POST_SCORE=100000 in config.py and run python main.py.
+| screenshot_file | what_it_shows | why_it_matters | where_it_is_discussed_in_the_report |
+|---|---|---|---|
+| `01_full_pipeline_terminal.png` | Saved terminal trace from the completed run, showing Collector, Filter, Sentiment, Aggregator, and Output milestones. | Demonstrates end-to-end agent coordination and the real 283-post pipeline run used as the evidence base. | Implementation summary; evidence of agentic behavior and coordination. |
+| `02_dashboard_saved_run_upload.png` | Frontend dashboard with cached run summary, browser upload workflow, local API status, and ticker leaderboard. | Shows the portfolio-facing artifact and confirms users can inspect cached data or upload completed run files directly. | Final artifact quality; reproducibility and reviewer navigation. |
+| `03_spy_ticker_report.png` | SPY ticker report with sentiment mix, confidence, sarcasm warning, post-type mix, timeline, and top insights. | Shows the core decision-support value of the system for a high-volume ticker. | Results; ticker report walkthrough; limitations around sarcasm. |
+| `04_trend_alerts_terminal.png` | Output Agent trend-alert report for the saved one-week run. | Documents the trend-alert branch and its one-week-data limitation without claiming a forecast. | Evaluation results; limitations and next steps. |
+| `05_spy_tsla_comparison.png` | SPY vs TSLA side-by-side comparison with sentiment mix, confidence, sarcasm, engagement, and confidence delta. | Shows comparative ticker analysis and exposes TSLA's lower-confidence signal quality. | Results; ticker comparison view; signal-quality interpretation. |
+| `06_rumour_review_queue.png` | Human review queue for flagged rumors, including policy threshold, SLA, confidence, evidence link, and local approve/reject/escalate actions. | Addresses Phase 2 feedback by making the human checkpoint visible in the main flow. | Governance and safety reflection; human-in-the-loop checkpoint. |
+| `07_failure_case_tc08_zero_filter.png` | TC-08 failure case where the filter removes all posts and the pipeline stops before Agent 3. | Provides required failure evidence and shows the system avoids unnecessary Claude calls when input is empty. | Failure analysis; boundary behavior. |
+| `08_replay_results_view.png` | Replay-mode output with saved metadata and ticker_summary excerpt. | Confirms graders can reproduce reports from saved CSVs without an API key and inspect the evaluation/results artifacts. | Reproducibility; evaluation setup and results. |
