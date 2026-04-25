@@ -41,7 +41,6 @@ from config import (
 from utils.logger import create_run_dir, TeeLogger, save_metadata
 from agents.collector     import run_collector
 from agents.filter_agent  import run_filter
-from agents.sentiment_agent import run_sentiment_agent
 from agents.aggregator    import run_aggregator
 from agents.output_agent  import query_ticker, run_trend_alerts, compare_tickers
 
@@ -80,6 +79,8 @@ def main():
         return
 
     # ── Agent 3: Sentiment ────────────────────────────────────────────────────
+    from agents.sentiment_agent import run_sentiment_agent
+
     df_llm     = run_sentiment_agent(df_filtered, API_KEY, batch_size=BATCH_SIZE)
     n_analyzed = len(df_llm)
     # errors = posts sent to Claude that returned None (true API failures)
@@ -154,15 +155,16 @@ def _save_metadata_and_close(logger, run_dir, pipeline_start, **stats):
 
 
 def _latest_run_dir():
-    """Returns the most recent run directory under outputs/runs/, or None."""
-    runs_root = os.path.join('outputs', 'runs')
-    if not os.path.exists(runs_root):
-        return None
-    dirs = [
-        os.path.join(runs_root, d)
-        for d in os.listdir(runs_root)
-        if d.startswith('run_') and os.path.isdir(os.path.join(runs_root, d))
-    ]
+    """Returns the most recent saved run directory, or None."""
+    dirs = []
+    for runs_root in (os.path.join('outputs', 'runs'), os.path.join('outputs', 'sample_runs')):
+        if not os.path.exists(runs_root):
+            continue
+        dirs.extend(
+            os.path.join(runs_root, d)
+            for d in os.listdir(runs_root)
+            if d.startswith('run_') and os.path.isdir(os.path.join(runs_root, d))
+        )
     return max(dirs) if dirs else None  # lexicographic max == most recent timestamp
 
 
@@ -178,7 +180,7 @@ def replay(run_dir=None):
     if run_dir is None:
         run_dir = _latest_run_dir()
         if run_dir is None:
-            print('✗ No previous runs found under outputs/runs/. Run the full pipeline first.')
+            print('✗ No previous runs found under outputs/runs/ or outputs/sample_runs/. Run the full pipeline first.')
             return
         print(f'SentimentEdge — Replaying most recent run: {run_dir}')
     else:
