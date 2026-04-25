@@ -155,7 +155,7 @@ def _save_metadata_and_close(logger, run_dir, pipeline_start, **stats):
 
 def _latest_run_dir():
     """Returns the most recent run directory under outputs/runs/, or None."""
-    runs_root = os.path.join('outputs', 'runs')
+    runs_root = os.path.join('outputs', 'sample_runs')
     if not os.path.exists(runs_root):
         return None
     dirs = [
