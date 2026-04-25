@@ -1,0 +1,7 @@
+Place the following files here before running the pipeline:
+
+  r_wallstreetbets_posts.jsonl     (5.4 MB)
+  r_wallstreetbets_comments.jsonl  (401 MB)
+
+Both files are excluded from version control due to size.
+Source: r/wallstreetbets PushShift archive.
