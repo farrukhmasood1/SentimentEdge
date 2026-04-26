@@ -1,0 +1,12 @@
+# Screenshot Index
+
+| screenshot_file | what_it_shows | why_it_matters | where_it_is_discussed_in_the_report |
+|---|---|---|---|
+| `01_full_pipeline_terminal.png` | Saved terminal trace from the completed run, showing Collector, Filter, Sentiment, Aggregator, and Output milestones. | Demonstrates end-to-end agent coordination and the real 283-post pipeline run used as the evidence base. | Implementation summary; evidence of agentic behavior and coordination. |
+| `02_dashboard_saved_run_upload.png` | Frontend dashboard with cached run summary, browser upload workflow, local API status, and ticker leaderboard. | Shows the portfolio-facing artifact and confirms users can inspect cached data or upload completed run files directly. | Final artifact quality; reproducibility and reviewer navigation. |
+| `03_spy_ticker_report.png` | SPY ticker report with sentiment mix, confidence, sarcasm warning, post-type mix, timeline, and top insights. | Shows the core decision-support value of the system for a high-volume ticker. | Results; ticker report walkthrough; limitations around sarcasm. |
+| `04_trend_alerts_terminal.png` | Output Agent trend-alert report for the saved one-week run. | Documents the trend-alert branch and its one-week-data limitation without claiming a forecast. | Evaluation results; limitations and next steps. |
+| `05_spy_tsla_comparison.png` | SPY vs TSLA side-by-side comparison with sentiment mix, confidence, sarcasm, engagement, and confidence delta. | Shows comparative ticker analysis and exposes TSLA's lower-confidence signal quality. | Results; ticker comparison view; signal-quality interpretation. |
+| `06_rumour_review_queue.png` | Human review queue for flagged rumors, including policy threshold, SLA, confidence, evidence link, and local approve/reject/escalate actions. | Addresses Phase 2 feedback by making the human checkpoint visible in the main flow. | Governance and safety reflection; human-in-the-loop checkpoint. |
+| `07_failure_case_tc08_zero_filter.png` | TC-08 failure case where the filter removes all posts and the pipeline stops before Agent 3. | Provides required failure evidence and shows the system avoids unnecessary Claude calls when input is empty. | Failure analysis; boundary behavior. |
+| `08_replay_results_view.png` | Replay-mode output with saved metadata and ticker_summary excerpt. | Confirms graders can reproduce reports from saved CSVs without an API key and inspect the evaluation/results artifacts. | Reproducibility; evaluation setup and results. |

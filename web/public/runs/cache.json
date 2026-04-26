@@ -1,0 +1,5738 @@
+{
+  "runs": [
+    {
+      "id": "run_20260412_110302",
+      "run_dir": "outputs/sample_runs/run_20260412_110302",
+      "metadata": {
+        "run_timestamp": "2026-04-12T11:21:42.866866",
+        "run_dir": "outputs/runs/run_20260412_110302",
+        "config": {
+          "batch_size": 500,
+          "min_post_score": 10,
+          "rumour_threshold": 0.7,
+          "low_conf_threshold": 0.6,
+          "top_n_comments": 5,
+          "shift_threshold": 15,
+          "min_posts_per_day": 3
+        },
+        "pipeline_duration_seconds": 1120.0,
+        "n_posts_raw": 1559,
+        "n_comments_raw": 224952,
+        "n_filtered": 283,
+        "n_analyzed": 283,
+        "errors": 217,
+        "tickers_found": 59,
+        "rumours_flagged": 3,
+        "avg_confidence": 0.56,
+        "sarcastic_count": 140
+      },
+      "source_files": [
+        "sentiment_results.csv",
+        "ticker_summary.csv",
+        "rumour_alerts.csv",
+        "trace.txt"
+      ],
+      "tickers": [
+        {
+          "ticker": "SPY",
+          "post_count": 35,
+          "bullish_pct": 31.4,
+          "bearish_pct": 57.1,
+          "neutral_pct": 11.4,
+          "avg_confidence": 0.67,
+          "avg_relevance": 0.73,
+          "sarcastic_count": 14,
+          "avg_engagement": 665.3,
+          "low_confidence": false,
+          "low_sample": false
+        },
+        {
+          "ticker": "TSLA",
+          "post_count": 8,
+          "bullish_pct": 12.5,
+          "bearish_pct": 50.0,
+          "neutral_pct": 37.5,
+          "avg_confidence": 0.51,
+          "avg_relevance": 0.5,
+          "sarcastic_count": 4,
+          "avg_engagement": 1031.12,
+          "low_confidence": true,
+          "low_sample": false
+        },
+        {
+          "ticker": "TACO",
+          "post_count": 5,
+          "bullish_pct": 60.0,
+          "bearish_pct": 20.0,
+          "neutral_pct": 20.0,
+          "avg_confidence": 0.62,
+          "avg_relevance": 0.6,
+          "sarcastic_count": 2,
+          "avg_engagement": 69.48,
+          "low_confidence": false,
+          "low_sample": false
+        },
+        {
+          "ticker": "QQQ",
+          "post_count": 4,
+          "bullish_pct": 50.0,
+          "bearish_pct": 50.0,
+          "neutral_pct": 0.0,
+          "avg_confidence": 0.78,
+          "avg_relevance": 0.8,
+          "sarcastic_count": 1,
+          "avg_engagement": 340.75,
+          "low_confidence": false,
+          "low_sample": true
+        },
+        {
+          "ticker": "META",
+          "post_count": 4,
+          "bullish_pct": 25.0,
+          "bearish_pct": 50.0,
+          "neutral_pct": 25.0,
+          "avg_confidence": 0.75,
+          "avg_relevance": 0.85,
+          "sarcastic_count": 1,
+          "avg_engagement": 287.8,
+          "low_confidence": false,
+          "low_sample": true
+        },
+        {
+          "ticker": "INTC",
+          "post_count": 4,
+          "bullish_pct": 100.0,
+          "bearish_pct": 0.0,
+          "neutral_pct": 0.0,
+          "avg_confidence": 0.72,
+          "avg_relevance": 0.78,
+          "sarcastic_count": 0,
+          "avg_engagement": 1318.75,
+          "low_confidence": false,
+          "low_sample": true
+        },
+        {
+          "ticker": "MSFT",
+          "post_count": 3,
+          "bullish_pct": 0.0,
+          "bearish_pct": 100.0,
+          "neutral_pct": 0.0,
+          "avg_confidence": 0.77,
+          "avg_relevance": 0.8,
+          "sarcastic_count": 2,
+          "avg_engagement": 381.43,
+          "low_confidence": false,
+          "low_sample": true
+        },
+        {
+          "ticker": "SPX",
+          "post_count": 3,
+          "bullish_pct": 66.7,
+          "bearish_pct": 33.3,
+          "neutral_pct": 0.0,
+          "avg_confidence": 0.67,
+          "avg_relevance": 0.77,
+          "sarcastic_count": 0,
+          "avg_engagement": 78.1,
+          "low_confidence": false,
+          "low_sample": true
+        },
+        {
+          "ticker": "MU",
+          "post_count": 2,
+          "bullish_pct": 0.0,
+          "bearish_pct": 100.0,
+          "neutral_pct": 0.0,
+          "avg_confidence": 0.75,
+          "avg_relevance": 0.75,
+          "sarcastic_count": 1,
+          "avg_engagement": 234.85,
+          "low_confidence": false,
+          "low_sample": true
+        },
+        {
+          "ticker": "USO",
+          "post_count": 2,
+          "bullish_pct": 50.0,
+          "bearish_pct": 50.0,
+          "neutral_pct": 0.0,
+          "avg_confidence": 0.75,
+          "avg_relevance": 0.85,
+          "sarcastic_count": 0,
+          "avg_engagement": 65.15,
+          "low_confidence": false,
+          "low_sample": true
+        },
+        {
+          "ticker": "WEN",
+          "post_count": 2,
+          "bullish_pct": 0.0,
+          "bearish_pct": 50.0,
+          "neutral_pct": 50.0,
+          "avg_confidence": 0.4,
+          "avg_relevance": 0.2,
+          "sarcastic_count": 2,
+          "avg_engagement": 33.6,
+          "low_confidence": true,
+          "low_sample": true
+        },
+        {
+          "ticker": "LLY",
+          "post_count": 2,
+          "bullish_pct": 50.0,
+          "bearish_pct": 50.0,
+          "neutral_pct": 0.0,
+          "avg_confidence": 0.7,
+          "avg_relevance": 0.85,
+          "sarcastic_count": 1,
+          "avg_engagement": 1842.55,
+          "low_confidence": false,
+          "low_sample": true
+        },
+        {
+          "ticker": "RDDT",
+          "post_count": 2,
+          "bullish_pct": 50.0,
+          "bearish_pct": 0.0,
+          "neutral_pct": 50.0,
+          "avg_confidence": 0.5,
+          "avg_relevance": 0.5,
+          "sarcastic_count": 1,
+          "avg_engagement": 65.25,
+          "low_confidence": true,
+          "low_sample": true
+        },
+        {
+          "ticker": "PLTR",
+          "post_count": 1,
+          "bullish_pct": 0.0,
+          "bearish_pct": 0.0,
+          "neutral_pct": 100.0,
+          "avg_confidence": 0.7,
+          "avg_relevance": 0.8,
+          "sarcastic_count": 1,
+          "avg_engagement": 27.2,
+          "low_confidence": false,
+          "low_sample": true
+        },
+        {
+          "ticker": "PSTH",
+          "post_count": 1,
+          "bullish_pct": 0.0,
+          "bearish_pct": 100.0,
+          "neutral_pct": 0.0,
+          "avg_confidence": 0.8,
+          "avg_relevance": 0.7,
+          "sarcastic_count": 1,
+          "avg_engagement": 453.0,
+          "low_confidence": false,
+          "low_sample": true
+        },
+        {
+          "ticker": "RILYP",
+          "post_count": 1,
+          "bullish_pct": 0.0,
+          "bearish_pct": 0.0,
+          "neutral_pct": 100.0,
+          "avg_confidence": 0.7,
+          "avg_relevance": 0.8,
+          "sarcastic_count": 0,
+          "avg_engagement": 36.0,
+          "low_confidence": false,
+          "low_sample": true
+        },
+        {
+          "ticker": "PL",
+          "post_count": 1,
+          "bullish_pct": 0.0,
+          "bearish_pct": 0.0,
+          "neutral_pct": 100.0,
+          "avg_confidence": 0.6,
+          "avg_relevance": 0.7,
+          "sarcastic_count": 0,
+          "avg_engagement": 572.4,
+          "low_confidence": false,
+          "low_sample": true
+        },
+        {
+          "ticker": "PARA",
+          "post_count": 1,
+          "bullish_pct": 0.0,
+          "bearish_pct": 100.0,
+          "neutral_pct": 0.0,
+          "avg_confidence": 0.7,
+          "avg_relevance": 0.8,
+          "sarcastic_count": 1,
+          "avg_engagement": 161.9,
+          "low_confidence": false,
+          "low_sample": true
+        },
+        {
+          "ticker": "AGI",
+          "post_count": 1,
+          "bullish_pct": 100.0,
+          "bearish_pct": 0.0,
+          "neutral_pct": 0.0,
+          "avg_confidence": 0.7,
+          "avg_relevance": 0.6,
+          "sarcastic_count": 0,
+          "avg_engagement": 106.1,
+          "low_confidence": false,
+          "low_sample": true
+        },
+        {
+          "ticker": "SNDK",
+          "post_count": 1,
+          "bullish_pct": 100.0,
+          "bearish_pct": 0.0,
+          "neutral_pct": 0.0,
+          "avg_confidence": 0.8,
+          "avg_relevance": 0.7,
+          "sarcastic_count": 0,
+          "avg_engagement": 514.8,
+          "low_confidence": false,
+          "low_sample": true
+        },
+        {
+          "ticker": "RIVN",
+          "post_count": 1,
+          "bullish_pct": 100.0,
+          "bearish_pct": 0.0,
+          "neutral_pct": 0.0,
+          "avg_confidence": 0.3,
+          "avg_relevance": 0.4,
+          "sarcastic_count": 0,
+          "avg_engagement": 100.7,
+          "low_confidence": true,
+          "low_sample": true
+        },
+        {
+          "ticker": "SLV",
+          "post_count": 1,
+          "bullish_pct": 100.0,
+          "bearish_pct": 0.0,
+          "neutral_pct": 0.0,
+          "avg_confidence": 0.8,
+          "avg_relevance": 0.9,
+          "sarcastic_count": 0,
+          "avg_engagement": 55.9,
+          "low_confidence": false,
+          "low_sample": true
+        },
+        {
+          "ticker": "OKLO",
+          "post_count": 1,
+          "bullish_pct": 100.0,
+          "bearish_pct": 0.0,
+          "neutral_pct": 0.0,
+          "avg_confidence": 0.7,
+          "avg_relevance": 0.8,
+          "sarcastic_count": 1,
+          "avg_engagement": 18.2,
+          "low_confidence": false,
+          "low_sample": true
+        },
+        {
+          "ticker": "SPCE",
+          "post_count": 1,
+          "bullish_pct": 100.0,
+          "bearish_pct": 0.0,
+          "neutral_pct": 0.0,
+          "avg_confidence": 0.7,
+          "avg_relevance": 0.8,
+          "sarcastic_count": 0,
+          "avg_engagement": 1894.3,
+          "low_confidence": false,
+          "low_sample": true
+        },
+        {
+          "ticker": "SUN",
+          "post_count": 1,
+          "bullish_pct": 100.0,
+          "bearish_pct": 0.0,
+          "neutral_pct": 0.0,
+          "avg_confidence": 0.7,
+          "avg_relevance": 0.8,
+          "sarcastic_count": 0,
+          "avg_engagement": 9.1,
+          "low_confidence": false,
+          "low_sample": true
+        },
+        {
+          "ticker": "TLT",
+          "post_count": 1,
+          "bullish_pct": 0.0,
+          "bearish_pct": 100.0,
+          "neutral_pct": 0.0,
+          "avg_confidence": 0.3,
+          "avg_relevance": 0.4,
+          "sarcastic_count": 1,
+          "avg_engagement": 39.2,
+          "low_confidence": true,
+          "low_sample": true
+        },
+        {
+          "ticker": "TTD",
+          "post_count": 1,
+          "bullish_pct": 0.0,
+          "bearish_pct": 100.0,
+          "neutral_pct": 0.0,
+          "avg_confidence": 0.3,
+          "avg_relevance": 0.4,
+          "sarcastic_count": 0,
+          "avg_engagement": 75.2,
+          "low_confidence": true,
+          "low_sample": true
+        },
+        {
+          "ticker": "UAL",
+          "post_count": 1,
+          "bullish_pct": 100.0,
+          "bearish_pct": 0.0,
+          "neutral_pct": 0.0,
+          "avg_confidence": 0.8,
+          "avg_relevance": 0.9,
+          "sarcastic_count": 0,
+          "avg_engagement": 136.5,
+          "low_confidence": false,
+          "low_sample": true
+        },
+        {
+          "ticker": "UCO",
+          "post_count": 1,
+          "bullish_pct": 0.0,
+          "bearish_pct": 100.0,
+          "neutral_pct": 0.0,
+          "avg_confidence": 0.6,
+          "avg_relevance": 0.4,
+          "sarcastic_count": 1,
+          "avg_engagement": 55.0,
+          "low_confidence": false,
+          "low_sample": true
+        },
+        {
+          "ticker": "WMT",
+          "post_count": 1,
+          "bullish_pct": 100.0,
+          "bearish_pct": 0.0,
+          "neutral_pct": 0.0,
+          "avg_confidence": 0.8,
+          "avg_relevance": 0.9,
+          "sarcastic_count": 0,
+          "avg_engagement": 38.4,
+          "low_confidence": false,
+          "low_sample": true
+        },
+        {
+          "ticker": "XLE",
+          "post_count": 1,
+          "bullish_pct": 100.0,
+          "bearish_pct": 0.0,
+          "neutral_pct": 0.0,
+          "avg_confidence": 0.3,
+          "avg_relevance": 0.6,
+          "sarcastic_count": 0,
+          "avg_engagement": 47.1,
+          "low_confidence": true,
+          "low_sample": true
+        },
+        {
+          "ticker": "ONDS",
+          "post_count": 1,
+          "bullish_pct": 100.0,
+          "bearish_pct": 0.0,
+          "neutral_pct": 0.0,
+          "avg_confidence": 0.6,
+          "avg_relevance": 0.7,
+          "sarcastic_count": 0,
+          "avg_engagement": 18.0,
+          "low_confidence": false,
+          "low_sample": true
+        },
+        {
+          "ticker": "NN",
+          "post_count": 1,
+          "bullish_pct": 100.0,
+          "bearish_pct": 0.0,
+          "neutral_pct": 0.0,
+          "avg_confidence": 0.7,
+          "avg_relevance": 0.8,
+          "sarcastic_count": 0,
+          "avg_engagement": 21.7,
+          "low_confidence": false,
+          "low_sample": true
+        },
+        {
+          "ticker": "OIL",
+          "post_count": 1,
+          "bullish_pct": 100.0,
+          "bearish_pct": 0.0,
+          "neutral_pct": 0.0,
+          "avg_confidence": 0.2,
+          "avg_relevance": 0.3,
+          "sarcastic_count": 1,
+          "avg_engagement": 26.0,
+          "low_confidence": true,
+          "low_sample": true
+        },
+        {
+          "ticker": "NVDA",
+          "post_count": 1,
+          "bullish_pct": 100.0,
+          "bearish_pct": 0.0,
+          "neutral_pct": 0.0,
+          "avg_confidence": 0.4,
+          "avg_relevance": 0.3,
+          "sarcastic_count": 1,
+          "avg_engagement": 298.3,
+          "low_confidence": true,
+          "low_sample": true
+        },
+        {
+          "ticker": "ASTS",
+          "post_count": 1,
+          "bullish_pct": 0.0,
+          "bearish_pct": 0.0,
+          "neutral_pct": 100.0,
+          "avg_confidence": 0.7,
+          "avg_relevance": 0.8,
+          "sarcastic_count": 0,
+          "avg_engagement": 15.0,
+          "low_confidence": false,
+          "low_sample": true
+        },
+        {
+          "ticker": "AVGO",
+          "post_count": 1,
+          "bullish_pct": 100.0,
+          "bearish_pct": 0.0,
+          "neutral_pct": 0.0,
+          "avg_confidence": 0.8,
+          "avg_relevance": 0.9,
+          "sarcastic_count": 0,
+          "avg_engagement": 249.3,
+          "low_confidence": false,
+          "low_sample": true
+        },
+        {
+          "ticker": "BNO",
+          "post_count": 1,
+          "bullish_pct": 0.0,
+          "bearish_pct": 100.0,
+          "neutral_pct": 0.0,
+          "avg_confidence": 0.7,
+          "avg_relevance": 0.8,
+          "sarcastic_count": 0,
+          "avg_engagement": 58.1,
+          "low_confidence": false,
+          "low_sample": true
+        },
+        {
+          "ticker": "BZ=F",
+          "post_count": 1,
+          "bullish_pct": 100.0,
+          "bearish_pct": 0.0,
+          "neutral_pct": 0.0,
+          "avg_confidence": 0.8,
+          "avg_relevance": 0.9,
+          "sarcastic_count": 0,
+          "avg_engagement": 92.7,
+          "low_confidence": false,
+          "low_sample": true
+        },
+        {
+          "ticker": "CELH",
+          "post_count": 1,
+          "bullish_pct": 0.0,
+          "bearish_pct": 100.0,
+          "neutral_pct": 0.0,
+          "avg_confidence": 0.8,
+          "avg_relevance": 0.9,
+          "sarcastic_count": 0,
+          "avg_engagement": 44.3,
+          "low_confidence": false,
+          "low_sample": true
+        },
+        {
+          "ticker": "COIN",
+          "post_count": 1,
+          "bullish_pct": 100.0,
+          "bearish_pct": 0.0,
+          "neutral_pct": 0.0,
+          "avg_confidence": 0.7,
+          "avg_relevance": 0.8,
+          "sarcastic_count": 0,
+          "avg_engagement": 124.6,
+          "low_confidence": false,
+          "low_sample": true
+        },
+        {
+          "ticker": "COST",
+          "post_count": 1,
+          "bullish_pct": 0.0,
+          "bearish_pct": 0.0,
+          "neutral_pct": 100.0,
+          "avg_confidence": 0.3,
+          "avg_relevance": 0.2,
+          "sarcastic_count": 1,
+          "avg_engagement": 115.1,
+          "low_confidence": true,
+          "low_sample": true
+        },
+        {
+          "ticker": "CVNA",
+          "post_count": 1,
+          "bullish_pct": 0.0,
+          "bearish_pct": 100.0,
+          "neutral_pct": 0.0,
+          "avg_confidence": 0.8,
+          "avg_relevance": 0.9,
+          "sarcastic_count": 0,
+          "avg_engagement": 11.4,
+          "low_confidence": false,
+          "low_sample": true
+        },
+        {
+          "ticker": "DIA",
+          "post_count": 1,
+          "bullish_pct": 0.0,
+          "bearish_pct": 100.0,
+          "neutral_pct": 0.0,
+          "avg_confidence": 0.6,
+          "avg_relevance": 0.7,
+          "sarcastic_count": 1,
+          "avg_engagement": 265.4,
+          "low_confidence": false,
+          "low_sample": true
+        },
+        {
+          "ticker": "DJT",
+          "post_count": 1,
+          "bullish_pct": 0.0,
+          "bearish_pct": 100.0,
+          "neutral_pct": 0.0,
+          "avg_confidence": 0.6,
+          "avg_relevance": 0.7,
+          "sarcastic_count": 1,
+          "avg_engagement": 133.7,
+          "low_confidence": false,
+          "low_sample": true
+        },
+        {
+          "ticker": "DPZ",
+          "post_count": 1,
+          "bullish_pct": 0.0,
+          "bearish_pct": 0.0,
+          "neutral_pct": 100.0,
+          "avg_confidence": 0.2,
+          "avg_relevance": 0.1,
+          "sarcastic_count": 1,
+          "avg_engagement": 9656.8,
+          "low_confidence": true,
+          "low_sample": true
+        },
+        {
+          "ticker": "DVN",
+          "post_count": 1,
+          "bullish_pct": 0.0,
+          "bearish_pct": 100.0,
+          "neutral_pct": 0.0,
+          "avg_confidence": 0.7,
+          "avg_relevance": 0.6,
+          "sarcastic_count": 1,
+          "avg_engagement": 15.8,
+          "low_confidence": false,
+          "low_sample": true
+        },
+        {
+          "ticker": "ELF",
+          "post_count": 1,
+          "bullish_pct": 100.0,
+          "bearish_pct": 0.0,
+          "neutral_pct": 0.0,
+          "avg_confidence": 0.6,
+          "avg_relevance": 0.7,
+          "sarcastic_count": 0,
+          "avg_engagement": 15.0,
+          "low_confidence": false,
+          "low_sample": true
+        },
+        {
+          "ticker": "GLD",
+          "post_count": 1,
+          "bullish_pct": 100.0,
+          "bearish_pct": 0.0,
+          "neutral_pct": 0.0,
+          "avg_confidence": 0.7,
+          "avg_relevance": 0.8,
+          "sarcastic_count": 0,
+          "avg_engagement": 36.5,
+          "low_confidence": false,
+          "low_sample": true
+        },
+        {
+          "ticker": "GOLD",
+          "post_count": 1,
+          "bullish_pct": 100.0,
+          "bearish_pct": 0.0,
+          "neutral_pct": 0.0,
+          "avg_confidence": 0.7,
+          "avg_relevance": 0.8,
+          "sarcastic_count": 0,
+          "avg_engagement": 48.2,
+          "low_confidence": false,
+          "low_sample": true
+        },
+        {
+          "ticker": "GOOGL",
+          "post_count": 1,
+          "bullish_pct": 100.0,
+          "bearish_pct": 0.0,
+          "neutral_pct": 0.0,
+          "avg_confidence": 0.7,
+          "avg_relevance": 0.8,
+          "sarcastic_count": 0,
+          "avg_engagement": 46.1,
+          "low_confidence": false,
+          "low_sample": true
+        },
+        {
+          "ticker": "JPM",
+          "post_count": 1,
+          "bullish_pct": 0.0,
+          "bearish_pct": 100.0,
+          "neutral_pct": 0.0,
+          "avg_confidence": 0.7,
+          "avg_relevance": 0.8,
+          "sarcastic_count": 1,
+          "avg_engagement": 52.8,
+          "low_confidence": false,
+          "low_sample": true
+        },
+        {
+          "ticker": "KOS",
+          "post_count": 1,
+          "bullish_pct": 100.0,
+          "bearish_pct": 0.0,
+          "neutral_pct": 0.0,
+          "avg_confidence": 0.8,
+          "avg_relevance": 0.9,
+          "sarcastic_count": 0,
+          "avg_engagement": 144.1,
+          "low_confidence": false,
+          "low_sample": true
+        },
+        {
+          "ticker": "LEU",
+          "post_count": 1,
+          "bullish_pct": 100.0,
+          "bearish_pct": 0.0,
+          "neutral_pct": 0.0,
+          "avg_confidence": 0.8,
+          "avg_relevance": 0.85,
+          "sarcastic_count": 0,
+          "avg_engagement": 40.3,
+          "low_confidence": false,
+          "low_sample": true
+        },
+        {
+          "ticker": "MSOS",
+          "post_count": 1,
+          "bullish_pct": 100.0,
+          "bearish_pct": 0.0,
+          "neutral_pct": 0.0,
+          "avg_confidence": 0.7,
+          "avg_relevance": 0.8,
+          "sarcastic_count": 0,
+          "avg_engagement": 264.1,
+          "low_confidence": false,
+          "low_sample": true
+        },
+        {
+          "ticker": "NASDAQ",
+          "post_count": 1,
+          "bullish_pct": 0.0,
+          "bearish_pct": 100.0,
+          "neutral_pct": 0.0,
+          "avg_confidence": 0.4,
+          "avg_relevance": 0.3,
+          "sarcastic_count": 0,
+          "avg_engagement": 21.6,
+          "low_confidence": true,
+          "low_sample": true
+        },
+        {
+          "ticker": "NBIS",
+          "post_count": 1,
+          "bullish_pct": 100.0,
+          "bearish_pct": 0.0,
+          "neutral_pct": 0.0,
+          "avg_confidence": 0.9,
+          "avg_relevance": 0.8,
+          "sarcastic_count": 0,
+          "avg_engagement": 270.6,
+          "low_confidence": false,
+          "low_sample": true
+        },
+        {
+          "ticker": "AMZN",
+          "post_count": 1,
+          "bullish_pct": 0.0,
+          "bearish_pct": 0.0,
+          "neutral_pct": 100.0,
+          "avg_confidence": 0.3,
+          "avg_relevance": 0.4,
+          "sarcastic_count": 1,
+          "avg_engagement": 2593.4,
+          "low_confidence": true,
+          "low_sample": true
+        },
+        {
+          "ticker": "XOM",
+          "post_count": 1,
+          "bullish_pct": 0.0,
+          "bearish_pct": 0.0,
+          "neutral_pct": 100.0,
+          "avg_confidence": 0.7,
+          "avg_relevance": 0.8,
+          "sarcastic_count": 0,
+          "avg_engagement": 27.5,
+          "low_confidence": false,
+          "low_sample": true
+        }
+      ],
+      "posts": [
+        {
+          "post_id": "1sf7tk8",
+          "title": "The dominos index closest to The Pentagon just spiked, chat are we cooked?",
+          "permalink": "/r/wallstreetbets/comments/1sf7tk8/the_dominos_index_closest_to_the_pentagon_just/",
+          "score": 13576,
+          "num_comments": 512,
+          "date": "2026-04-07 20:32:20",
+          "flair": "News",
+          "engagement_score": 9656.8,
+          "has_comments": true,
+          "sentiment": "neutral",
+          "confidence": 0.2,
+          "tickers": [
+            "DPZ"
+          ],
+          "primary_ticker": "DPZ",
+          "emotions": [
+            "humor",
+            "sarcasm"
+          ],
+          "post_type": "meme",
+          "is_sarcastic": true,
+          "market_relevance": 0.1,
+          "key_insight": "Satirical post about Domino's pizza orders near Pentagon with no real market implications",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sf6vyv",
+          "title": "What Are Your Moves Tomorrow, April 08, 2026",
+          "permalink": "/r/wallstreetbets/comments/1sf6vyv/what_are_your_moves_tomorrow_april_08_2026/",
+          "score": 284,
+          "num_comments": 21702,
+          "date": "2026-04-07 19:57:32",
+          "flair": "Daily Discussion",
+          "engagement_score": 6709.4,
+          "has_comments": true,
+          "sentiment": "neutral",
+          "confidence": 0.7,
+          "tickers": [
+            "SPY"
+          ],
+          "primary_ticker": "SPY",
+          "emotions": [
+            "humor",
+            "sarcasm",
+            "panic",
+            "euphoria"
+          ],
+          "post_type": "other",
+          "is_sarcastic": true,
+          "market_relevance": 0.8,
+          "key_insight": "Market showed resilience by closing slightly green despite major geopolitical or economic crisis negotiations",
+          "is_rumour": true,
+          "rumour_type": "regulatory_decision",
+          "rumour_confidence": 0.6,
+          "rumour_summary": "Major negotiations with extended deadline appear to be ongoing with civilization-level stakes implied",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sf9bj1",
+          "title": "Intel Grandma Guy Appreciation Post",
+          "permalink": "/r/wallstreetbets/comments/1sf9bj1/intel_grandma_guy_appreciation_post/",
+          "score": 6900,
+          "num_comments": 235,
+          "date": "2026-04-07 21:28:16",
+          "flair": "Discussion",
+          "engagement_score": 4900.5,
+          "has_comments": true,
+          "sentiment": "bullish",
+          "confidence": 0.8,
+          "tickers": [
+            "INTC"
+          ],
+          "primary_ticker": "INTC",
+          "emotions": [
+            "hope",
+            "greed"
+          ],
+          "post_type": "gain",
+          "is_sarcastic": false,
+          "market_relevance": 0.9,
+          "key_insight": "User credits another Reddit poster for Intel investment idea, bought at $20 after initially hesitating at $30, sold half at $40 for 100% return.",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1se0z9t",
+          "title": "JPMorgan warns Tesla stock could sink 60% in new note.",
+          "permalink": "/r/wallstreetbets/comments/1se0z9t/jpmorgan_warns_tesla_stock_could_sink_60_in_new/",
+          "score": 5922,
+          "num_comments": 725,
+          "date": "2026-04-06 14:48:17",
+          "flair": "News",
+          "engagement_score": 4362.9,
+          "has_comments": true,
+          "sentiment": "bearish",
+          "confidence": 0.85,
+          "tickers": [
+            "TSLA"
+          ],
+          "primary_ticker": "TSLA",
+          "emotions": [
+            "fear",
+            "frustration",
+            "sarcasm"
+          ],
+          "post_type": "news",
+          "is_sarcastic": false,
+          "market_relevance": 0.9,
+          "key_insight": "JPMorgan issues strong sell rating on Tesla with 60% downside target due to missed delivery targets and inventory buildup",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sg4flz",
+          "title": "What Are Your Moves Tomorrow, April 08, 2026",
+          "permalink": "/r/wallstreetbets/comments/1sg4flz/what_are_your_moves_tomorrow_april_08_2026/",
+          "score": 192,
+          "num_comments": 9329,
+          "date": "2026-04-08 20:25:05",
+          "flair": "Daily Discussion",
+          "engagement_score": 2933.1,
+          "has_comments": true,
+          "sentiment": "bearish",
+          "confidence": 0.4,
+          "tickers": [
+            "TSLA"
+          ],
+          "primary_ticker": "TSLA",
+          "emotions": [
+            "frustration",
+            "humor",
+            "sarcasm"
+          ],
+          "post_type": "other",
+          "is_sarcastic": false,
+          "market_relevance": 0.3,
+          "key_insight": "Daily discussion thread with mixed comments including TSLA bet loss and general trading frustration.",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sg1h1x",
+          "title": "Everything is priced in",
+          "permalink": "/r/wallstreetbets/comments/1sg1h1x/everything_is_priced_in/",
+          "score": 3593,
+          "num_comments": 261,
+          "date": "2026-04-08 18:37:34",
+          "flair": "Discussion",
+          "engagement_score": 2593.4,
+          "has_comments": true,
+          "sentiment": "neutral",
+          "confidence": 0.3,
+          "tickers": [
+            "AMZN"
+          ],
+          "primary_ticker": "AMZN",
+          "emotions": [
+            "humor",
+            "sarcasm",
+            "frustration"
+          ],
+          "post_type": "meme",
+          "is_sarcastic": true,
+          "market_relevance": 0.4,
+          "key_insight": "Satirical post mocking the common market response that 'everything is priced in' to justify any market movement or lack thereof.",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1scfwlv",
+          "title": "Cash gang watching the news alongside the SPY chart",
+          "permalink": "/r/wallstreetbets/comments/1scfwlv/cash_gang_watching_the_news_alongside_the_spy/",
+          "score": 2955,
+          "num_comments": 278,
+          "date": "2026-04-04 17:55:02",
+          "flair": "Meme",
+          "engagement_score": 2151.9,
+          "has_comments": true,
+          "sentiment": "neutral",
+          "confidence": 0.3,
+          "tickers": [
+            "SPY"
+          ],
+          "primary_ticker": "SPY",
+          "emotions": [
+            "humor",
+            "sarcasm",
+            "frustration"
+          ],
+          "post_type": "meme",
+          "is_sarcastic": true,
+          "market_relevance": 0.4,
+          "key_insight": "Meme post joking about cash holders waiting for market dips while markets continue rising",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sdr4xl",
+          "title": "LLY just dropped a $149/month weight loss pill shipping today - analysts project $101B peak revenue",
+          "permalink": "/r/wallstreetbets/comments/1sdr4xl/lly_just_dropped_a_149month_weight_loss_pill/",
+          "score": 2913,
+          "num_comments": 261,
+          "date": "2026-04-06 06:33:06",
+          "flair": "News",
+          "engagement_score": 2117.4,
+          "has_comments": true,
+          "sentiment": "bearish",
+          "confidence": 0.7,
+          "tickers": [
+            "LLY"
+          ],
+          "primary_ticker": "LLY",
+          "emotions": [
+            "frustration",
+            "humor",
+            "sarcasm"
+          ],
+          "post_type": "news",
+          "is_sarcastic": false,
+          "market_relevance": 0.8,
+          "key_insight": "LLY's new weight loss pill faces competitive disadvantages and cannibalization concerns despite large revenue projections",
+          "is_rumour": true,
+          "rumour_type": "partnership_chatter",
+          "rumour_confidence": 0.6,
+          "rumour_summary": "Claims that Novo and Lilly made a pricing deal with the White House to lock in $149 pricing",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sgbzov",
+          "title": "Sold puts by accident pt.2",
+          "permalink": "/r/wallstreetbets/comments/1sgbzov/sold_puts_by_accident_pt2/",
+          "score": 2593,
+          "num_comments": 291,
+          "date": "2026-04-09 01:38:33",
+          "flair": "Discussion",
+          "engagement_score": 1902.4,
+          "has_comments": true,
+          "sentiment": "bearish",
+          "confidence": 0.7,
+          "tickers": [
+            "SPY"
+          ],
+          "primary_ticker": "SPY",
+          "emotions": [
+            "panic",
+            "frustration",
+            "humor"
+          ],
+          "post_type": "loss",
+          "is_sarcastic": false,
+          "market_relevance": 0.6,
+          "key_insight": "User accidentally sold puts and created a significant account issue with their broker, highlighting risks of options trading mistakes.",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1scr07m",
+          "title": "How I'm playing the SpaceX IPO for a possible 400 bagger",
+          "permalink": "/r/wallstreetbets/comments/1scr07m/how_im_playing_the_spacex_ipo_for_a_possible_400/",
+          "score": 2425,
+          "num_comments": 656,
+          "date": "2026-04-05 01:47:05",
+          "flair": "DD",
+          "engagement_score": 1894.3,
+          "has_comments": true,
+          "sentiment": "bullish",
+          "confidence": 0.7,
+          "tickers": [
+            "SPCE",
+            "MARA"
+          ],
+          "primary_ticker": "SPCE",
+          "emotions": [
+            "greed",
+            "euphoria",
+            "hope"
+          ],
+          "post_type": "DD",
+          "is_sarcastic": false,
+          "market_relevance": 0.8,
+          "key_insight": "Playing Virgin Galactic as a sympathy play for anticipated SpaceX IPO with options strategy targeting massive gains",
+          "is_rumour": true,
+          "rumour_type": "acquisition_rumour",
+          "rumour_confidence": 0.6,
+          "rumour_summary": "Claims SpaceX IPO is coming in June and will be the biggest market event in history",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1scmtjy",
+          "title": "i spent my weekend reading 98 s&p 500 10-Ks for tariff and war risks. the results are.. weird. banks are way more exposed than oil companies",
+          "permalink": "/r/wallstreetbets/comments/1scmtjy/i_spent_my_weekend_reading_98_sp_500_10ks_for/",
+          "score": 2410,
+          "num_comments": 360,
+          "date": "2026-04-04 22:33:52",
+          "flair": "Discussion",
+          "engagement_score": 1795.0,
+          "has_comments": true,
+          "sentiment": "neutral",
+          "confidence": 0.8,
+          "tickers": [
+            "SPY"
+          ],
+          "primary_ticker": "SPY",
+          "emotions": [
+            "curiosity",
+            "surprise"
+          ],
+          "post_type": "DD",
+          "is_sarcastic": false,
+          "market_relevance": 0.9,
+          "key_insight": "Analysis of S&P 500 10-K filings reveals banks report higher exposure to tariff and war risks than oil companies in their risk disclosures",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sdburh",
+          "title": "Looks like the casinos openin up soon!",
+          "permalink": "/r/wallstreetbets/comments/1sdburh/looks_like_the_casinos_openin_up_soon/",
+          "score": 2450,
+          "num_comments": 132,
+          "date": "2026-04-05 18:57:34",
+          "flair": "Meme",
+          "engagement_score": 1754.6,
+          "has_comments": true,
+          "sentiment": "bullish",
+          "confidence": 0.3,
+          "tickers": [
+            "SPY"
+          ],
+          "primary_ticker": "SPY",
+          "emotions": [
+            "humor",
+            "sarcasm",
+            "euphoria"
+          ],
+          "post_type": "meme",
+          "is_sarcastic": true,
+          "market_relevance": 0.4,
+          "key_insight": "Meme post joking about Trump's comments potentially benefiting the S&P 500 and calls, with references to Polymarket betting odds.",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sbva8s",
+          "title": "Lost hundreds of thousands in SPY options",
+          "permalink": "/r/wallstreetbets/comments/1sbva8s/lost_hundreds_of_thousands_in_spy_options/",
+          "score": 2006,
+          "num_comments": 762,
+          "date": "2026-04-04 00:56:41",
+          "flair": "Loss",
+          "engagement_score": 1632.7999999999995,
+          "has_comments": true,
+          "sentiment": "bearish",
+          "confidence": 0.9,
+          "tickers": [
+            "SPY"
+          ],
+          "primary_ticker": "SPY",
+          "emotions": [
+            "frustration",
+            "panic",
+            "humor"
+          ],
+          "post_type": "loss",
+          "is_sarcastic": false,
+          "market_relevance": 0.8,
+          "key_insight": "Major retail trader lost hundreds of thousands to millions on SPY options trades, highlighting the risks of options trading.",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sgnjbh",
+          "title": "Amazon to stock Lilly's new weight-loss pill at US kiosks, offer same-day delivery",
+          "permalink": "/r/wallstreetbets/comments/1sgnjbh/amazon_to_stock_lillys_new_weightloss_pill_at_us/",
+          "score": 2141,
+          "num_comments": 230,
+          "date": "2026-04-09 11:57:54",
+          "flair": "News",
+          "engagement_score": 1567.6999999999998,
+          "has_comments": true,
+          "sentiment": "bullish",
+          "confidence": 0.7,
+          "tickers": [
+            "AMZN",
+            "LLY",
+            "HIMS",
+            "NVO"
+          ],
+          "primary_ticker": "LLY",
+          "emotions": [
+            "humor",
+            "greed",
+            "sarcasm"
+          ],
+          "post_type": "news",
+          "is_sarcastic": true,
+          "market_relevance": 0.9,
+          "key_insight": "Amazon partnership with Lilly for weight-loss drug distribution could benefit both stocks while potentially hurting competitors like HIMS and NVO",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sg1jrz",
+          "title": "fucking pos",
+          "permalink": "/r/wallstreetbets/comments/1sg1jrz/fucking_pos/",
+          "score": 1192,
+          "num_comments": 305,
+          "date": "2026-04-08 18:40:23",
+          "flair": "Loss",
+          "engagement_score": 925.9,
+          "has_comments": true,
+          "sentiment": "bearish",
+          "confidence": 0.8,
+          "tickers": [
+            "MSFT"
+          ],
+          "primary_ticker": "MSFT",
+          "emotions": [
+            "frustration",
+            "panic",
+            "humor"
+          ],
+          "post_type": "loss",
+          "is_sarcastic": false,
+          "market_relevance": 0.7,
+          "key_insight": "Frustrated investor expressing anger about MSFT losses despite believing analysts calling it overvalued at current levels",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sfuwgq",
+          "title": "100k gain on QQQ calls to come back from 100k in losses over the last 5 years - finally green",
+          "permalink": "/r/wallstreetbets/comments/1sfuwgq/100k_gain_on_qqq_calls_to_come_back_from_100k_in/",
+          "score": 917,
+          "num_comments": 183,
+          "date": "2026-04-08 14:44:15",
+          "flair": "Gain",
+          "engagement_score": 696.8,
+          "has_comments": true,
+          "sentiment": "bullish",
+          "confidence": 0.7,
+          "tickers": [
+            "QQQ"
+          ],
+          "primary_ticker": "QQQ",
+          "emotions": [
+            "hope",
+            "euphoria",
+            "fear",
+            "humor"
+          ],
+          "post_type": "gain",
+          "is_sarcastic": false,
+          "market_relevance": 0.8,
+          "key_insight": "User made 100k gain on QQQ calls after 5 years of losses and is quitting options trading while acknowledging gambling addiction tendencies",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1scrghy",
+          "title": "Satellite firm Planet Labs to indefinitely withhold Iran war images",
+          "permalink": "/r/wallstreetbets/comments/1scrghy/satellite_firm_planet_labs_to_indefinitely/",
+          "score": 747,
+          "num_comments": 165,
+          "date": "2026-04-05 02:09:23",
+          "flair": "News",
+          "engagement_score": 572.4,
+          "has_comments": true,
+          "sentiment": "neutral",
+          "confidence": 0.6,
+          "tickers": [
+            "PL"
+          ],
+          "primary_ticker": "PL",
+          "emotions": [
+            "frustration",
+            "concern"
+          ],
+          "post_type": "news",
+          "is_sarcastic": false,
+          "market_relevance": 0.7,
+          "key_insight": "Planet Labs (PL) withholding Iran conflict images due to US government request could impact transparency and business operations in geopolitically sensitive regions.",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sdmz8j",
+          "title": "300k loss on April 2nd - margin",
+          "permalink": "/r/wallstreetbets/comments/1sdmz8j/300k_loss_on_april_2nd_margin/",
+          "score": 727,
+          "num_comments": 131,
+          "date": "2026-04-06 02:52:05",
+          "flair": "Loss",
+          "engagement_score": 548.1999999999999,
+          "has_comments": true,
+          "sentiment": "bearish",
+          "confidence": 0.8,
+          "tickers": [
+            "META",
+            "SLV",
+            "NQ"
+          ],
+          "primary_ticker": "META",
+          "emotions": [
+            "frustration",
+            "panic",
+            "humor"
+          ],
+          "post_type": "loss",
+          "is_sarcastic": false,
+          "market_relevance": 0.9,
+          "key_insight": "User lost $300k on margin trading META and SLV after panic selling during premarket decline that later reversed to green.",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sfu3zq",
+          "title": "All the haters who roasted me yesterday for my SNDK and MU losses\ud83e\udd21",
+          "permalink": "/r/wallstreetbets/comments/1sfu3zq/all_the_haters_who_roasted_me_yesterday_for_my/",
+          "score": 687,
+          "num_comments": 113,
+          "date": "2026-04-08 14:15:38",
+          "flair": "Gain",
+          "engagement_score": 514.8,
+          "has_comments": true,
+          "sentiment": "bullish",
+          "confidence": 0.8,
+          "tickers": [
+            "SNDK",
+            "MU"
+          ],
+          "primary_ticker": "SNDK",
+          "emotions": [
+            "euphoria",
+            "greed",
+            "humor"
+          ],
+          "post_type": "gain",
+          "is_sarcastic": false,
+          "market_relevance": 0.7,
+          "key_insight": "Massive 7546% portfolio gain on SNDK and MU positions after initially facing losses and criticism",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sepvg5",
+          "title": "Ackman's Pershing Square offers to buy Universal Music for nearly $65 billion",
+          "permalink": "/r/wallstreetbets/comments/1sepvg5/ackmans_pershing_square_offers_to_buy_universal/",
+          "score": 606,
+          "num_comments": 96,
+          "date": "2026-04-07 08:13:48",
+          "flair": "News",
+          "engagement_score": 453.0,
+          "has_comments": true,
+          "sentiment": "bearish",
+          "confidence": 0.8,
+          "tickers": [
+            "PSTH"
+          ],
+          "primary_ticker": "PSTH",
+          "emotions": [
+            "frustration",
+            "humor",
+            "sarcasm"
+          ],
+          "post_type": "news",
+          "is_sarcastic": true,
+          "market_relevance": 0.7,
+          "key_insight": "News of Ackman's Universal Music bid generates strong negative sentiment from PSTH bagholders expressing frustration with his past performance",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1scdjv3",
+          "title": "I sold my MU for a loss. Would\u2019ve been worth 183k",
+          "permalink": "/r/wallstreetbets/comments/1scdjv3/i_sold_my_mu_for_a_loss_wouldve_been_worth_183k/",
+          "score": 503,
+          "num_comments": 246,
+          "date": "2026-04-04 16:24:07",
+          "flair": "Loss",
+          "engagement_score": 425.9,
+          "has_comments": true,
+          "sentiment": "bearish",
+          "confidence": 0.8,
+          "tickers": [
+            "MU",
+            "META",
+            "NBIS",
+            "HOOD",
+            "PLTR",
+            "MSFT",
+            "NVDA"
+          ],
+          "primary_ticker": "MU",
+          "emotions": [
+            "frustration",
+            "panic",
+            "humor"
+          ],
+          "post_type": "loss",
+          "is_sarcastic": false,
+          "market_relevance": 0.7,
+          "key_insight": "User shares regret over selling MU stock at a loss before major price appreciation, highlighting common trading psychology pitfalls",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sfa97g",
+          "title": "Blew up my account in 2 days. I am so mad I am shaking",
+          "permalink": "/r/wallstreetbets/comments/1sfa97g/blew_up_my_account_in_2_days_i_am_so_mad_i_am/",
+          "score": 404,
+          "num_comments": 405,
+          "date": "2026-04-07 22:04:43",
+          "flair": "Loss",
+          "engagement_score": 404.2999999999999,
+          "has_comments": true,
+          "sentiment": "bearish",
+          "confidence": 0.9,
+          "tickers": [
+            "QQQ"
+          ],
+          "primary_ticker": "QQQ",
+          "emotions": [
+            "frustration",
+            "panic",
+            "fear"
+          ],
+          "post_type": "loss",
+          "is_sarcastic": false,
+          "market_relevance": 0.7,
+          "key_insight": "Trader lost $21K on QQQ calls due to poor timing and emotional decision-making, part of $130K in losses over 3 years.",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sfxmho",
+          "title": "Meta debuts new AI model, attempting to catch Google, OpenAI after spending billions",
+          "permalink": "/r/wallstreetbets/comments/1sfxmho/meta_debuts_new_ai_model_attempting_to_catch/",
+          "score": 491,
+          "num_comments": 119,
+          "date": "2026-04-08 16:21:35",
+          "flair": "News",
+          "engagement_score": 379.4,
+          "has_comments": true,
+          "sentiment": "neutral",
+          "confidence": 0.7,
+          "tickers": [
+            "META",
+            "GOOGL",
+            "AAPL"
+          ],
+          "primary_ticker": "META",
+          "emotions": [
+            "skepticism",
+            "frustration",
+            "humor"
+          ],
+          "post_type": "news",
+          "is_sarcastic": false,
+          "market_relevance": 0.8,
+          "key_insight": "Meta's new AI model announcement is driving stock price movement but faces user skepticism about adoption compared to competitors",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sf1f01",
+          "title": "I didn't hear no bell \ud83d\udca5",
+          "permalink": "/r/wallstreetbets/comments/1sf1f01/i_didnt_hear_no_bell/",
+          "score": 415,
+          "num_comments": 26,
+          "date": "2026-04-07 16:45:17",
+          "flair": "Meme",
+          "engagement_score": 298.3,
+          "has_comments": true,
+          "sentiment": "bullish",
+          "confidence": 0.4,
+          "tickers": [
+            "NKE",
+            "NVDA",
+            "MSTR",
+            "SQQQ"
+          ],
+          "primary_ticker": "NVDA",
+          "emotions": [
+            "humor",
+            "hope",
+            "frustration"
+          ],
+          "post_type": "meme",
+          "is_sarcastic": true,
+          "market_relevance": 0.3,
+          "key_insight": "Meme post about holding positions during market downturns with references to specific high-priced stock positions",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sfgp8s",
+          "title": "\u201cput order filled\u201d MARKET:",
+          "permalink": "/r/wallstreetbets/comments/1sfgp8s/put_order_filled_market/",
+          "score": 404,
+          "num_comments": 47,
+          "date": "2026-04-08 02:42:44",
+          "flair": "Meme",
+          "engagement_score": 296.9,
+          "has_comments": true,
+          "sentiment": "bearish",
+          "confidence": 0.4,
+          "tickers": [
+            "TSLA"
+          ],
+          "primary_ticker": "TSLA",
+          "emotions": [
+            "humor",
+            "sarcasm",
+            "frustration"
+          ],
+          "post_type": "meme",
+          "is_sarcastic": true,
+          "market_relevance": 0.3,
+          "key_insight": "Meme post about put orders being filled with sarcastic commentary about market movements and Tesla price expectations",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sfxlzh",
+          "title": "$704K Gain. NBIS Calls Don't Miss",
+          "permalink": "/r/wallstreetbets/comments/1sfxlzh/704k_gain_nbis_calls_dont_miss/",
+          "score": 357,
+          "num_comments": 69,
+          "date": "2026-04-08 16:21:05",
+          "flair": "Gain",
+          "engagement_score": 270.59999999999997,
+          "has_comments": true,
+          "sentiment": "bullish",
+          "confidence": 0.9,
+          "tickers": [
+            "NBIS"
+          ],
+          "primary_ticker": "NBIS",
+          "emotions": [
+            "euphoria",
+            "humor",
+            "greed"
+          ],
+          "post_type": "gain",
+          "is_sarcastic": false,
+          "market_relevance": 0.8,
+          "key_insight": "User made $704K in realized gains from NBIS call options over two weeks through high-risk gambling strategy",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1semd8l",
+          "title": "You thought your puny little market rally would manifest a ceasefire? Zolfag says no!",
+          "permalink": "/r/wallstreetbets/comments/1semd8l/you_thought_your_puny_little_market_rally_would/",
+          "score": 341,
+          "num_comments": 89,
+          "date": "2026-04-07 04:51:41",
+          "flair": "Meme",
+          "engagement_score": 265.4,
+          "has_comments": true,
+          "sentiment": "bearish",
+          "confidence": 0.6,
+          "tickers": [
+            "DIA"
+          ],
+          "primary_ticker": "DIA",
+          "emotions": [
+            "sarcasm",
+            "humor",
+            "frustration"
+          ],
+          "post_type": "meme",
+          "is_sarcastic": true,
+          "market_relevance": 0.7,
+          "key_insight": "Mocking market expectations that geopolitical tensions would ease, suggesting oil will pump and DOW will dump due to ongoing conflict.",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sblq48",
+          "title": "President Trump Wants Todd Blanche to Finalize Marijuana Rescheduling as Interim Attorney General",
+          "permalink": "/r/wallstreetbets/comments/1sblq48/president_trump_wants_todd_blanche_to_finalize/",
+          "score": 340,
+          "num_comments": 87,
+          "date": "2026-04-03 18:31:53",
+          "flair": "News",
+          "engagement_score": 264.09999999999997,
+          "has_comments": true,
+          "sentiment": "bullish",
+          "confidence": 0.7,
+          "tickers": [
+            "MSOS"
+          ],
+          "primary_ticker": "MSOS",
+          "emotions": [
+            "hope",
+            "humor",
+            "sarcasm"
+          ],
+          "post_type": "news",
+          "is_sarcastic": false,
+          "market_relevance": 0.8,
+          "key_insight": "Trump's potential marijuana rescheduling through interim AG Todd Blanche could positively impact cannabis ETF MSOS",
+          "is_rumour": true,
+          "rumour_type": "regulatory_decision",
+          "rumour_confidence": 0.6,
+          "rumour_summary": "Trump allegedly wants Todd Blanche to finalize marijuana rescheduling as interim Attorney General",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sfks80",
+          "title": "Gentle reminder to you regards out there",
+          "permalink": "/r/wallstreetbets/comments/1sfks80/gentle_reminder_to_you_regards_out_there/",
+          "score": 353,
+          "num_comments": 24,
+          "date": "2026-04-08 06:15:16",
+          "flair": "Meme",
+          "engagement_score": 254.3,
+          "has_comments": true,
+          "sentiment": "neutral",
+          "confidence": 0.3,
+          "tickers": [
+            "TSLA"
+          ],
+          "primary_ticker": "TSLA",
+          "emotions": [
+            "humor",
+            "sarcasm",
+            "frustration"
+          ],
+          "post_type": "meme",
+          "is_sarcastic": true,
+          "market_relevance": 0.4,
+          "key_insight": "Meme post mocking technical analysis with some discussion of Tesla options trading and market volatility.",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1secvtx",
+          "title": "BROADCOM INC AND GOOGLE ENTER LONG-TERM TPU AND NETWORKING SUPPLY AGREEMENT THROUGH 2031",
+          "permalink": "/r/wallstreetbets/comments/1secvtx/broadcom_inc_and_google_enter_longterm_tpu_and/",
+          "score": 330,
+          "num_comments": 61,
+          "date": "2026-04-06 21:54:44",
+          "flair": "News",
+          "engagement_score": 249.3,
+          "has_comments": true,
+          "sentiment": "bullish",
+          "confidence": 0.8,
+          "tickers": [
+            "AVGO",
+            "GOOGL"
+          ],
+          "primary_ticker": "AVGO",
+          "emotions": [
+            "humor",
+            "sarcasm"
+          ],
+          "post_type": "news",
+          "is_sarcastic": false,
+          "market_relevance": 0.9,
+          "key_insight": "Broadcom secured a major long-term supply agreement with Google for TPUs and AI infrastructure components through 2031, representing significant revenue visibility.",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1ses11r",
+          "title": "Blockbuster SpaceX listing could suck the oxygen out of fragile IPO market",
+          "permalink": "/r/wallstreetbets/comments/1ses11r/blockbuster_spacex_listing_could_suck_the_oxygen/",
+          "score": 287,
+          "num_comments": 80,
+          "date": "2026-04-07 10:23:30",
+          "flair": "News",
+          "engagement_score": 224.9,
+          "has_comments": true,
+          "sentiment": "neutral",
+          "confidence": 0.7,
+          "tickers": [
+            "TSLA"
+          ],
+          "primary_ticker": "TSLA",
+          "emotions": [
+            "frustration",
+            "humor",
+            "sarcasm"
+          ],
+          "post_type": "news",
+          "is_sarcastic": false,
+          "market_relevance": 0.8,
+          "key_insight": "SpaceX's potential $75B IPO could dominate the 2026 IPO market and impact other listings, with possible Tesla investor rotation concerns.",
+          "is_rumour": true,
+          "rumour_type": "none",
+          "rumour_confidence": 0.3,
+          "rumour_summary": "SpaceX approaching a $75 billion IPO that could impact the broader IPO market in 2026",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1scqa93",
+          "title": "SaaSpocalypse story is a boomer fantasy",
+          "permalink": "/r/wallstreetbets/comments/1scqa93/saaspocalypse_story_is_a_boomer_fantasy/",
+          "score": 247,
+          "num_comments": 123,
+          "date": "2026-04-05 01:12:35",
+          "flair": "DD",
+          "engagement_score": 209.8,
+          "has_comments": true,
+          "sentiment": "bearish",
+          "confidence": 0.7,
+          "tickers": [
+            "QQQ",
+            "XLK",
+            "XLF"
+          ],
+          "primary_ticker": "QQQ",
+          "emotions": [
+            "frustration",
+            "sarcasm"
+          ],
+          "post_type": "DD",
+          "is_sarcastic": true,
+          "market_relevance": 0.8,
+          "key_insight": "Author argues that SaaS decline is part of broader tech downturn rather than AI disruption narrative favored by older investors",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sgmhry",
+          "title": "Meta commits to spending additional $21 billion with CoreWeave as AI costs keep rising",
+          "permalink": "/r/wallstreetbets/comments/1sgmhry/meta_commits_to_spending_additional_21_billion/",
+          "score": 263,
+          "num_comments": 74,
+          "date": "2026-04-09 11:06:06",
+          "flair": "News",
+          "engagement_score": 206.3,
+          "has_comments": true,
+          "sentiment": "bearish",
+          "confidence": 0.7,
+          "tickers": [
+            "META",
+            "IREN"
+          ],
+          "primary_ticker": "META",
+          "emotions": [
+            "frustration",
+            "sarcasm",
+            "hope"
+          ],
+          "post_type": "news",
+          "is_sarcastic": true,
+          "market_relevance": 0.8,
+          "key_insight": "Meta's $21 billion AI spending commitment draws skeptical market reaction focused on rising costs without clear value creation.",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sg7a81",
+          "title": "I fell before dawn, and no one said thank you to me",
+          "permalink": "/r/wallstreetbets/comments/1sg7a81/i_fell_before_dawn_and_no_one_said_thank_you_to_me/",
+          "score": 225,
+          "num_comments": 84,
+          "date": "2026-04-08 22:13:38",
+          "flair": "Loss",
+          "engagement_score": 182.7,
+          "has_comments": true,
+          "sentiment": "bearish",
+          "confidence": 0.8,
+          "tickers": [
+            "MSFT",
+            "INTC"
+          ],
+          "primary_ticker": "MSFT",
+          "emotions": [
+            "frustration",
+            "panic",
+            "humor",
+            "sarcasm"
+          ],
+          "post_type": "loss",
+          "is_sarcastic": true,
+          "market_relevance": 0.9,
+          "key_insight": "Heavy losses on MSFT positions with users expressing panic and regret over timing decisions around geopolitical events",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sfkbck",
+          "title": "Profitable after almost 6 years. -56k comeback.",
+          "permalink": "/r/wallstreetbets/comments/1sfkbck/profitable_after_almost_6_years_56k_comeback/",
+          "score": 235,
+          "num_comments": 53,
+          "date": "2026-04-08 05:48:48",
+          "flair": "Gain",
+          "engagement_score": 180.4,
+          "has_comments": true,
+          "sentiment": "bullish",
+          "confidence": 0.7,
+          "tickers": [
+            "INTC",
+            "VIAC",
+            "DFTX",
+            "T"
+          ],
+          "primary_ticker": "INTC",
+          "emotions": [
+            "hope",
+            "humor",
+            "sarcasm"
+          ],
+          "post_type": "gain",
+          "is_sarcastic": false,
+          "market_relevance": 0.6,
+          "key_insight": "User recovered from -$56k loss over 6 years primarily through Intel (INTC) investments after learning from costly options mistakes",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sfptlz",
+          "title": "Bear Therapy: We lost tonight, but the market is still fake and gay (takes one to know one)",
+          "permalink": "/r/wallstreetbets/comments/1sfptlz/bear_therapy_we_lost_tonight_but_the_market_is/",
+          "score": 194,
+          "num_comments": 87,
+          "date": "2026-04-08 11:13:58",
+          "flair": "Discussion",
+          "engagement_score": 161.89999999999998,
+          "has_comments": true,
+          "sentiment": "bearish",
+          "confidence": 0.7,
+          "tickers": [
+            "PARA"
+          ],
+          "primary_ticker": "PARA",
+          "emotions": [
+            "frustration",
+            "humor",
+            "sarcasm"
+          ],
+          "post_type": "loss",
+          "is_sarcastic": true,
+          "market_relevance": 0.8,
+          "key_insight": "Bears discussing losses and considering whether to hold or sell their short positions amid broader market concerns about economic fundamentals.",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sd2j0x",
+          "title": "Oil chads absolutely railed nat gas virgins YTD - Who\u2019s running next?",
+          "permalink": "/r/wallstreetbets/comments/1sd2j0x/oil_chads_absolutely_railed_nat_gas_virgins_ytd/",
+          "score": 163,
+          "num_comments": 100,
+          "date": "2026-04-05 12:36:10",
+          "flair": "Discussion",
+          "engagement_score": 144.1,
+          "has_comments": true,
+          "sentiment": "bullish",
+          "confidence": 0.8,
+          "tickers": [
+            "KOS",
+            "MUR",
+            "GPRK",
+            "MTDR",
+            "CRGY",
+            "CHRD",
+            "SM",
+            "CRK",
+            "NE",
+            "SDRL",
+            "VAL",
+            "PBR"
+          ],
+          "primary_ticker": "KOS",
+          "emotions": [
+            "greed",
+            "humor",
+            "euphoria"
+          ],
+          "post_type": "DD",
+          "is_sarcastic": false,
+          "market_relevance": 0.9,
+          "key_insight": "Oil stocks significantly outperformed natural gas plays YTD due to commodity price divergence, with specific oil E&P and service company picks provided.",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sg1phf",
+          "title": "Yolo\u2019d UAL calls an hour before market closed yesterday",
+          "permalink": "/r/wallstreetbets/comments/1sg1phf/yolod_ual_calls_an_hour_before_market_closed/",
+          "score": 177,
+          "num_comments": 42,
+          "date": "2026-04-08 18:46:19",
+          "flair": "Gain",
+          "engagement_score": 136.5,
+          "has_comments": true,
+          "sentiment": "bullish",
+          "confidence": 0.8,
+          "tickers": [
+            "UAL"
+          ],
+          "primary_ticker": "UAL",
+          "emotions": [
+            "euphoria",
+            "greed",
+            "hope"
+          ],
+          "post_type": "gain",
+          "is_sarcastic": false,
+          "market_relevance": 0.9,
+          "key_insight": "Trader made successful UAL calls bet timing it with Trump's peace deal announcement, resulting in significant gains.",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sg1t9y",
+          "title": "Why didn't I think of this before? - DJT",
+          "permalink": "/r/wallstreetbets/comments/1sg1t9y/why_didnt_i_think_of_this_before_djt/",
+          "score": 182,
+          "num_comments": 21,
+          "date": "2026-04-08 18:50:09",
+          "flair": "Meme",
+          "engagement_score": 133.7,
+          "has_comments": true,
+          "sentiment": "bearish",
+          "confidence": 0.6,
+          "tickers": [
+            "DJT"
+          ],
+          "primary_ticker": "DJT",
+          "emotions": [
+            "sarcasm",
+            "humor",
+            "frustration"
+          ],
+          "post_type": "meme",
+          "is_sarcastic": true,
+          "market_relevance": 0.7,
+          "key_insight": "Satirical post about Trump's potential waterway toll strategy affecting geopolitical stability and trade routes",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sg9rhv",
+          "title": "Will these print tommorow or am I fuk",
+          "permalink": "/r/wallstreetbets/comments/1sg9rhv/will_these_print_tommorow_or_am_i_fuk/",
+          "score": 125,
+          "num_comments": 146,
+          "date": "2026-04-08 23:58:41",
+          "flair": "Discussion",
+          "engagement_score": 131.3,
+          "has_comments": true,
+          "sentiment": "bearish",
+          "confidence": 0.7,
+          "tickers": [
+            "SPX"
+          ],
+          "primary_ticker": "SPX",
+          "emotions": [
+            "panic",
+            "frustration",
+            "humor",
+            "fear"
+          ],
+          "post_type": "YOLO",
+          "is_sarcastic": false,
+          "market_relevance": 0.8,
+          "key_insight": "Trader went all-in on SPX puts betting on market dump from strait closure but appears worried about losses",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1se52pf",
+          "title": "TSLA poots are the way",
+          "permalink": "/r/wallstreetbets/comments/1se52pf/tsla_poots_are_the_way/",
+          "score": 165,
+          "num_comments": 43,
+          "date": "2026-04-06 17:15:37",
+          "flair": "Gain",
+          "engagement_score": 128.39999999999998,
+          "has_comments": true,
+          "sentiment": "bearish",
+          "confidence": 0.8,
+          "tickers": [
+            "TSLA"
+          ],
+          "primary_ticker": "TSLA",
+          "emotions": [
+            "greed",
+            "humor",
+            "sarcasm"
+          ],
+          "post_type": "gain",
+          "is_sarcastic": false,
+          "market_relevance": 0.9,
+          "key_insight": "User is celebrating Tesla puts position and believes TSLA is overvalued and heading lower",
+          "is_rumour": true,
+          "rumour_type": "acquisition_rumour",
+          "rumour_confidence": 0.3,
+          "rumour_summary": "Comment mentions SpaceX IPO coming in a couple of months which could drain capital from TSLA",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sdn953",
+          "title": "$COIN max bet",
+          "permalink": "/r/wallstreetbets/comments/1sdn953/coin_max_bet/",
+          "score": 142,
+          "num_comments": 84,
+          "date": "2026-04-06 03:05:08",
+          "flair": "YOLO",
+          "engagement_score": 124.6,
+          "has_comments": true,
+          "sentiment": "bullish",
+          "confidence": 0.7,
+          "tickers": [
+            "COIN",
+            "PLTR"
+          ],
+          "primary_ticker": "COIN",
+          "emotions": [
+            "greed",
+            "hope",
+            "humor"
+          ],
+          "post_type": "YOLO",
+          "is_sarcastic": false,
+          "market_relevance": 0.8,
+          "key_insight": "User made a large COIN bet based on Bitcoin intuition, with community mixing encouragement and warnings about the volatile stock.",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sey3dq",
+          "title": "Intel joins Musk's Terafab AI chip project to power humanoid, data center goals",
+          "permalink": "/r/wallstreetbets/comments/1sey3dq/intel_joins_musks_terafab_ai_chip_project_to/",
+          "score": 158,
+          "num_comments": 46,
+          "date": "2026-04-07 14:46:52",
+          "flair": "News",
+          "engagement_score": 124.4,
+          "has_comments": true,
+          "sentiment": "bullish",
+          "confidence": 0.6,
+          "tickers": [
+            "INTC"
+          ],
+          "primary_ticker": "INTC",
+          "emotions": [
+            "hope",
+            "humor",
+            "sarcasm"
+          ],
+          "post_type": "news",
+          "is_sarcastic": false,
+          "market_relevance": 0.7,
+          "key_insight": "Intel partnership with Musk's AI chip project seen as potential catalyst but with skepticism about substance versus narrative",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sg92dc",
+          "title": "DCA am I right?",
+          "permalink": "/r/wallstreetbets/comments/1sg92dc/dca_am_i_right/",
+          "score": 158,
+          "num_comments": 15,
+          "date": "2026-04-08 23:28:27",
+          "flair": "Meme",
+          "engagement_score": 115.1,
+          "has_comments": true,
+          "sentiment": "neutral",
+          "confidence": 0.3,
+          "tickers": [
+            "COST"
+          ],
+          "primary_ticker": "COST",
+          "emotions": [
+            "humor",
+            "sarcasm",
+            "frustration"
+          ],
+          "post_type": "meme",
+          "is_sarcastic": true,
+          "market_relevance": 0.2,
+          "key_insight": "Meme post joking about dollar-cost averaging with minimal actual market discussion except one Costco trade mention.",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sg3ttr",
+          "title": "Watch out for the bots on here.",
+          "permalink": "/r/wallstreetbets/comments/1sg3ttr/watch_out_for_the_bots_on_here/",
+          "score": 122,
+          "num_comments": 83,
+          "date": "2026-04-08 20:02:43",
+          "flair": "Discussion",
+          "engagement_score": 110.29999999999998,
+          "has_comments": true,
+          "sentiment": "neutral",
+          "confidence": 0.3,
+          "tickers": [
+            "RDDT"
+          ],
+          "primary_ticker": "RDDT",
+          "emotions": [
+            "frustration",
+            "sarcasm",
+            "humor"
+          ],
+          "post_type": "other",
+          "is_sarcastic": true,
+          "market_relevance": 0.2,
+          "key_insight": "Meta discussion about bot activity on the subreddit with minimal market relevance beyond mentions of Reddit stock and oil market.",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1see3uo",
+          "title": "AMA: I\u2019m the most successful insider trader of all time. Ask me anything",
+          "permalink": "/r/wallstreetbets/comments/1see3uo/ama_im_the_most_successful_insider_trader_of_all/",
+          "score": 133,
+          "num_comments": 48,
+          "date": "2026-04-06 22:43:00",
+          "flair": "Discussion",
+          "engagement_score": 107.5,
+          "has_comments": true,
+          "sentiment": "neutral",
+          "confidence": 0.2,
+          "tickers": [
+            "TACO"
+          ],
+          "primary_ticker": "TACO",
+          "emotions": [
+            "humor",
+            "sarcasm"
+          ],
+          "post_type": "meme",
+          "is_sarcastic": true,
+          "market_relevance": 0.1,
+          "key_insight": "Satirical post joking about insider trading with minimal actual market content except for one ticker mention in comments",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1se3pxj",
+          "title": "AGI got me to even after 9 years",
+          "permalink": "/r/wallstreetbets/comments/1se3pxj/agi_got_me_to_even_after_9_years/",
+          "score": 134,
+          "num_comments": 41,
+          "date": "2026-04-06 16:26:51",
+          "flair": "YOLO",
+          "engagement_score": 106.1,
+          "has_comments": true,
+          "sentiment": "bullish",
+          "confidence": 0.7,
+          "tickers": [
+            "AGI"
+          ],
+          "primary_ticker": "AGI",
+          "emotions": [
+            "relief",
+            "hope",
+            "frustration"
+          ],
+          "post_type": "gain",
+          "is_sarcastic": false,
+          "market_relevance": 0.6,
+          "key_insight": "Investor finally broke even on AGI position after holding for 9 years, suggesting potential recent gains in the stock",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sb78pd",
+          "title": "One more drop before massive rally",
+          "permalink": "/r/wallstreetbets/comments/1sb78pd/one_more_drop_before_massive_rally/",
+          "score": 107,
+          "num_comments": 86,
+          "date": "2026-04-03 07:51:49",
+          "flair": "YOLO",
+          "engagement_score": 100.7,
+          "has_comments": true,
+          "sentiment": "bullish",
+          "confidence": 0.3,
+          "tickers": [
+            "RIVN"
+          ],
+          "primary_ticker": "RIVN",
+          "emotions": [
+            "hope",
+            "sarcasm",
+            "humor"
+          ],
+          "post_type": "YOLO",
+          "is_sarcastic": false,
+          "market_relevance": 0.4,
+          "key_insight": "Post connects geopolitical events to RIVN stock rally prediction through questionable conspiracy theory logic",
+          "is_rumour": true,
+          "rumour_type": "regulatory_decision",
+          "rumour_confidence": 0.2,
+          "rumour_summary": "Claims US military operation will end war suppression of markets leading to RIVN rally",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sfedqn",
+          "title": "Brent Oil Yolo, Thesis Hasn\u2019t Changed",
+          "permalink": "/r/wallstreetbets/comments/1sfedqn/brent_oil_yolo_thesis_hasnt_changed/",
+          "score": 99,
+          "num_comments": 78,
+          "date": "2026-04-08 00:58:43",
+          "flair": "YOLO",
+          "engagement_score": 92.7,
+          "has_comments": true,
+          "sentiment": "bullish",
+          "confidence": 0.8,
+          "tickers": [
+            "BZ=F",
+            "CL=F"
+          ],
+          "primary_ticker": "BZ=F",
+          "emotions": [
+            "hope",
+            "frustration"
+          ],
+          "post_type": "YOLO",
+          "is_sarcastic": false,
+          "market_relevance": 0.9,
+          "key_insight": "Trader holding large Brent oil position betting on continued supply disruptions in Middle East straits despite potential ceasefire.",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sfuhur",
+          "title": "Gay bear \ud83d\udc3b converts to Islam, gets forgiven",
+          "permalink": "/r/wallstreetbets/comments/1sfuhur/gay_bear_converts_to_islam_gets_forgiven/",
+          "score": 106,
+          "num_comments": 23,
+          "date": "2026-04-08 14:29:26",
+          "flair": "Gain",
+          "engagement_score": 81.1,
+          "has_comments": true,
+          "sentiment": "bullish",
+          "confidence": 0.7,
+          "tickers": [
+            "TACO"
+          ],
+          "primary_ticker": "TACO",
+          "emotions": [
+            "humor",
+            "euphoria",
+            "hope"
+          ],
+          "post_type": "gain",
+          "is_sarcastic": false,
+          "market_relevance": 0.8,
+          "key_insight": "User recovered from 50% loss by switching from bearish to bullish position with 1DTE TACO calls",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sf85du",
+          "title": "War or Not",
+          "permalink": "/r/wallstreetbets/comments/1sf85du/war_or_not/",
+          "score": 106,
+          "num_comments": 19,
+          "date": "2026-04-07 20:44:44",
+          "flair": "Gain",
+          "engagement_score": 79.89999999999999,
+          "has_comments": true,
+          "sentiment": "bullish",
+          "confidence": 0.6,
+          "tickers": [
+            "SPX"
+          ],
+          "primary_ticker": "SPX",
+          "emotions": [
+            "euphoria",
+            "greed"
+          ],
+          "post_type": "gain",
+          "is_sarcastic": false,
+          "market_relevance": 0.7,
+          "key_insight": "Post celebrates significant market gains with SPX calls mentioned gaining 600% in minutes amid geopolitical uncertainty",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sfu013",
+          "title": "Finally have something WSB worthy \ud83c\udf2e",
+          "permalink": "/r/wallstreetbets/comments/1sfu013/finally_have_something_wsb_worthy/",
+          "score": 103,
+          "num_comments": 12,
+          "date": "2026-04-08 14:11:38",
+          "flair": "Gain",
+          "engagement_score": 75.69999999999999,
+          "has_comments": true,
+          "sentiment": "bullish",
+          "confidence": 0.7,
+          "tickers": [
+            "TACO"
+          ],
+          "primary_ticker": "TACO",
+          "emotions": [
+            "euphoria",
+            "humor"
+          ],
+          "post_type": "gain",
+          "is_sarcastic": false,
+          "market_relevance": 0.8,
+          "key_insight": "User celebrating significant gains on TACO stock position that exceeded expectations",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sg6bzw",
+          "title": "Why SaaS stocks will crash hard and TTD will be the first to go to 0",
+          "permalink": "/r/wallstreetbets/comments/1sg6bzw/why_saas_stocks_will_crash_hard_and_ttd_will_be/",
+          "score": 38,
+          "num_comments": 162,
+          "date": "2026-04-08 21:35:39",
+          "flair": "DD",
+          "engagement_score": 75.2,
+          "has_comments": true,
+          "sentiment": "bearish",
+          "confidence": 0.3,
+          "tickers": [
+            "TTD",
+            "MSFT",
+            "ADBE",
+            "FIG",
+            "CRM",
+            "NOW",
+            "TEAM",
+            "SNOW",
+            "ORCL",
+            "NVO",
+            "INTU"
+          ],
+          "primary_ticker": "TTD",
+          "emotions": [
+            "sarcasm",
+            "humor",
+            "fear"
+          ],
+          "post_type": "DD",
+          "is_sarcastic": false,
+          "market_relevance": 0.4,
+          "key_insight": "User predicts AI will make SaaS stocks obsolete with TTD being first casualty, but lacks credible analysis and contains factual errors.",
+          "is_rumour": true,
+          "rumour_type": "regulatory_decision",
+          "rumour_confidence": 0.2,
+          "rumour_summary": "Claims audits from Publicis and Omnicom found improper fee applications at TTD with client consent issues.",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sbotyg",
+          "title": "Playing with oil. (Or how I learned to love TACO Mondays.",
+          "permalink": "/r/wallstreetbets/comments/1sbotyg/playing_with_oil_or_how_i_learned_to_love_taco/",
+          "score": 89,
+          "num_comments": 29,
+          "date": "2026-04-03 20:27:53",
+          "flair": "Gain",
+          "engagement_score": 71.0,
+          "has_comments": true,
+          "sentiment": "bullish",
+          "confidence": 0.7,
+          "tickers": [
+            "TACO",
+            "USO"
+          ],
+          "primary_ticker": "USO",
+          "emotions": [
+            "humor",
+            "euphoria"
+          ],
+          "post_type": "gain",
+          "is_sarcastic": false,
+          "market_relevance": 0.8,
+          "key_insight": "User celebrating oil trading gains with mentions of USO performing well on Thursday morning",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sg3x0z",
+          "title": "Who still holding INTC\ud83d\udc40\ud83d\ude80",
+          "permalink": "/r/wallstreetbets/comments/1sg3x0z/who_still_holding_intc/",
+          "score": 85,
+          "num_comments": 34,
+          "date": "2026-04-08 20:05:58",
+          "flair": "Gain",
+          "engagement_score": 69.69999999999999,
+          "has_comments": true,
+          "sentiment": "bullish",
+          "confidence": 0.8,
+          "tickers": [
+            "INTC"
+          ],
+          "primary_ticker": "INTC",
+          "emotions": [
+            "hope",
+            "euphoria",
+            "humor"
+          ],
+          "post_type": "gain",
+          "is_sarcastic": false,
+          "market_relevance": 0.9,
+          "key_insight": "INTC holders are celebrating gains after holding through significant losses, with some taking profits and others maintaining long positions.",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sfepz0",
+          "title": "$USO puts",
+          "permalink": "/r/wallstreetbets/comments/1sfepz0/uso_puts/",
+          "score": 59,
+          "num_comments": 60,
+          "date": "2026-04-08 01:13:29",
+          "flair": "YOLO",
+          "engagement_score": 59.3,
+          "has_comments": true,
+          "sentiment": "bearish",
+          "confidence": 0.8,
+          "tickers": [
+            "USO"
+          ],
+          "primary_ticker": "USO",
+          "emotions": [
+            "greed",
+            "hope",
+            "euphoria"
+          ],
+          "post_type": "YOLO",
+          "is_sarcastic": false,
+          "market_relevance": 0.9,
+          "key_insight": "User made a large put options play on USO (oil ETF) expecting significant downward price movement by expiration",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sffm4t",
+          "title": "Passed the point of \u201cI\u2019m not sleeping tonight\u201d",
+          "permalink": "/r/wallstreetbets/comments/1sffm4t/passed_the_point_of_im_not_sleeping_tonight/",
+          "score": 63,
+          "num_comments": 50,
+          "date": "2026-04-08 01:53:04",
+          "flair": "Loss",
+          "engagement_score": 59.099999999999994,
+          "has_comments": true,
+          "sentiment": "bearish",
+          "confidence": 0.7,
+          "tickers": [
+            "TACO"
+          ],
+          "primary_ticker": "TACO",
+          "emotions": [
+            "frustration",
+            "panic",
+            "humor"
+          ],
+          "post_type": "loss",
+          "is_sarcastic": true,
+          "market_relevance": 0.6,
+          "key_insight": "User experienced significant losses and is using dark humor to cope with trading stress and sleepless nights",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sdmaa4",
+          "title": "Futures Trade - Long Brent (BNO / BZ) Short WTI (USO / MCL)",
+          "permalink": "/r/wallstreetbets/comments/1sdmaa4/futures_trade_long_brent_bno_bz_short_wti_uso_mcl/",
+          "score": 53,
+          "num_comments": 70,
+          "date": "2026-04-06 02:19:42",
+          "flair": "YOLO",
+          "engagement_score": 58.099999999999994,
+          "has_comments": true,
+          "sentiment": "bearish",
+          "confidence": 0.7,
+          "tickers": [
+            "BNO",
+            "BZ",
+            "USO",
+            "MCL"
+          ],
+          "primary_ticker": "BNO",
+          "emotions": [
+            "hope",
+            "frustration"
+          ],
+          "post_type": "YOLO",
+          "is_sarcastic": false,
+          "market_relevance": 0.8,
+          "key_insight": "Complex oil futures arbitrage trade betting on Brent crude outperforming WTI due to global supply shortages versus US inventory surplus.",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sey2ef",
+          "title": "+$50k, 2 hr trade open-to-close, short silver",
+          "permalink": "/r/wallstreetbets/comments/1sey2ef/50k_2_hr_trade_opentoclose_short_silver/",
+          "score": 73,
+          "num_comments": 16,
+          "date": "2026-04-07 14:45:54",
+          "flair": "Gain",
+          "engagement_score": 55.89999999999999,
+          "has_comments": true,
+          "sentiment": "bullish",
+          "confidence": 0.8,
+          "tickers": [
+            "SLV"
+          ],
+          "primary_ticker": "SLV",
+          "emotions": [
+            "greed",
+            "euphoria",
+            "humor"
+          ],
+          "post_type": "gain",
+          "is_sarcastic": false,
+          "market_relevance": 0.9,
+          "key_insight": "Trader made $50k profit in 2 hours by shorting silver with exceptional timing at the bottom",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sgfxpf",
+          "title": "Maybe I'll break even when all this over",
+          "permalink": "/r/wallstreetbets/comments/1sgfxpf/maybe_ill_break_even_when_all_this_over/",
+          "score": 70,
+          "num_comments": 20,
+          "date": "2026-04-09 04:46:45",
+          "flair": "Meme",
+          "engagement_score": 55.0,
+          "has_comments": true,
+          "sentiment": "bearish",
+          "confidence": 0.6,
+          "tickers": [
+            "UCO",
+            "PNC"
+          ],
+          "primary_ticker": "UCO",
+          "emotions": [
+            "frustration",
+            "humor",
+            "sarcasm"
+          ],
+          "post_type": "meme",
+          "is_sarcastic": true,
+          "market_relevance": 0.4,
+          "key_insight": "Users joking about losses and risky oil plays while hoping to break even",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sdvn3z",
+          "title": "Jamie Dimon highlights Iran War, private credit, and AI-driven job losses as major US risks in his annual letter",
+          "permalink": "/r/wallstreetbets/comments/1sdvn3z/jamie_dimon_highlights_iran_war_private_credit/",
+          "score": 69,
+          "num_comments": 15,
+          "date": "2026-04-06 11:00:56",
+          "flair": "News",
+          "engagement_score": 52.8,
+          "has_comments": true,
+          "sentiment": "bearish",
+          "confidence": 0.7,
+          "tickers": [
+            "JPM"
+          ],
+          "primary_ticker": "JPM",
+          "emotions": [
+            "sarcasm",
+            "frustration"
+          ],
+          "post_type": "news",
+          "is_sarcastic": true,
+          "market_relevance": 0.8,
+          "key_insight": "Jamie Dimon warns of major economic risks including Iran War, private credit issues, and AI job displacement in his annual shareholder letter",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sfc8pk",
+          "title": "Can\u2019t wait for tomorrow",
+          "permalink": "/r/wallstreetbets/comments/1sfc8pk/cant_wait_for_tomorrow/",
+          "score": 56,
+          "num_comments": 43,
+          "date": "2026-04-07 23:25:22",
+          "flair": "Gain",
+          "engagement_score": 52.099999999999994,
+          "has_comments": true,
+          "sentiment": "bullish",
+          "confidence": 0.8,
+          "tickers": [
+            "QQQ"
+          ],
+          "primary_ticker": "QQQ",
+          "emotions": [
+            "euphoria",
+            "greed",
+            "hope"
+          ],
+          "post_type": "gain",
+          "is_sarcastic": false,
+          "market_relevance": 0.9,
+          "key_insight": "Trader celebrating significant options gains on QQQ calls expecting them to be worth $13.50 from $1.15 purchase price.",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sglaha",
+          "title": "48k GOLD YOLO",
+          "permalink": "/r/wallstreetbets/comments/1sglaha/48k_gold_yolo/",
+          "score": 56,
+          "num_comments": 30,
+          "date": "2026-04-09 10:00:00",
+          "flair": "YOLO",
+          "engagement_score": 48.2,
+          "has_comments": true,
+          "sentiment": "bullish",
+          "confidence": 0.7,
+          "tickers": [
+            "GOLD"
+          ],
+          "primary_ticker": "GOLD",
+          "emotions": [
+            "hope",
+            "humor"
+          ],
+          "post_type": "YOLO",
+          "is_sarcastic": false,
+          "market_relevance": 0.8,
+          "key_insight": "User made a $48k bullish bet on gold based on belief that current war will not affect monetary policy long-term",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sczlot",
+          "title": "WTI just broke Brent and nobody's talking about it $USO $XLE",
+          "permalink": "/r/wallstreetbets/comments/1sczlot/wti_just_broke_brent_and_nobodys_talking_about_it/",
+          "score": 45,
+          "num_comments": 52,
+          "date": "2026-04-05 09:50:33",
+          "flair": "DD",
+          "engagement_score": 47.099999999999994,
+          "has_comments": true,
+          "sentiment": "bullish",
+          "confidence": 0.3,
+          "tickers": [
+            "USO",
+            "XLE",
+            "UNG"
+          ],
+          "primary_ticker": "XLE",
+          "emotions": [
+            "greed",
+            "sarcasm",
+            "humor"
+          ],
+          "post_type": "DD",
+          "is_sarcastic": false,
+          "market_relevance": 0.6,
+          "key_insight": "Claims WTI crude has inverted above Brent pricing due to supply constraints, recommending long XLE calls and short UNG positions.",
+          "is_rumour": true,
+          "rumour_type": "regulatory_decision",
+          "rumour_confidence": 0.4,
+          "rumour_summary": "Claims Strait of Hormuz is closed to real traffic affecting oil supply dynamics",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1senxyr",
+          "title": "Cheated on Wendy\u2019s",
+          "permalink": "/r/wallstreetbets/comments/1senxyr/cheated_on_wendys/",
+          "score": 60,
+          "num_comments": 14,
+          "date": "2026-04-07 06:18:39",
+          "flair": "Meme",
+          "engagement_score": 46.2,
+          "has_comments": true,
+          "sentiment": "neutral",
+          "confidence": 0.2,
+          "tickers": [
+            "WEN"
+          ],
+          "primary_ticker": "WEN",
+          "emotions": [
+            "humor",
+            "sarcasm"
+          ],
+          "post_type": "meme",
+          "is_sarcastic": true,
+          "market_relevance": 0.1,
+          "key_insight": "Meme post making sexual jokes about Wendy's restaurant with no actual market analysis or investment content.",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sftxw1",
+          "title": "220$ -> 6740$",
+          "permalink": "/r/wallstreetbets/comments/1sftxw1/220_6740/",
+          "score": 62,
+          "num_comments": 9,
+          "date": "2026-04-08 14:09:31",
+          "flair": "Gain",
+          "engagement_score": 46.1,
+          "has_comments": true,
+          "sentiment": "bullish",
+          "confidence": 0.7,
+          "tickers": [
+            "GOOGL"
+          ],
+          "primary_ticker": "GOOGL",
+          "emotions": [
+            "euphoria",
+            "greed"
+          ],
+          "post_type": "gain",
+          "is_sarcastic": false,
+          "market_relevance": 0.8,
+          "key_insight": "User made significant gains on GOOGL options, turning $220 into $6740 and sold at market open",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sb2mum",
+          "title": "Caffeine crash: Celsius (CELH)",
+          "permalink": "/r/wallstreetbets/comments/1sb2mum/caffeine_crash_celsius_celh/",
+          "score": 38,
+          "num_comments": 59,
+          "date": "2026-04-03 03:34:48",
+          "flair": "DD",
+          "engagement_score": 44.3,
+          "has_comments": true,
+          "sentiment": "bearish",
+          "confidence": 0.8,
+          "tickers": [
+            "CELH",
+            "MNST"
+          ],
+          "primary_ticker": "CELH",
+          "emotions": [
+            "frustration",
+            "sarcasm"
+          ],
+          "post_type": "DD",
+          "is_sarcastic": false,
+          "market_relevance": 0.9,
+          "key_insight": "CELH is overvalued with a PE of 136 compared to competitor MNST in the 30s, facing margin pressure from rising transportation costs due to high oil prices.",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sf5er5",
+          "title": "Down 49k in a day 141k total unrealized loss on MU and SNDK calls \ud83e\udd21",
+          "permalink": "/r/wallstreetbets/comments/1sf5er5/down_49k_in_a_day_141k_total_unrealized_loss_on/",
+          "score": 51,
+          "num_comments": 27,
+          "date": "2026-04-07 19:03:54",
+          "flair": "Gain",
+          "engagement_score": 43.8,
+          "has_comments": true,
+          "sentiment": "bearish",
+          "confidence": 0.7,
+          "tickers": [
+            "MU",
+            "SNDK"
+          ],
+          "primary_ticker": "MU",
+          "emotions": [
+            "frustration",
+            "sarcasm",
+            "humor"
+          ],
+          "post_type": "loss",
+          "is_sarcastic": true,
+          "market_relevance": 0.8,
+          "key_insight": "User claims significant losses on MU and SNDK calls while contradictorily bragging about portfolio size, indicating potential sarcasm or exaggeration typical of WSB culture.",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sbf07y",
+          "title": "Full Port into Centrus Energy (NYSE:LEU)",
+          "permalink": "/r/wallstreetbets/comments/1sbf07y/full_port_into_centrus_energy_nyseleu/",
+          "score": 43,
+          "num_comments": 34,
+          "date": "2026-04-03 14:23:20",
+          "flair": "YOLO",
+          "engagement_score": 40.3,
+          "has_comments": true,
+          "sentiment": "bullish",
+          "confidence": 0.8,
+          "tickers": [
+            "LEU"
+          ],
+          "primary_ticker": "LEU",
+          "emotions": [
+            "hope",
+            "greed"
+          ],
+          "post_type": "YOLO",
+          "is_sarcastic": false,
+          "market_relevance": 0.85,
+          "key_insight": "User is making a significant position in Centrus Energy citing geopolitical factors affecting the uranium/nuclear energy sector",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sbckw0",
+          "title": "Fixed the logo",
+          "permalink": "/r/wallstreetbets/comments/1sbckw0/fixed_the_logo/",
+          "score": 53,
+          "num_comments": 7,
+          "date": "2026-04-03 12:44:14",
+          "flair": "Meme",
+          "engagement_score": 39.2,
+          "has_comments": true,
+          "sentiment": "bearish",
+          "confidence": 0.3,
+          "tickers": [
+            "TLT"
+          ],
+          "primary_ticker": "TLT",
+          "emotions": [
+            "sarcasm",
+            "frustration",
+            "humor"
+          ],
+          "post_type": "meme",
+          "is_sarcastic": true,
+          "market_relevance": 0.4,
+          "key_insight": "Sarcastic commentary on market conditions and economic data with skepticism about job numbers and oil prices",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sg8mgb",
+          "title": "Although I missed the big pump, WMT helped me with small rally.",
+          "permalink": "/r/wallstreetbets/comments/1sg8mgb/although_i_missed_the_big_pump_wmt_helped_me_with/",
+          "score": 51,
+          "num_comments": 9,
+          "date": "2026-04-08 23:09:16",
+          "flair": "Gain",
+          "engagement_score": 38.4,
+          "has_comments": true,
+          "sentiment": "bullish",
+          "confidence": 0.8,
+          "tickers": [
+            "WMT"
+          ],
+          "primary_ticker": "WMT",
+          "emotions": [
+            "hope",
+            "euphoria"
+          ],
+          "post_type": "gain",
+          "is_sarcastic": false,
+          "market_relevance": 0.9,
+          "key_insight": "User made profits from WMT's strong rally despite missing the initial big pump",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sf6mwu",
+          "title": "Feast your eyes on pure asymmetry",
+          "permalink": "/r/wallstreetbets/comments/1sf6mwu/feast_your_eyes_on_pure_asymmetry/",
+          "score": 35,
+          "num_comments": 40,
+          "date": "2026-04-07 19:48:10",
+          "flair": "YOLO",
+          "engagement_score": 36.5,
+          "has_comments": true,
+          "sentiment": "bullish",
+          "confidence": 0.7,
+          "tickers": [
+            "GLD"
+          ],
+          "primary_ticker": "GLD",
+          "emotions": [
+            "hope",
+            "humor"
+          ],
+          "post_type": "YOLO",
+          "is_sarcastic": false,
+          "market_relevance": 0.8,
+          "key_insight": "User presents multiple geopolitical scenarios all leading to bullish gold outlook with options strategy recommendation",
+          "is_rumour": true,
+          "rumour_type": "regulatory_decision",
+          "rumour_confidence": 0.3,
+          "rumour_summary": "Speculation about Trump policies affecting petrodollar system and potential Iran strait closure impacting oil markets",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sdcau8",
+          "title": "Can an issuer vacuum up its own preferred at dumpster prices, then nuke the leftovers with a $25 redemption like nothing happened? $RILYP",
+          "permalink": "/r/wallstreetbets/comments/1sdcau8/can_an_issuer_vacuum_up_its_own_preferred_at/",
+          "score": 42,
+          "num_comments": 22,
+          "date": "2026-04-05 19:14:48",
+          "flair": "Discussion",
+          "engagement_score": 36.0,
+          "has_comments": true,
+          "sentiment": "neutral",
+          "confidence": 0.7,
+          "tickers": [
+            "RILYP",
+            "RILYZ"
+          ],
+          "primary_ticker": "RILYP",
+          "emotions": [
+            "humor",
+            "frustration"
+          ],
+          "post_type": "question",
+          "is_sarcastic": false,
+          "market_relevance": 0.8,
+          "key_insight": "User is asking about preferred stock mechanics, specifically whether an issuer can buy back preferred shares at low prices then redeem remaining shares at par value.",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sdkdic",
+          "title": "Iran threatens \u2018complete and utter annihilation\u2019 of OpenAI's $30B Stargate AI data center in Abu Dhabi",
+          "permalink": "/r/wallstreetbets/comments/1sdkdic/iran_threatens_complete_and_utter_annihilation_of/",
+          "score": 42,
+          "num_comments": 21,
+          "date": "2026-04-06 00:53:23",
+          "flair": "News",
+          "engagement_score": 35.699999999999996,
+          "has_comments": true,
+          "sentiment": "bearish",
+          "confidence": 0.7,
+          "tickers": [
+            "MSFT"
+          ],
+          "primary_ticker": "MSFT",
+          "emotions": [
+            "humor",
+            "sarcasm",
+            "fear"
+          ],
+          "post_type": "news",
+          "is_sarcastic": true,
+          "market_relevance": 0.8,
+          "key_insight": "Geopolitical threats against major AI infrastructure could impact OpenAI and Microsoft's massive Stargate investment.",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1se0zso",
+          "title": "WHICH SECTORS ARE CRUSHING AN WHICH ARE CRYING OVER THIER RETURNS WITHIN THE FIRST 3 MONTHS OF 2026",
+          "permalink": "/r/wallstreetbets/comments/1se0zso/which_sectors_are_crushing_an_which_are_crying/",
+          "score": 29,
+          "num_comments": 24,
+          "date": "2026-04-06 14:48:51",
+          "flair": "Discussion",
+          "engagement_score": 27.499999999999996,
+          "has_comments": true,
+          "sentiment": "neutral",
+          "confidence": 0.7,
+          "tickers": [
+            "XOM",
+            "LITE",
+            "COHR",
+            "POET",
+            "AXTI"
+          ],
+          "primary_ticker": "XOM",
+          "emotions": [
+            "hope"
+          ],
+          "post_type": "DD",
+          "is_sarcastic": false,
+          "market_relevance": 0.8,
+          "key_insight": "Energy sector leads Q1 2026 returns at +37.9% due to Iran war disruptions affecting oil shipping through Strait of Hormuz",
+          "is_rumour": true,
+          "rumour_type": "regulatory_decision",
+          "rumour_confidence": 0.6,
+          "rumour_summary": "Iran war disruptions causing oil price surge and shipping issues through Strait of Hormuz",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sd76h7",
+          "title": "Michael Burry or Nancy Pelosi",
+          "permalink": "/r/wallstreetbets/comments/1sd76h7/michael_burry_or_nancy_pelosi/",
+          "score": 23,
+          "num_comments": 37,
+          "date": "2026-04-05 15:55:33",
+          "flair": "Gain",
+          "engagement_score": 27.199999999999996,
+          "has_comments": true,
+          "sentiment": "neutral",
+          "confidence": 0.7,
+          "tickers": [
+            "PLTR",
+            "NVDA",
+            "ORCL"
+          ],
+          "primary_ticker": "PLTR",
+          "emotions": [
+            "humor",
+            "sarcasm"
+          ],
+          "post_type": "other",
+          "is_sarcastic": true,
+          "market_relevance": 0.8,
+          "key_insight": "Comparison of contrasting investment strategies between Michael Burry's shorts and Nancy Pelosi's positions on major tech stocks.",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sfjbvz",
+          "title": "THE GEOPOLITICAL 4D DEEL CHESS GRANDMASTER HAS ARRIVED \ud83d\ude80\ud83d\udc8e\ud83d\ude4c",
+          "permalink": "/r/wallstreetbets/comments/1sfjbvz/the_geopolitical_4d_deel_chess_grandmaster_has/",
+          "score": 32,
+          "num_comments": 12,
+          "date": "2026-04-08 04:53:48",
+          "flair": "DD",
+          "engagement_score": 26.0,
+          "has_comments": true,
+          "sentiment": "bullish",
+          "confidence": 0.2,
+          "tickers": [
+            "QQQ",
+            "OIL",
+            "GOOGL",
+            "LMT",
+            "PRIVX"
+          ],
+          "primary_ticker": "OIL",
+          "emotions": [
+            "humor",
+            "sarcasm",
+            "euphoria"
+          ],
+          "post_type": "DD",
+          "is_sarcastic": true,
+          "market_relevance": 0.3,
+          "key_insight": "Heavily sarcastic meme post discussing geopolitical events and oil trading with nonsensical terminology and AI-generated content characteristics.",
+          "is_rumour": true,
+          "rumour_type": "regulatory_decision",
+          "rumour_confidence": 0.1,
+          "rumour_summary": "Mentions Iran War and geopolitical events affecting oil markets but appears to be satirical AI-generated content.",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sfbz5n",
+          "title": "Lost 7.5k today then made it back in 30 mins from TACO",
+          "permalink": "/r/wallstreetbets/comments/1sfbz5n/lost_75k_today_then_made_it_back_in_30_mins_from/",
+          "score": 30,
+          "num_comments": 10,
+          "date": "2026-04-07 23:14:10",
+          "flair": "Gain",
+          "engagement_score": 24.0,
+          "has_comments": true,
+          "sentiment": "bullish",
+          "confidence": 0.8,
+          "tickers": [
+            "TACO"
+          ],
+          "primary_ticker": "TACO",
+          "emotions": [
+            "euphoria",
+            "humor"
+          ],
+          "post_type": "gain",
+          "is_sarcastic": false,
+          "market_relevance": 0.7,
+          "key_insight": "Trader recovered $7.5k loss by successfully shorting oil after initial long oil/short nasdaq position failed, crediting TACO for the comeback.",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sfmupk",
+          "title": "spx 0dte gains",
+          "permalink": "/r/wallstreetbets/comments/1sfmupk/spx_0dte_gains/",
+          "score": 30,
+          "num_comments": 7,
+          "date": "2026-04-08 08:21:58",
+          "flair": "Gain",
+          "engagement_score": 23.1,
+          "has_comments": true,
+          "sentiment": "bullish",
+          "confidence": 0.7,
+          "tickers": [
+            "SPX",
+            "TQQQ"
+          ],
+          "primary_ticker": "SPX",
+          "emotions": [
+            "hope",
+            "greed"
+          ],
+          "post_type": "gain",
+          "is_sarcastic": false,
+          "market_relevance": 0.8,
+          "key_insight": "User made gains on SPX 0DTE options and expects market grind up over next two weeks while planning to switch to TQQQ shares.",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sfrpey",
+          "title": "$NN yolo I doubled down",
+          "permalink": "/r/wallstreetbets/comments/1sfrpey/nn_yolo_i_doubled_down/",
+          "score": 16,
+          "num_comments": 35,
+          "date": "2026-04-08 12:41:07",
+          "flair": "YOLO",
+          "engagement_score": 21.7,
+          "has_comments": true,
+          "sentiment": "bullish",
+          "confidence": 0.7,
+          "tickers": [
+            "NN"
+          ],
+          "primary_ticker": "NN",
+          "emotions": [
+            "hope",
+            "panic",
+            "fear"
+          ],
+          "post_type": "YOLO",
+          "is_sarcastic": false,
+          "market_relevance": 0.8,
+          "key_insight": "High-risk all-in position on NN with significant personal financial consequences at stake",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sg4glw",
+          "title": "WHERE are your moves tomorrow?",
+          "permalink": "/r/wallstreetbets/comments/1sg4glw/where_are_your_moves_tomorrow/",
+          "score": 24,
+          "num_comments": 16,
+          "date": "2026-04-08 20:26:03",
+          "flair": "Meme",
+          "engagement_score": 21.6,
+          "has_comments": true,
+          "sentiment": "bearish",
+          "confidence": 0.4,
+          "tickers": [
+            "NASDAQ"
+          ],
+          "primary_ticker": "NASDAQ",
+          "emotions": [
+            "humor",
+            "frustration"
+          ],
+          "post_type": "meme",
+          "is_sarcastic": false,
+          "market_relevance": 0.3,
+          "key_insight": "Mixed trading intentions with one user planning NASDAQ shorts while another expresses financial distress humorously",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sfh6bb",
+          "title": "Boys, I officially have an option to buy a Wendy\u2019s!!!",
+          "permalink": "/r/wallstreetbets/comments/1sfh6bb/boys_i_officially_have_an_option_to_buy_a_wendys/",
+          "score": 24,
+          "num_comments": 14,
+          "date": "2026-04-08 03:04:59",
+          "flair": "YOLO",
+          "engagement_score": 20.999999999999996,
+          "has_comments": true,
+          "sentiment": "bearish",
+          "confidence": 0.6,
+          "tickers": [
+            "WEN"
+          ],
+          "primary_ticker": "WEN",
+          "emotions": [
+            "humor",
+            "sarcasm",
+            "hope"
+          ],
+          "post_type": "YOLO",
+          "is_sarcastic": true,
+          "market_relevance": 0.3,
+          "key_insight": "WSB member claims to have option to buy Wendy's franchise, heavy use of community memes and self-deprecating humor about likely failure",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sbw8qz",
+          "title": "25% surge in RDDT organic search traffic since 4/1, now all time high (Semrush)",
+          "permalink": "/r/wallstreetbets/comments/1sbw8qz/25_surge_in_rddt_organic_search_traffic_since_41/",
+          "score": 19,
+          "num_comments": 23,
+          "date": "2026-04-04 01:40:58",
+          "flair": "DD",
+          "engagement_score": 20.2,
+          "has_comments": true,
+          "sentiment": "bullish",
+          "confidence": 0.7,
+          "tickers": [
+            "RDDT"
+          ],
+          "primary_ticker": "RDDT",
+          "emotions": [
+            "hope",
+            "greed",
+            "humor"
+          ],
+          "post_type": "DD",
+          "is_sarcastic": false,
+          "market_relevance": 0.8,
+          "key_insight": "RDDT showing strong organic search traffic growth of 25% since April 1st reaching all-time highs, potentially bullish for the stock despite questions about data validity.",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1se9qmg",
+          "title": "\ud83d\udea8 REVERSE CRAMER ALERT: OKLO EDITION \ud83d\udea8",
+          "permalink": "/r/wallstreetbets/comments/1se9qmg/reverse_cramer_alert_oklo_edition/",
+          "score": 14,
+          "num_comments": 28,
+          "date": "2026-04-06 19:59:23",
+          "flair": "Gain",
+          "engagement_score": 18.2,
+          "has_comments": true,
+          "sentiment": "bullish",
+          "confidence": 0.7,
+          "tickers": [
+            "OKLO"
+          ],
+          "primary_ticker": "OKLO",
+          "emotions": [
+            "humor",
+            "sarcasm",
+            "euphoria"
+          ],
+          "post_type": "gain",
+          "is_sarcastic": true,
+          "market_relevance": 0.8,
+          "key_insight": "Post promotes bullish sentiment on OKLO stock using the 'Reverse Cramer' meme strategy while highlighting recent company catalysts",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sfo07i",
+          "title": "ONDS: Is the market mispricing the impact of Middle East de-escalation on Ondas Holdings?",
+          "permalink": "/r/wallstreetbets/comments/1sfo07i/onds_is_the_market_mispricing_the_impact_of/",
+          "score": 18,
+          "num_comments": 18,
+          "date": "2026-04-08 09:32:26",
+          "flair": "Discussion",
+          "engagement_score": 18.0,
+          "has_comments": true,
+          "sentiment": "bullish",
+          "confidence": 0.6,
+          "tickers": [
+            "ONDS"
+          ],
+          "primary_ticker": "ONDS",
+          "emotions": [
+            "hope",
+            "frustration"
+          ],
+          "post_type": "DD",
+          "is_sarcastic": false,
+          "market_relevance": 0.7,
+          "key_insight": "Post argues that Middle East de-escalation could create undervalued opportunities for Ondas Holdings' drone infrastructure business despite recent poor performance.",
+          "is_rumour": true,
+          "rumour_type": "regulatory_decision",
+          "rumour_confidence": 0.4,
+          "rumour_summary": "Claims of ceasefire in Iran potentially creating border security demand for automated drone infrastructure.",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sfxxze",
+          "title": "Meta unveils first AI model from superintelligence team. Stock up 8%",
+          "permalink": "/r/wallstreetbets/comments/1sfxxze/meta_unveils_first_ai_model_from/",
+          "score": 14,
+          "num_comments": 25,
+          "date": "2026-04-08 16:32:53",
+          "flair": "News",
+          "engagement_score": 17.299999999999997,
+          "has_comments": true,
+          "sentiment": "bullish",
+          "confidence": 0.8,
+          "tickers": [
+            "META"
+          ],
+          "primary_ticker": "META",
+          "emotions": [
+            "greed",
+            "humor",
+            "euphoria"
+          ],
+          "post_type": "news",
+          "is_sarcastic": false,
+          "market_relevance": 0.9,
+          "key_insight": "Meta's AI superintelligence team unveils their first model driving 8% stock gains with bullish market reaction",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sg1pkg",
+          "title": "U.S. has violated ceasefire agreement, Iran parliamentary speaker says",
+          "permalink": "/r/wallstreetbets/comments/1sg1pkg/us_has_violated_ceasefire_agreement_iran/",
+          "score": 20,
+          "num_comments": 6,
+          "date": "2026-04-08 18:46:25",
+          "flair": "Discussion",
+          "engagement_score": 15.8,
+          "has_comments": true,
+          "sentiment": "bearish",
+          "confidence": 0.7,
+          "tickers": [
+            "DVN"
+          ],
+          "primary_ticker": "DVN",
+          "emotions": [
+            "frustration",
+            "sarcasm"
+          ],
+          "post_type": "news",
+          "is_sarcastic": true,
+          "market_relevance": 0.6,
+          "key_insight": "Geopolitical tensions from Iran ceasefire violation seen as bearish catalyst, with one commenter buying energy stock DVN in response.",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sg41us",
+          "title": "Went from 5k shares at a $6 avg and $75k in debt, to debt free and wheeling for the past 6 months. Lesson learned stay in debt just hold",
+          "permalink": "/r/wallstreetbets/comments/1sg41us/went_from_5k_shares_at_a_6_avg_and_75k_in_debt_to/",
+          "score": 18,
+          "num_comments": 8,
+          "date": "2026-04-08 20:10:54",
+          "flair": "Gain",
+          "engagement_score": 15.0,
+          "has_comments": true,
+          "sentiment": "neutral",
+          "confidence": 0.7,
+          "tickers": [
+            "ASTS"
+          ],
+          "primary_ticker": "ASTS",
+          "emotions": [
+            "frustration",
+            "hope"
+          ],
+          "post_type": "gain",
+          "is_sarcastic": false,
+          "market_relevance": 0.8,
+          "key_insight": "User sold ASTS position to pay off debt but regrets the timing given continued price appreciation potential.",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1se506y",
+          "title": "$ELF 1 of 1",
+          "permalink": "/r/wallstreetbets/comments/1se506y/elf_1_of_1/",
+          "score": 15,
+          "num_comments": 15,
+          "date": "2026-04-06 17:12:59",
+          "flair": "YOLO",
+          "engagement_score": 15.0,
+          "has_comments": true,
+          "sentiment": "bullish",
+          "confidence": 0.6,
+          "tickers": [
+            "ELF"
+          ],
+          "primary_ticker": "ELF",
+          "emotions": [
+            "hope",
+            "humor"
+          ],
+          "post_type": "YOLO",
+          "is_sarcastic": false,
+          "market_relevance": 0.7,
+          "key_insight": "User is making a YOLO play on ELF with community showing interest in the beaten-down cosmetics stock as a potential bounce play.",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1se2qtu",
+          "title": "CVNA Downgrade",
+          "permalink": "/r/wallstreetbets/comments/1se2qtu/cvna_downgrade/",
+          "score": 12,
+          "num_comments": 10,
+          "date": "2026-04-06 15:52:01",
+          "flair": "News",
+          "engagement_score": 11.4,
+          "has_comments": true,
+          "sentiment": "bearish",
+          "confidence": 0.8,
+          "tickers": [
+            "CVNA"
+          ],
+          "primary_ticker": "CVNA",
+          "emotions": [
+            "frustration",
+            "fear"
+          ],
+          "post_type": "news",
+          "is_sarcastic": false,
+          "market_relevance": 0.9,
+          "key_insight": "BofA downgraded CVNA from buy to neutral with price target cut to $360 due to consumer financial stress and rising delinquency rates",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        },
+        {
+          "post_id": "1sg6399",
+          "title": "DOUBLING DOWN ON THE SUN \u2600\ufe0f",
+          "permalink": "/r/wallstreetbets/comments/1sg6399/doubling_down_on_the_sun/",
+          "score": 10,
+          "num_comments": 7,
+          "date": "2026-04-08 21:26:17",
+          "flair": "YOLO",
+          "engagement_score": 9.1,
+          "has_comments": false,
+          "sentiment": "bullish",
+          "confidence": 0.7,
+          "tickers": [
+            "SUN"
+          ],
+          "primary_ticker": "SUN",
+          "emotions": [
+            "greed",
+            "hope"
+          ],
+          "post_type": "YOLO",
+          "is_sarcastic": false,
+          "market_relevance": 0.8,
+          "key_insight": "User is doubling down on SUN stock position citing high volatility and cheap long options as their investment thesis.",
+          "is_rumour": false,
+          "rumour_type": "none",
+          "rumour_confidence": 0.0,
+          "rumour_summary": "none",
+          "month": "2026-04"
+        }
+      ],
+      "rumours": [
+        {
+          "post_id": "1sfbxx0",
+          "title": "Oil Prices and News\nU.S. oil prices plunge 16% to below $100 after Trump agrees to two-week ceasefire in Iran war",
+          "permalink": "/r/wallstreetbets/comments/1sfbxx0/oil_prices_and_news_us_oil_prices_plunge_16_to/",
+          "score": 1968,
+          "num_comments": 333,
+          "date": "2026-04-07 23:12:44",
+          "flair": "News",
+          "engagement_score": 1477.5,
+          "has_comments": true,
+          "sentiment": "neutral",
+          "confidence": 0.7,
+          "tickers": "[]",
+          "primary_ticker": "UNKNOWN",
+          "emotions": "['confusion', 'skepticism', 'humor']",
+          "post_type": "news",
+          "is_sarcastic": false,
+          "market_relevance": 0.9,
+          "key_insight": "Oil prices dropped 16% below $100 due to Trump-Iran ceasefire news, with users expressing confusion about market logic and questioning the legitimacy of Iran's agreement given their leader's reported condition.",
+          "is_rumour": true,
+          "rumour_type": "regulatory_decision",
+          "rumour_confidence": 0.8,
+          "rumour_summary": "Trump allegedly agreed to two-week ceasefire in Iran conflict causing oil price drop, though users question validity given reports of Iranian Supreme Leader being unconscious."
+        },
+        {
+          "post_id": "1sfdw8e",
+          "title": "oil calls spy puts",
+          "permalink": "/r/wallstreetbets/comments/1sfdw8e/oil_calls_spy_puts/",
+          "score": 985,
+          "num_comments": 104,
+          "date": "2026-04-08 00:37:15",
+          "flair": "News",
+          "engagement_score": 720.7,
+          "has_comments": true,
+          "sentiment": "bearish",
+          "confidence": 0.8,
+          "tickers": "['SPY']",
+          "primary_ticker": "SPY",
+          "emotions": "['fear', 'frustration', 'sarcasm', 'humor']",
+          "post_type": "YOLO",
+          "is_sarcastic": false,
+          "market_relevance": 0.9,
+          "key_insight": "User is positioning for oil price surge and market decline due to Middle East tensions",
+          "is_rumour": true,
+          "rumour_type": "regulatory_decision",
+          "rumour_confidence": 0.7,
+          "rumour_summary": "Claims Iran launched massive missile salvo against multiple Middle Eastern countries including Israel"
+        },
+        {
+          "post_id": "1sdd2i0",
+          "title": "IPO Grift: How AI companies will be bypassing index safety rules and forcing index-fund & ETF investors to become IPO exit liquidity",
+          "permalink": "/r/wallstreetbets/comments/1sdd2i0/ipo_grift_how_ai_companies_will_be_bypassing/",
+          "score": 45,
+          "num_comments": 11,
+          "date": "2026-04-05 19:45:22",
+          "flair": "Discussion",
+          "engagement_score": 34.8,
+          "has_comments": true,
+          "sentiment": "bearish",
+          "confidence": 0.8,
+          "tickers": "['SPY', 'QQQ']",
+          "primary_ticker": "SPY",
+          "emotions": "['fear', 'frustration']",
+          "post_type": "DD",
+          "is_sarcastic": false,
+          "market_relevance": 0.9,
+          "key_insight": "Claims major indices are dropping safety rules to allow AI company IPOs immediate inclusion, creating forced exit liquidity from passive investors",
+          "is_rumour": true,
+          "rumour_type": "regulatory_decision",
+          "rumour_confidence": 0.7,
+          "rumour_summary": "S&P 500 and Nasdaq allegedly dropping 12-month waiting periods for OpenAI, Anthropic, and SpaceX IPO index inclusion"
+        }
+      ],
+      "daily": [
+        {
+          "ticker": "AGI",
+          "day": "2026-04-06",
+          "post_count": 1,
+          "bullish": 1,
+          "bearish": 0,
+          "neutral": 0
+        },
+        {
+          "ticker": "AMZN",
+          "day": "2026-04-08",
+          "post_count": 1,
+          "bullish": 0,
+          "bearish": 0,
+          "neutral": 1
+        },
+        {
+          "ticker": "ASTS",
+          "day": "2026-04-08",
+          "post_count": 1,
+          "bullish": 0,
+          "bearish": 0,
+          "neutral": 1
+        },
+        {
+          "ticker": "AVGO",
+          "day": "2026-04-06",
+          "post_count": 1,
+          "bullish": 1,
+          "bearish": 0,
+          "neutral": 0
+        },
+        {
+          "ticker": "BNO",
+          "day": "2026-04-06",
+          "post_count": 1,
+          "bullish": 0,
+          "bearish": 1,
+          "neutral": 0
+        },
+        {
+          "ticker": "BZ=F",
+          "day": "2026-04-08",
+          "post_count": 1,
+          "bullish": 1,
+          "bearish": 0,
+          "neutral": 0
+        },
+        {
+          "ticker": "CELH",
+          "day": "2026-04-03",
+          "post_count": 1,
+          "bullish": 0,
+          "bearish": 1,
+          "neutral": 0
+        },
+        {
+          "ticker": "COIN",
+          "day": "2026-04-06",
+          "post_count": 1,
+          "bullish": 1,
+          "bearish": 0,
+          "neutral": 0
+        },
+        {
+          "ticker": "COST",
+          "day": "2026-04-08",
+          "post_count": 1,
+          "bullish": 0,
+          "bearish": 0,
+          "neutral": 1
+        },
+        {
+          "ticker": "CVNA",
+          "day": "2026-04-06",
+          "post_count": 1,
+          "bullish": 0,
+          "bearish": 1,
+          "neutral": 0
+        },
+        {
+          "ticker": "DIA",
+          "day": "2026-04-07",
+          "post_count": 1,
+          "bullish": 0,
+          "bearish": 1,
+          "neutral": 0
+        },
+        {
+          "ticker": "DJT",
+          "day": "2026-04-08",
+          "post_count": 1,
+          "bullish": 0,
+          "bearish": 1,
+          "neutral": 0
+        },
+        {
+          "ticker": "DPZ",
+          "day": "2026-04-07",
+          "post_count": 1,
+          "bullish": 0,
+          "bearish": 0,
+          "neutral": 1
+        },
+        {
+          "ticker": "DVN",
+          "day": "2026-04-08",
+          "post_count": 1,
+          "bullish": 0,
+          "bearish": 1,
+          "neutral": 0
+        },
+        {
+          "ticker": "ELF",
+          "day": "2026-04-06",
+          "post_count": 1,
+          "bullish": 1,
+          "bearish": 0,
+          "neutral": 0
+        },
+        {
+          "ticker": "GLD",
+          "day": "2026-04-07",
+          "post_count": 1,
+          "bullish": 1,
+          "bearish": 0,
+          "neutral": 0
+        },
+        {
+          "ticker": "GOLD",
+          "day": "2026-04-09",
+          "post_count": 1,
+          "bullish": 1,
+          "bearish": 0,
+          "neutral": 0
+        },
+        {
+          "ticker": "GOOGL",
+          "day": "2026-04-08",
+          "post_count": 1,
+          "bullish": 1,
+          "bearish": 0,
+          "neutral": 0
+        },
+        {
+          "ticker": "INTC",
+          "day": "2026-04-07",
+          "post_count": 2,
+          "bullish": 2,
+          "bearish": 0,
+          "neutral": 0
+        },
+        {
+          "ticker": "INTC",
+          "day": "2026-04-08",
+          "post_count": 2,
+          "bullish": 2,
+          "bearish": 0,
+          "neutral": 0
+        },
+        {
+          "ticker": "JPM",
+          "day": "2026-04-06",
+          "post_count": 1,
+          "bullish": 0,
+          "bearish": 1,
+          "neutral": 0
+        },
+        {
+          "ticker": "KOS",
+          "day": "2026-04-05",
+          "post_count": 1,
+          "bullish": 1,
+          "bearish": 0,
+          "neutral": 0
+        },
+        {
+          "ticker": "LEU",
+          "day": "2026-04-03",
+          "post_count": 1,
+          "bullish": 1,
+          "bearish": 0,
+          "neutral": 0
+        },
+        {
+          "ticker": "LLY",
+          "day": "2026-04-06",
+          "post_count": 1,
+          "bullish": 0,
+          "bearish": 1,
+          "neutral": 0
+        },
+        {
+          "ticker": "LLY",
+          "day": "2026-04-09",
+          "post_count": 1,
+          "bullish": 1,
+          "bearish": 0,
+          "neutral": 0
+        },
+        {
+          "ticker": "META",
+          "day": "2026-04-06",
+          "post_count": 1,
+          "bullish": 0,
+          "bearish": 1,
+          "neutral": 0
+        },
+        {
+          "ticker": "META",
+          "day": "2026-04-08",
+          "post_count": 2,
+          "bullish": 1,
+          "bearish": 0,
+          "neutral": 1
+        },
+        {
+          "ticker": "META",
+          "day": "2026-04-09",
+          "post_count": 1,
+          "bullish": 0,
+          "bearish": 1,
+          "neutral": 0
+        },
+        {
+          "ticker": "MSFT",
+          "day": "2026-04-06",
+          "post_count": 1,
+          "bullish": 0,
+          "bearish": 1,
+          "neutral": 0
+        },
+        {
+          "ticker": "MSFT",
+          "day": "2026-04-08",
+          "post_count": 2,
+          "bullish": 0,
+          "bearish": 2,
+          "neutral": 0
+        },
+        {
+          "ticker": "MSOS",
+          "day": "2026-04-03",
+          "post_count": 1,
+          "bullish": 1,
+          "bearish": 0,
+          "neutral": 0
+        },
+        {
+          "ticker": "MU",
+          "day": "2026-04-04",
+          "post_count": 1,
+          "bullish": 0,
+          "bearish": 1,
+          "neutral": 0
+        },
+        {
+          "ticker": "MU",
+          "day": "2026-04-07",
+          "post_count": 1,
+          "bullish": 0,
+          "bearish": 1,
+          "neutral": 0
+        },
+        {
+          "ticker": "NASDAQ",
+          "day": "2026-04-08",
+          "post_count": 1,
+          "bullish": 0,
+          "bearish": 1,
+          "neutral": 0
+        },
+        {
+          "ticker": "NBIS",
+          "day": "2026-04-08",
+          "post_count": 1,
+          "bullish": 1,
+          "bearish": 0,
+          "neutral": 0
+        },
+        {
+          "ticker": "NN",
+          "day": "2026-04-08",
+          "post_count": 1,
+          "bullish": 1,
+          "bearish": 0,
+          "neutral": 0
+        },
+        {
+          "ticker": "NVDA",
+          "day": "2026-04-07",
+          "post_count": 1,
+          "bullish": 1,
+          "bearish": 0,
+          "neutral": 0
+        },
+        {
+          "ticker": "OIL",
+          "day": "2026-04-08",
+          "post_count": 1,
+          "bullish": 1,
+          "bearish": 0,
+          "neutral": 0
+        },
+        {
+          "ticker": "OKLO",
+          "day": "2026-04-06",
+          "post_count": 1,
+          "bullish": 1,
+          "bearish": 0,
+          "neutral": 0
+        },
+        {
+          "ticker": "ONDS",
+          "day": "2026-04-08",
+          "post_count": 1,
+          "bullish": 1,
+          "bearish": 0,
+          "neutral": 0
+        },
+        {
+          "ticker": "PARA",
+          "day": "2026-04-08",
+          "post_count": 1,
+          "bullish": 0,
+          "bearish": 1,
+          "neutral": 0
+        },
+        {
+          "ticker": "PL",
+          "day": "2026-04-05",
+          "post_count": 1,
+          "bullish": 0,
+          "bearish": 0,
+          "neutral": 1
+        },
+        {
+          "ticker": "PLTR",
+          "day": "2026-04-05",
+          "post_count": 1,
+          "bullish": 0,
+          "bearish": 0,
+          "neutral": 1
+        },
+        {
+          "ticker": "PSTH",
+          "day": "2026-04-07",
+          "post_count": 1,
+          "bullish": 0,
+          "bearish": 1,
+          "neutral": 0
+        },
+        {
+          "ticker": "QQQ",
+          "day": "2026-04-05",
+          "post_count": 1,
+          "bullish": 0,
+          "bearish": 1,
+          "neutral": 0
+        },
+        {
+          "ticker": "QQQ",
+          "day": "2026-04-07",
+          "post_count": 2,
+          "bullish": 1,
+          "bearish": 1,
+          "neutral": 0
+        },
+        {
+          "ticker": "QQQ",
+          "day": "2026-04-08",
+          "post_count": 1,
+          "bullish": 1,
+          "bearish": 0,
+          "neutral": 0
+        },
+        {
+          "ticker": "RDDT",
+          "day": "2026-04-04",
+          "post_count": 1,
+          "bullish": 1,
+          "bearish": 0,
+          "neutral": 0
+        },
+        {
+          "ticker": "RDDT",
+          "day": "2026-04-08",
+          "post_count": 1,
+          "bullish": 0,
+          "bearish": 0,
+          "neutral": 1
+        },
+        {
+          "ticker": "RILYP",
+          "day": "2026-04-05",
+          "post_count": 1,
+          "bullish": 0,
+          "bearish": 0,
+          "neutral": 1
+        },
+        {
+          "ticker": "RIVN",
+          "day": "2026-04-03",
+          "post_count": 1,
+          "bullish": 1,
+          "bearish": 0,
+          "neutral": 0
+        },
+        {
+          "ticker": "SLV",
+          "day": "2026-04-07",
+          "post_count": 1,
+          "bullish": 1,
+          "bearish": 0,
+          "neutral": 0
+        },
+        {
+          "ticker": "SNDK",
+          "day": "2026-04-08",
+          "post_count": 1,
+          "bullish": 1,
+          "bearish": 0,
+          "neutral": 0
+        },
+        {
+          "ticker": "SPCE",
+          "day": "2026-04-05",
+          "post_count": 1,
+          "bullish": 1,
+          "bearish": 0,
+          "neutral": 0
+        },
+        {
+          "ticker": "SPX",
+          "day": "2026-04-07",
+          "post_count": 1,
+          "bullish": 1,
+          "bearish": 0,
+          "neutral": 0
+        },
+        {
+          "ticker": "SPX",
+          "day": "2026-04-08",
+          "post_count": 2,
+          "bullish": 1,
+          "bearish": 1,
+          "neutral": 0
+        },
+        {
+          "ticker": "SPY",
+          "day": "2026-04-03",
+          "post_count": 1,
+          "bullish": 1,
+          "bearish": 0,
+          "neutral": 0
+        },
+        {
+          "ticker": "SPY",
+          "day": "2026-04-04",
+          "post_count": 4,
+          "bullish": 1,
+          "bearish": 1,
+          "neutral": 2
+        },
+        {
+          "ticker": "SPY",
+          "day": "2026-04-05",
+          "post_count": 4,
+          "bullish": 1,
+          "bearish": 3,
+          "neutral": 0
+        },
+        {
+          "ticker": "SPY",
+          "day": "2026-04-06",
+          "post_count": 3,
+          "bullish": 0,
+          "bearish": 3,
+          "neutral": 0
+        },
+        {
+          "ticker": "SPY",
+          "day": "2026-04-07",
+          "post_count": 10,
+          "bullish": 3,
+          "bearish": 6,
+          "neutral": 1
+        },
+        {
+          "ticker": "SPY",
+          "day": "2026-04-08",
+          "post_count": 11,
+          "bullish": 4,
+          "bearish": 6,
+          "neutral": 1
+        },
+        {
+          "ticker": "SPY",
+          "day": "2026-04-09",
+          "post_count": 2,
+          "bullish": 1,
+          "bearish": 1,
+          "neutral": 0
+        },
+        {
+          "ticker": "SUN",
+          "day": "2026-04-08",
+          "post_count": 1,
+          "bullish": 1,
+          "bearish": 0,
+          "neutral": 0
+        },
+        {
+          "ticker": "TACO",
+          "day": "2026-04-06",
+          "post_count": 1,
+          "bullish": 0,
+          "bearish": 0,
+          "neutral": 1
+        },
+        {
+          "ticker": "TACO",
+          "day": "2026-04-07",
+          "post_count": 1,
+          "bullish": 1,
+          "bearish": 0,
+          "neutral": 0
+        },
+        {
+          "ticker": "TACO",
+          "day": "2026-04-08",
+          "post_count": 3,
+          "bullish": 2,
+          "bearish": 1,
+          "neutral": 0
+        },
+        {
+          "ticker": "TLT",
+          "day": "2026-04-03",
+          "post_count": 1,
+          "bullish": 0,
+          "bearish": 1,
+          "neutral": 0
+        },
+        {
+          "ticker": "TSLA",
+          "day": "2026-04-06",
+          "post_count": 2,
+          "bullish": 0,
+          "bearish": 2,
+          "neutral": 0
+        },
+        {
+          "ticker": "TSLA",
+          "day": "2026-04-07",
+          "post_count": 2,
+          "bullish": 0,
+          "bearish": 0,
+          "neutral": 2
+        },
+        {
+          "ticker": "TSLA",
+          "day": "2026-04-08",
+          "post_count": 4,
+          "bullish": 1,
+          "bearish": 2,
+          "neutral": 1
+        },
+        {
+          "ticker": "TTD",
+          "day": "2026-04-08",
+          "post_count": 1,
+          "bullish": 0,
+          "bearish": 1,
+          "neutral": 0
+        },
+        {
+          "ticker": "UAL",
+          "day": "2026-04-08",
+          "post_count": 1,
+          "bullish": 1,
+          "bearish": 0,
+          "neutral": 0
+        },
+        {
+          "ticker": "UCO",
+          "day": "2026-04-09",
+          "post_count": 1,
+          "bullish": 0,
+          "bearish": 1,
+          "neutral": 0
+        },
+        {
+          "ticker": "USO",
+          "day": "2026-04-03",
+          "post_count": 1,
+          "bullish": 1,
+          "bearish": 0,
+          "neutral": 0
+        },
+        {
+          "ticker": "USO",
+          "day": "2026-04-08",
+          "post_count": 1,
+          "bullish": 0,
+          "bearish": 1,
+          "neutral": 0
+        },
+        {
+          "ticker": "WEN",
+          "day": "2026-04-07",
+          "post_count": 1,
+          "bullish": 0,
+          "bearish": 0,
+          "neutral": 1
+        },
+        {
+          "ticker": "WEN",
+          "day": "2026-04-08",
+          "post_count": 1,
+          "bullish": 0,
+          "bearish": 1,
+          "neutral": 0
+        },
+        {
+          "ticker": "WMT",
+          "day": "2026-04-08",
+          "post_count": 1,
+          "bullish": 1,
+          "bearish": 0,
+          "neutral": 0
+        },
+        {
+          "ticker": "XLE",
+          "day": "2026-04-05",
+          "post_count": 1,
+          "bullish": 1,
+          "bearish": 0,
+          "neutral": 0
+        },
+        {
+          "ticker": "XOM",
+          "day": "2026-04-06",
+          "post_count": 1,
+          "bullish": 0,
+          "bearish": 0,
+          "neutral": 1
+        }
+      ],
+      "emotions": [
+        {
+          "ticker": "AGI",
+          "emotion": "relief",
+          "count": 1
+        },
+        {
+          "ticker": "AGI",
+          "emotion": "hope",
+          "count": 1
+        },
+        {
+          "ticker": "AGI",
+          "emotion": "frustration",
+          "count": 1
+        },
+        {
+          "ticker": "AMZN",
+          "emotion": "humor",
+          "count": 1
+        },
+        {
+          "ticker": "AMZN",
+          "emotion": "sarcasm",
+          "count": 1
+        },
+        {
+          "ticker": "AMZN",
+          "emotion": "frustration",
+          "count": 1
+        },
+        {
+          "ticker": "ASTS",
+          "emotion": "frustration",
+          "count": 1
+        },
+        {
+          "ticker": "ASTS",
+          "emotion": "hope",
+          "count": 1
+        },
+        {
+          "ticker": "AVGO",
+          "emotion": "humor",
+          "count": 1
+        },
+        {
+          "ticker": "AVGO",
+          "emotion": "sarcasm",
+          "count": 1
+        },
+        {
+          "ticker": "BNO",
+          "emotion": "hope",
+          "count": 1
+        },
+        {
+          "ticker": "BNO",
+          "emotion": "frustration",
+          "count": 1
+        },
+        {
+          "ticker": "BZ=F",
+          "emotion": "hope",
+          "count": 1
+        },
+        {
+          "ticker": "BZ=F",
+          "emotion": "frustration",
+          "count": 1
+        },
+        {
+          "ticker": "CELH",
+          "emotion": "frustration",
+          "count": 1
+        },
+        {
+          "ticker": "CELH",
+          "emotion": "sarcasm",
+          "count": 1
+        },
+        {
+          "ticker": "COIN",
+          "emotion": "greed",
+          "count": 1
+        },
+        {
+          "ticker": "COIN",
+          "emotion": "hope",
+          "count": 1
+        },
+        {
+          "ticker": "COIN",
+          "emotion": "humor",
+          "count": 1
+        },
+        {
+          "ticker": "COST",
+          "emotion": "humor",
+          "count": 1
+        },
+        {
+          "ticker": "COST",
+          "emotion": "sarcasm",
+          "count": 1
+        },
+        {
+          "ticker": "COST",
+          "emotion": "frustration",
+          "count": 1
+        },
+        {
+          "ticker": "CVNA",
+          "emotion": "frustration",
+          "count": 1
+        },
+        {
+          "ticker": "CVNA",
+          "emotion": "fear",
+          "count": 1
+        },
+        {
+          "ticker": "DIA",
+          "emotion": "sarcasm",
+          "count": 1
+        },
+        {
+          "ticker": "DIA",
+          "emotion": "humor",
+          "count": 1
+        },
+        {
+          "ticker": "DIA",
+          "emotion": "frustration",
+          "count": 1
+        },
+        {
+          "ticker": "DJT",
+          "emotion": "sarcasm",
+          "count": 1
+        },
+        {
+          "ticker": "DJT",
+          "emotion": "humor",
+          "count": 1
+        },
+        {
+          "ticker": "DJT",
+          "emotion": "frustration",
+          "count": 1
+        },
+        {
+          "ticker": "DPZ",
+          "emotion": "humor",
+          "count": 1
+        },
+        {
+          "ticker": "DPZ",
+          "emotion": "sarcasm",
+          "count": 1
+        },
+        {
+          "ticker": "DVN",
+          "emotion": "frustration",
+          "count": 1
+        },
+        {
+          "ticker": "DVN",
+          "emotion": "sarcasm",
+          "count": 1
+        },
+        {
+          "ticker": "ELF",
+          "emotion": "hope",
+          "count": 1
+        },
+        {
+          "ticker": "ELF",
+          "emotion": "humor",
+          "count": 1
+        },
+        {
+          "ticker": "GLD",
+          "emotion": "hope",
+          "count": 1
+        },
+        {
+          "ticker": "GLD",
+          "emotion": "humor",
+          "count": 1
+        },
+        {
+          "ticker": "GOLD",
+          "emotion": "hope",
+          "count": 1
+        },
+        {
+          "ticker": "GOLD",
+          "emotion": "humor",
+          "count": 1
+        },
+        {
+          "ticker": "GOOGL",
+          "emotion": "euphoria",
+          "count": 1
+        },
+        {
+          "ticker": "GOOGL",
+          "emotion": "greed",
+          "count": 1
+        },
+        {
+          "ticker": "INTC",
+          "emotion": "hope",
+          "count": 4
+        },
+        {
+          "ticker": "INTC",
+          "emotion": "humor",
+          "count": 3
+        },
+        {
+          "ticker": "INTC",
+          "emotion": "sarcasm",
+          "count": 2
+        },
+        {
+          "ticker": "INTC",
+          "emotion": "greed",
+          "count": 1
+        },
+        {
+          "ticker": "INTC",
+          "emotion": "euphoria",
+          "count": 1
+        },
+        {
+          "ticker": "JPM",
+          "emotion": "sarcasm",
+          "count": 1
+        },
+        {
+          "ticker": "JPM",
+          "emotion": "frustration",
+          "count": 1
+        },
+        {
+          "ticker": "KOS",
+          "emotion": "greed",
+          "count": 1
+        },
+        {
+          "ticker": "KOS",
+          "emotion": "humor",
+          "count": 1
+        },
+        {
+          "ticker": "KOS",
+          "emotion": "euphoria",
+          "count": 1
+        },
+        {
+          "ticker": "LEU",
+          "emotion": "hope",
+          "count": 1
+        },
+        {
+          "ticker": "LEU",
+          "emotion": "greed",
+          "count": 1
+        },
+        {
+          "ticker": "LLY",
+          "emotion": "humor",
+          "count": 2
+        },
+        {
+          "ticker": "LLY",
+          "emotion": "sarcasm",
+          "count": 2
+        },
+        {
+          "ticker": "LLY",
+          "emotion": "frustration",
+          "count": 1
+        },
+        {
+          "ticker": "LLY",
+          "emotion": "greed",
+          "count": 1
+        },
+        {
+          "ticker": "META",
+          "emotion": "frustration",
+          "count": 3
+        },
+        {
+          "ticker": "META",
+          "emotion": "humor",
+          "count": 3
+        },
+        {
+          "ticker": "META",
+          "emotion": "panic",
+          "count": 1
+        },
+        {
+          "ticker": "META",
+          "emotion": "skepticism",
+          "count": 1
+        },
+        {
+          "ticker": "META",
+          "emotion": "sarcasm",
+          "count": 1
+        },
+        {
+          "ticker": "META",
+          "emotion": "hope",
+          "count": 1
+        },
+        {
+          "ticker": "META",
+          "emotion": "greed",
+          "count": 1
+        },
+        {
+          "ticker": "META",
+          "emotion": "euphoria",
+          "count": 1
+        },
+        {
+          "ticker": "MSFT",
+          "emotion": "humor",
+          "count": 3
+        },
+        {
+          "ticker": "MSFT",
+          "emotion": "frustration",
+          "count": 2
+        },
+        {
+          "ticker": "MSFT",
+          "emotion": "panic",
+          "count": 2
+        },
+        {
+          "ticker": "MSFT",
+          "emotion": "sarcasm",
+          "count": 2
+        },
+        {
+          "ticker": "MSFT",
+          "emotion": "fear",
+          "count": 1
+        },
+        {
+          "ticker": "MSOS",
+          "emotion": "hope",
+          "count": 1
+        },
+        {
+          "ticker": "MSOS",
+          "emotion": "humor",
+          "count": 1
+        },
+        {
+          "ticker": "MSOS",
+          "emotion": "sarcasm",
+          "count": 1
+        },
+        {
+          "ticker": "MU",
+          "emotion": "frustration",
+          "count": 2
+        },
+        {
+          "ticker": "MU",
+          "emotion": "humor",
+          "count": 2
+        },
+        {
+          "ticker": "MU",
+          "emotion": "panic",
+          "count": 1
+        },
+        {
+          "ticker": "MU",
+          "emotion": "sarcasm",
+          "count": 1
+        },
+        {
+          "ticker": "NASDAQ",
+          "emotion": "humor",
+          "count": 1
+        },
+        {
+          "ticker": "NASDAQ",
+          "emotion": "frustration",
+          "count": 1
+        },
+        {
+          "ticker": "NBIS",
+          "emotion": "euphoria",
+          "count": 1
+        },
+        {
+          "ticker": "NBIS",
+          "emotion": "humor",
+          "count": 1
+        },
+        {
+          "ticker": "NBIS",
+          "emotion": "greed",
+          "count": 1
+        },
+        {
+          "ticker": "NN",
+          "emotion": "hope",
+          "count": 1
+        },
+        {
+          "ticker": "NN",
+          "emotion": "panic",
+          "count": 1
+        },
+        {
+          "ticker": "NN",
+          "emotion": "fear",
+          "count": 1
+        },
+        {
+          "ticker": "NVDA",
+          "emotion": "humor",
+          "count": 1
+        },
+        {
+          "ticker": "NVDA",
+          "emotion": "hope",
+          "count": 1
+        },
+        {
+          "ticker": "NVDA",
+          "emotion": "frustration",
+          "count": 1
+        },
+        {
+          "ticker": "OIL",
+          "emotion": "humor",
+          "count": 1
+        },
+        {
+          "ticker": "OIL",
+          "emotion": "sarcasm",
+          "count": 1
+        },
+        {
+          "ticker": "OIL",
+          "emotion": "euphoria",
+          "count": 1
+        },
+        {
+          "ticker": "OKLO",
+          "emotion": "humor",
+          "count": 1
+        },
+        {
+          "ticker": "OKLO",
+          "emotion": "sarcasm",
+          "count": 1
+        },
+        {
+          "ticker": "OKLO",
+          "emotion": "euphoria",
+          "count": 1
+        },
+        {
+          "ticker": "ONDS",
+          "emotion": "hope",
+          "count": 1
+        },
+        {
+          "ticker": "ONDS",
+          "emotion": "frustration",
+          "count": 1
+        },
+        {
+          "ticker": "PARA",
+          "emotion": "frustration",
+          "count": 1
+        },
+        {
+          "ticker": "PARA",
+          "emotion": "humor",
+          "count": 1
+        },
+        {
+          "ticker": "PARA",
+          "emotion": "sarcasm",
+          "count": 1
+        },
+        {
+          "ticker": "PL",
+          "emotion": "frustration",
+          "count": 1
+        },
+        {
+          "ticker": "PL",
+          "emotion": "concern",
+          "count": 1
+        },
+        {
+          "ticker": "PLTR",
+          "emotion": "humor",
+          "count": 1
+        },
+        {
+          "ticker": "PLTR",
+          "emotion": "sarcasm",
+          "count": 1
+        },
+        {
+          "ticker": "PSTH",
+          "emotion": "frustration",
+          "count": 1
+        },
+        {
+          "ticker": "PSTH",
+          "emotion": "humor",
+          "count": 1
+        },
+        {
+          "ticker": "PSTH",
+          "emotion": "sarcasm",
+          "count": 1
+        },
+        {
+          "ticker": "QQQ",
+          "emotion": "hope",
+          "count": 2
+        },
+        {
+          "ticker": "QQQ",
+          "emotion": "euphoria",
+          "count": 2
+        },
+        {
+          "ticker": "QQQ",
+          "emotion": "fear",
+          "count": 2
+        },
+        {
+          "ticker": "QQQ",
+          "emotion": "frustration",
+          "count": 2
+        },
+        {
+          "ticker": "QQQ",
+          "emotion": "humor",
+          "count": 1
+        },
+        {
+          "ticker": "QQQ",
+          "emotion": "panic",
+          "count": 1
+        },
+        {
+          "ticker": "QQQ",
+          "emotion": "sarcasm",
+          "count": 1
+        },
+        {
+          "ticker": "QQQ",
+          "emotion": "greed",
+          "count": 1
+        },
+        {
+          "ticker": "RDDT",
+          "emotion": "humor",
+          "count": 2
+        },
+        {
+          "ticker": "RDDT",
+          "emotion": "frustration",
+          "count": 1
+        },
+        {
+          "ticker": "RDDT",
+          "emotion": "sarcasm",
+          "count": 1
+        },
+        {
+          "ticker": "RDDT",
+          "emotion": "hope",
+          "count": 1
+        },
+        {
+          "ticker": "RDDT",
+          "emotion": "greed",
+          "count": 1
+        },
+        {
+          "ticker": "RILYP",
+          "emotion": "humor",
+          "count": 1
+        },
+        {
+          "ticker": "RILYP",
+          "emotion": "frustration",
+          "count": 1
+        },
+        {
+          "ticker": "RIVN",
+          "emotion": "hope",
+          "count": 1
+        },
+        {
+          "ticker": "RIVN",
+          "emotion": "sarcasm",
+          "count": 1
+        },
+        {
+          "ticker": "RIVN",
+          "emotion": "humor",
+          "count": 1
+        },
+        {
+          "ticker": "SLV",
+          "emotion": "greed",
+          "count": 1
+        },
+        {
+          "ticker": "SLV",
+          "emotion": "euphoria",
+          "count": 1
+        },
+        {
+          "ticker": "SLV",
+          "emotion": "humor",
+          "count": 1
+        },
+        {
+          "ticker": "SNDK",
+          "emotion": "euphoria",
+          "count": 1
+        },
+        {
+          "ticker": "SNDK",
+          "emotion": "greed",
+          "count": 1
+        },
+        {
+          "ticker": "SNDK",
+          "emotion": "humor",
+          "count": 1
+        },
+        {
+          "ticker": "SPCE",
+          "emotion": "greed",
+          "count": 1
+        },
+        {
+          "ticker": "SPCE",
+          "emotion": "euphoria",
+          "count": 1
+        },
+        {
+          "ticker": "SPCE",
+          "emotion": "hope",
+          "count": 1
+        },
+        {
+          "ticker": "SPX",
+          "emotion": "greed",
+          "count": 2
+        },
+        {
+          "ticker": "SPX",
+          "emotion": "panic",
+          "count": 1
+        },
+        {
+          "ticker": "SPX",
+          "emotion": "frustration",
+          "count": 1
+        },
+        {
+          "ticker": "SPX",
+          "emotion": "humor",
+          "count": 1
+        },
+        {
+          "ticker": "SPX",
+          "emotion": "fear",
+          "count": 1
+        },
+        {
+          "ticker": "SPX",
+          "emotion": "euphoria",
+          "count": 1
+        },
+        {
+          "ticker": "SPX",
+          "emotion": "hope",
+          "count": 1
+        },
+        {
+          "ticker": "SPY",
+          "emotion": "humor",
+          "count": 29
+        },
+        {
+          "ticker": "SPY",
+          "emotion": "frustration",
+          "count": 23
+        },
+        {
+          "ticker": "SPY",
+          "emotion": "sarcasm",
+          "count": 15
+        },
+        {
+          "ticker": "SPY",
+          "emotion": "euphoria",
+          "count": 9
+        },
+        {
+          "ticker": "SPY",
+          "emotion": "panic",
+          "count": 8
+        },
+        {
+          "ticker": "SPY",
+          "emotion": "fear",
+          "count": 5
+        },
+        {
+          "ticker": "SPY",
+          "emotion": "hope",
+          "count": 4
+        },
+        {
+          "ticker": "SPY",
+          "emotion": "greed",
+          "count": 3
+        },
+        {
+          "ticker": "SPY",
+          "emotion": "relief",
+          "count": 2
+        },
+        {
+          "ticker": "SPY",
+          "emotion": "curiosity",
+          "count": 1
+        },
+        {
+          "ticker": "SUN",
+          "emotion": "greed",
+          "count": 1
+        },
+        {
+          "ticker": "SUN",
+          "emotion": "hope",
+          "count": 1
+        },
+        {
+          "ticker": "TACO",
+          "emotion": "humor",
+          "count": 5
+        },
+        {
+          "ticker": "TACO",
+          "emotion": "euphoria",
+          "count": 3
+        },
+        {
+          "ticker": "TACO",
+          "emotion": "sarcasm",
+          "count": 1
+        },
+        {
+          "ticker": "TACO",
+          "emotion": "hope",
+          "count": 1
+        },
+        {
+          "ticker": "TACO",
+          "emotion": "frustration",
+          "count": 1
+        },
+        {
+          "ticker": "TACO",
+          "emotion": "panic",
+          "count": 1
+        },
+        {
+          "ticker": "TLT",
+          "emotion": "sarcasm",
+          "count": 1
+        },
+        {
+          "ticker": "TLT",
+          "emotion": "frustration",
+          "count": 1
+        },
+        {
+          "ticker": "TLT",
+          "emotion": "humor",
+          "count": 1
+        },
+        {
+          "ticker": "TSLA",
+          "emotion": "sarcasm",
+          "count": 8
+        },
+        {
+          "ticker": "TSLA",
+          "emotion": "humor",
+          "count": 7
+        },
+        {
+          "ticker": "TSLA",
+          "emotion": "frustration",
+          "count": 5
+        },
+        {
+          "ticker": "TSLA",
+          "emotion": "fear",
+          "count": 1
+        },
+        {
+          "ticker": "TSLA",
+          "emotion": "greed",
+          "count": 1
+        },
+        {
+          "ticker": "TTD",
+          "emotion": "sarcasm",
+          "count": 1
+        },
+        {
+          "ticker": "TTD",
+          "emotion": "humor",
+          "count": 1
+        },
+        {
+          "ticker": "TTD",
+          "emotion": "fear",
+          "count": 1
+        },
+        {
+          "ticker": "UAL",
+          "emotion": "euphoria",
+          "count": 1
+        },
+        {
+          "ticker": "UAL",
+          "emotion": "greed",
+          "count": 1
+        },
+        {
+          "ticker": "UAL",
+          "emotion": "hope",
+          "count": 1
+        },
+        {
+          "ticker": "UCO",
+          "emotion": "frustration",
+          "count": 1
+        },
+        {
+          "ticker": "UCO",
+          "emotion": "humor",
+          "count": 1
+        },
+        {
+          "ticker": "UCO",
+          "emotion": "sarcasm",
+          "count": 1
+        },
+        {
+          "ticker": "USO",
+          "emotion": "euphoria",
+          "count": 2
+        },
+        {
+          "ticker": "USO",
+          "emotion": "humor",
+          "count": 1
+        },
+        {
+          "ticker": "USO",
+          "emotion": "greed",
+          "count": 1
+        },
+        {
+          "ticker": "USO",
+          "emotion": "hope",
+          "count": 1
+        },
+        {
+          "ticker": "WEN",
+          "emotion": "humor",
+          "count": 2
+        },
+        {
+          "ticker": "WEN",
+          "emotion": "sarcasm",
+          "count": 2
+        },
+        {
+          "ticker": "WEN",
+          "emotion": "hope",
+          "count": 1
+        },
+        {
+          "ticker": "WMT",
+          "emotion": "hope",
+          "count": 1
+        },
+        {
+          "ticker": "WMT",
+          "emotion": "euphoria",
+          "count": 1
+        },
+        {
+          "ticker": "XLE",
+          "emotion": "greed",
+          "count": 1
+        },
+        {
+          "ticker": "XLE",
+          "emotion": "sarcasm",
+          "count": 1
+        },
+        {
+          "ticker": "XLE",
+          "emotion": "humor",
+          "count": 1
+        },
+        {
+          "ticker": "XOM",
+          "emotion": "hope",
+          "count": 1
+        }
+      ],
+      "post_types": [
+        {
+          "ticker": "AGI",
+          "post_type": "gain",
+          "count": 1
+        },
+        {
+          "ticker": "AMZN",
+          "post_type": "meme",
+          "count": 1
+        },
+        {
+          "ticker": "ASTS",
+          "post_type": "gain",
+          "count": 1
+        },
+        {
+          "ticker": "AVGO",
+          "post_type": "news",
+          "count": 1
+        },
+        {
+          "ticker": "BNO",
+          "post_type": "YOLO",
+          "count": 1
+        },
+        {
+          "ticker": "BZ=F",
+          "post_type": "YOLO",
+          "count": 1
+        },
+        {
+          "ticker": "CELH",
+          "post_type": "DD",
+          "count": 1
+        },
+        {
+          "ticker": "COIN",
+          "post_type": "YOLO",
+          "count": 1
+        },
+        {
+          "ticker": "COST",
+          "post_type": "meme",
+          "count": 1
+        },
+        {
+          "ticker": "CVNA",
+          "post_type": "news",
+          "count": 1
+        },
+        {
+          "ticker": "DIA",
+          "post_type": "meme",
+          "count": 1
+        },
+        {
+          "ticker": "DJT",
+          "post_type": "meme",
+          "count": 1
+        },
+        {
+          "ticker": "DPZ",
+          "post_type": "meme",
+          "count": 1
+        },
+        {
+          "ticker": "DVN",
+          "post_type": "news",
+          "count": 1
+        },
+        {
+          "ticker": "ELF",
+          "post_type": "YOLO",
+          "count": 1
+        },
+        {
+          "ticker": "GLD",
+          "post_type": "YOLO",
+          "count": 1
+        },
+        {
+          "ticker": "GOLD",
+          "post_type": "YOLO",
+          "count": 1
+        },
+        {
+          "ticker": "GOOGL",
+          "post_type": "gain",
+          "count": 1
+        },
+        {
+          "ticker": "INTC",
+          "post_type": "gain",
+          "count": 3
+        },
+        {
+          "ticker": "INTC",
+          "post_type": "news",
+          "count": 1
+        },
+        {
+          "ticker": "JPM",
+          "post_type": "news",
+          "count": 1
+        },
+        {
+          "ticker": "KOS",
+          "post_type": "DD",
+          "count": 1
+        },
+        {
+          "ticker": "LEU",
+          "post_type": "YOLO",
+          "count": 1
+        },
+        {
+          "ticker": "LLY",
+          "post_type": "news",
+          "count": 2
+        },
+        {
+          "ticker": "META",
+          "post_type": "news",
+          "count": 3
+        },
+        {
+          "ticker": "META",
+          "post_type": "loss",
+          "count": 1
+        },
+        {
+          "ticker": "MSFT",
+          "post_type": "loss",
+          "count": 2
+        },
+        {
+          "ticker": "MSFT",
+          "post_type": "news",
+          "count": 1
+        },
+        {
+          "ticker": "MSOS",
+          "post_type": "news",
+          "count": 1
+        },
+        {
+          "ticker": "MU",
+          "post_type": "loss",
+          "count": 2
+        },
+        {
+          "ticker": "NASDAQ",
+          "post_type": "meme",
+          "count": 1
+        },
+        {
+          "ticker": "NBIS",
+          "post_type": "gain",
+          "count": 1
+        },
+        {
+          "ticker": "NN",
+          "post_type": "YOLO",
+          "count": 1
+        },
+        {
+          "ticker": "NVDA",
+          "post_type": "meme",
+          "count": 1
+        },
+        {
+          "ticker": "OIL",
+          "post_type": "DD",
+          "count": 1
+        },
+        {
+          "ticker": "OKLO",
+          "post_type": "gain",
+          "count": 1
+        },
+        {
+          "ticker": "ONDS",
+          "post_type": "DD",
+          "count": 1
+        },
+        {
+          "ticker": "PARA",
+          "post_type": "loss",
+          "count": 1
+        },
+        {
+          "ticker": "PL",
+          "post_type": "news",
+          "count": 1
+        },
+        {
+          "ticker": "PLTR",
+          "post_type": "other",
+          "count": 1
+        },
+        {
+          "ticker": "PSTH",
+          "post_type": "news",
+          "count": 1
+        },
+        {
+          "ticker": "QQQ",
+          "post_type": "gain",
+          "count": 2
+        },
+        {
+          "ticker": "QQQ",
+          "post_type": "loss",
+          "count": 1
+        },
+        {
+          "ticker": "QQQ",
+          "post_type": "DD",
+          "count": 1
+        },
+        {
+          "ticker": "RDDT",
+          "post_type": "other",
+          "count": 1
+        },
+        {
+          "ticker": "RDDT",
+          "post_type": "DD",
+          "count": 1
+        },
+        {
+          "ticker": "RILYP",
+          "post_type": "question",
+          "count": 1
+        },
+        {
+          "ticker": "RIVN",
+          "post_type": "YOLO",
+          "count": 1
+        },
+        {
+          "ticker": "SLV",
+          "post_type": "gain",
+          "count": 1
+        },
+        {
+          "ticker": "SNDK",
+          "post_type": "gain",
+          "count": 1
+        },
+        {
+          "ticker": "SPCE",
+          "post_type": "DD",
+          "count": 1
+        },
+        {
+          "ticker": "SPX",
+          "post_type": "gain",
+          "count": 2
+        },
+        {
+          "ticker": "SPX",
+          "post_type": "YOLO",
+          "count": 1
+        },
+        {
+          "ticker": "SPY",
+          "post_type": "meme",
+          "count": 9
+        },
+        {
+          "ticker": "SPY",
+          "post_type": "loss",
+          "count": 9
+        },
+        {
+          "ticker": "SPY",
+          "post_type": "gain",
+          "count": 6
+        },
+        {
+          "ticker": "SPY",
+          "post_type": "other",
+          "count": 4
+        },
+        {
+          "ticker": "SPY",
+          "post_type": "YOLO",
+          "count": 3
+        },
+        {
+          "ticker": "SPY",
+          "post_type": "DD",
+          "count": 2
+        },
+        {
+          "ticker": "SPY",
+          "post_type": "news",
+          "count": 2
+        },
+        {
+          "ticker": "SUN",
+          "post_type": "YOLO",
+          "count": 1
+        },
+        {
+          "ticker": "TACO",
+          "post_type": "gain",
+          "count": 3
+        },
+        {
+          "ticker": "TACO",
+          "post_type": "meme",
+          "count": 1
+        },
+        {
+          "ticker": "TACO",
+          "post_type": "loss",
+          "count": 1
+        },
+        {
+          "ticker": "TLT",
+          "post_type": "meme",
+          "count": 1
+        },
+        {
+          "ticker": "TSLA",
+          "post_type": "meme",
+          "count": 3
+        },
+        {
+          "ticker": "TSLA",
+          "post_type": "news",
+          "count": 2
+        },
+        {
+          "ticker": "TSLA",
+          "post_type": "gain",
+          "count": 2
+        },
+        {
+          "ticker": "TSLA",
+          "post_type": "other",
+          "count": 1
+        },
+        {
+          "ticker": "TTD",
+          "post_type": "DD",
+          "count": 1
+        },
+        {
+          "ticker": "UAL",
+          "post_type": "gain",
+          "count": 1
+        },
+        {
+          "ticker": "UCO",
+          "post_type": "meme",
+          "count": 1
+        },
+        {
+          "ticker": "USO",
+          "post_type": "gain",
+          "count": 1
+        },
+        {
+          "ticker": "USO",
+          "post_type": "YOLO",
+          "count": 1
+        },
+        {
+          "ticker": "WEN",
+          "post_type": "meme",
+          "count": 1
+        },
+        {
+          "ticker": "WEN",
+          "post_type": "YOLO",
+          "count": 1
+        },
+        {
+          "ticker": "WMT",
+          "post_type": "gain",
+          "count": 1
+        },
+        {
+          "ticker": "XLE",
+          "post_type": "DD",
+          "count": 1
+        },
+        {
+          "ticker": "XOM",
+          "post_type": "DD",
+          "count": 1
+        }
+      ]
+    }
+  ]
+}

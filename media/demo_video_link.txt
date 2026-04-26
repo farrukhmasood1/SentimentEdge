@@ -1,0 +1,9 @@
+Demo video link — add URL here once recorded.
+
+5-minute project video covering:
+- Problem and target user
+- Architecture overview
+- Full pipeline walkthrough (replay mode)
+- Agent coordination evidence
+- One failure case (TC-08 filter gate or TC-07 query miss)
+- Final output reports

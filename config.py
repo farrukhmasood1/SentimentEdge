@@ -6,8 +6,8 @@ All tunable parameters in one place. Change values here only.
 import os
 
 # ── File paths ────────────────────────────────────────────────────────────────
-POSTS_FILE    = 'data/r_wallstreetbets_posts.jsonl'
-COMMENTS_FILE = 'data/r_wallstreetbets_comments.jsonl'
+POSTS_FILE    = 'data/raw/r_wallstreetbets_posts.jsonl'
+COMMENTS_FILE = 'data/raw/r_wallstreetbets_comments.jsonl'
 
 # ── Anthropic API ─────────────────────────────────────────────────────────────
 API_KEY = os.environ.get('ANTHROPIC_API_KEY', 'YOUR_ANTHROPIC_API_KEY_HERE')
