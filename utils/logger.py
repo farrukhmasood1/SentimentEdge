@@ -62,8 +62,8 @@ def save_metadata(metadata: dict, run_dir: str):
     Expected metadata keys (all optional — save whatever is available):
         run_timestamp, run_dir, config, posts_loaded, posts_after_filter,
         posts_analyzed, errors, avg_confidence, sarcastic_count,
-        rumour_count, tickers_found, rumours_flagged,
-        pipeline_duration_seconds
+        rumour_count, tickers_found, rumours_flagged, rumours_released,
+        rumours_pending_review, pipeline_duration_seconds
     """
     path = os.path.join(run_dir, 'run_metadata.json')
     with open(path, 'w', encoding='utf-8') as f:
