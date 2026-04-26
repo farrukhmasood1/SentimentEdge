@@ -43,7 +43,29 @@ Prompt caching added to Sentiment Agent. Run logging system added.
 - Aggregator saves CSVs to timestamped run directory (not overwritten)
 - Eval files added: test_cases.md, failure_log.md, version_notes.md
 
-**Pending for Phase 3:**
-- Streamlit dashboard (Output Agent currently terminal only)
-- Multi-subreddit support (architecture ready, Collector needs extension)
-- evaluation_results.csv (filled after running TC-01 through TC-08)
+---
+
+## v0.3 — Phase 3 Final (Phase 3)
+**Date:** 2026-04-25
+**Run evidence:** outputs/runs/run_20260425_174443/
+
+Major additions for Phase 3 submission.
+
+**Changes from v0.2:**
+- Dataset expanded from 1 week to 1 month (6,919 posts, 945,096 comments)
+- Full pipeline run: 500 posts analyzed, 68 tickers found, 7 rumours flagged, 0 errors
+- Human review governance layer: high-stakes rumours (acquisition_rumour, confidence >= 0.8)
+  routed to rumour_pending_review.csv instead of auto-publishing
+- Two new config settings: RUMOUR_HUMAN_REVIEW_MIN_CONF and RUMOUR_HUMAN_REVIEW_TYPES
+- React + TypeScript + Vite web dashboard added (web/) — displays cached run data
+- Sarcasm annotation evaluation added (eval/sarcasm_annotation_sample_100.xlsx)
+- Directory restructured to Phase 3 submission layout (docs/, data/raw/, media/, phase_submissions/)
+- eval/test_cases.csv and eval/evaluation_results.csv added (12 cases each)
+- _latest_run_dir() bug fixed — now sorts by folder name not full path
+- All 8 required screenshots added to docs/screenshots/
+- README updated with folder guide, evaluation summary, known limitations, team members
+
+**Pending:**
+- Final report PDF (docs/final_report.pdf)
+- 5-minute demo video (media/demo_video_link.txt)
+- PDF submission packet (Canvas submission)
