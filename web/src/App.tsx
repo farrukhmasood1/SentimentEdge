@@ -74,8 +74,9 @@ export default function App() {
   useEffect(() => {
     if (!activeRun) return;
     const initial: Record<string, ReviewStatus> = {};
+    const defaultStatus: ReviewStatus = hasSplitGovernance(activeRun) ? "approved" : "pending";
     activeRun.rumours.forEach((rumour, index) => {
-      initial[rumourKey(rumour, index)] = "pending";
+      initial[rumourKey(rumour, index)] = defaultStatus;
     });
     setReviewStatus(initial);
   }, [activeRun?.id]);
@@ -331,7 +332,7 @@ function Dashboard({
       </section>
 
       <section className="page-shell">
-        <SectionTitle title={`Run summary · ${runDate(run)}`} aside="One-week run · local cache" />
+        <SectionTitle title={`Run summary · ${runDate(run)}`} aside={`${runWindowLabel(run)} · local cache`} />
         <div className="stat-grid">
           <Stat label="Raw posts" value={fmt(run.metadata.n_posts_raw)} />
           <Stat label="Raw comments" value={fmt(run.metadata.n_comments_raw)} />
@@ -453,10 +454,10 @@ function Dashboard({
             icon={<ShieldCheck size={16} />}
             label="Governance"
             title="Analyst Review queue"
-            body="Rumors at or above the 0.70 confidence threshold are routed to human review before publication."
+            body="High-confidence rumors are split into released alerts and held review items when governance policy triggers."
             action="Open review queue"
             onClick={() => navigate("/review")}
-            badge={`${run.rumours.length} pending`}
+            badge={`${fmt(heldRumorCount(run))} held · ${fmt(releasedRumorCount(run))} released`}
           />
         </div>
       </section>
@@ -469,12 +470,20 @@ function TickerView({ run, selectedTicker, comparisonTicker, reviewStatus, navig
   const compare = comparisonTicker || selectedTicker;
   const posts = postsForTicker(run, selectedTicker.ticker).slice(0, 3);
   const daily = run.daily.filter((point) => point.ticker === selectedTicker.ticker);
+  const expandedWindow = runDayCount(run) >= 28;
+  const timeline = expandedWindow ? monthlyFromDaily(daily) : daily;
   const postTypes = run.post_types
     .filter((point) => point.ticker === selectedTicker.ticker)
     .sort((a, b) => b.count - a.count)
     .slice(0, 6);
   const linkedRumours = run.rumours.filter((rumour) => rumour.primary_ticker === selectedTicker.ticker);
-  const pendingLinked = linkedRumours.filter((rumour, index) => reviewStatus[rumourKey(rumour, index)] !== "approved").length;
+  const defaultReviewStatus: ReviewStatus = hasSplitGovernance(run) ? "approved" : "pending";
+  const pendingLinked = linkedRumours.filter(
+    (rumour, index) => (reviewStatus[rumourKey(rumour, index)] || defaultReviewStatus) === "pending"
+  ).length;
+  const governanceCopy = hasSplitGovernance(run)
+    ? `${linkedRumours.length} ${selectedTicker.ticker}-linked released alert${linkedRumours.length === 1 ? "" : "s"}`
+    : `${pendingLinked} ${selectedTicker.ticker}-linked rumor pending`;
 
   return (
     <main>
@@ -484,13 +493,13 @@ function TickerView({ run, selectedTicker, comparisonTicker, reviewStatus, navig
           <div>
             <h1>{selectedTicker.ticker}</h1>
             <p className="lede small">
-              One-week read on {selectedTicker.ticker} from r/wallstreetbets. This is a decision-support
+              {runWindowLabel(run)} read on {selectedTicker.ticker} from r/wallstreetbets. This is a decision-support
               surface from a saved run, not a live forecast.
             </p>
           </div>
           <div className="header-chips">
             <Chip tone="red">Net {netSentiment(selectedTicker).toFixed(1)} pp</Chip>
-            <Chip>{fmt(selectedTicker.post_count)} posts · one-week</Chip>
+            <Chip>{fmt(selectedTicker.post_count)} posts · {runDayCount(run)} days</Chip>
             {selectedTicker.sarcastic_count ? (
               <Chip tone="amber">Sarcasm {pct(selectedTicker.sarcastic_count, selectedTicker.post_count)}</Chip>
             ) : null}
@@ -503,7 +512,7 @@ function TickerView({ run, selectedTicker, comparisonTicker, reviewStatus, navig
           <span>Run <strong>{run.id}</strong></span>
           <span>Focus <strong>{selectedTicker.ticker}</strong></span>
           <span>Compare <strong>{compare.ticker}</strong></span>
-          <span className="amber-text">Review status {pendingLinked} {selectedTicker.ticker}-linked rumor pending</span>
+          <span className="amber-text">Governance status {governanceCopy}</span>
           <button onClick={() => navigate("/review")} type="button">Review queue →</button>
         </div>
       </section>
@@ -520,7 +529,7 @@ function TickerView({ run, selectedTicker, comparisonTicker, reviewStatus, navig
 
       <section className="page-shell two-col">
         <article className="panel summary-panel">
-          <SectionTitle title={`${selectedTicker.ticker} · sentiment summary`} aside="one-week run" />
+          <SectionTitle title={`${selectedTicker.ticker} · sentiment summary`} aside={runWindowLabel(run)} />
           <div className="metric-row">
             <Stat label="Posts" value={fmt(selectedTicker.post_count)} hint="this run" />
             <Stat label="Avg confidence" value={fixed(selectedTicker.avg_confidence)} hint="model calibration" />
@@ -546,8 +555,11 @@ function TickerView({ run, selectedTicker, comparisonTicker, reviewStatus, navig
           <BarList rows={postTypes.map((item) => [item.post_type, item.count])} total={selectedTicker.post_count} />
         </article>
         <article className="panel">
-          <SectionTitle title="Daily sentiment timeline" aside="7 days · do not extrapolate" />
-          <DailyChart points={daily} />
+          <SectionTitle
+            title={expandedWindow ? "Monthly sentiment timeline" : "Daily sentiment timeline"}
+            aside={`${runWindowLabel(run)} · do not extrapolate`}
+          />
+          <StackedTimelineChart points={timeline} />
         </article>
       </section>
 
@@ -566,15 +578,15 @@ function TickerView({ run, selectedTicker, comparisonTicker, reviewStatus, navig
           <div>
             <h3>Governance note</h3>
             <p>
-              {linkedRumours.length || "No"} rumor item involving {selectedTicker.ticker} met the threshold and is withheld
-              from public display until analyst review. Cluster-level evidence is preserved in the audit trail.
+              {linkedRumours.length || "No"} released rumor alert involving {selectedTicker.ticker} met the threshold in this run.
+              High-stakes matches are held in the review track before publication.
             </p>
           </div>
         </article>
         <RouteCard
           label="Next"
           title="Open Analyst Review queue"
-          body="Approve, reject, or escalate flagged rumors before publication."
+          body="Inspect released alerts and any held high-stakes rumors before publication."
           action="Open queue"
           onClick={() => navigate("/review")}
         />
@@ -595,10 +607,7 @@ function TickerView({ run, selectedTicker, comparisonTicker, reviewStatus, navig
         <article className="panel delta-panel">
           <span className="eyebrow">Confidence delta</span>
           <strong>{Math.abs((selectedTicker.avg_confidence || 0) - (compare.avg_confidence || 0)).toFixed(2)}</strong>
-          <span>
-            {selectedTicker.ticker}'s average classifier confidence ({fixed(selectedTicker.avg_confidence)}) is higher than{" "}
-            {compare.ticker}'s ({fixed(compare.avg_confidence)}) in this run.
-          </span>
+          <span>{confidenceDeltaCopy(selectedTicker, compare)}</span>
         </article>
       </section>
     </main>
@@ -606,11 +615,15 @@ function TickerView({ run, selectedTicker, comparisonTicker, reviewStatus, navig
 }
 
 function ReviewQueue({ run, reviewStatus, setReviewStatus }: ViewProps) {
-  const [filter, setFilter] = useState<ReviewStatus | "all">("pending");
+  const [filter, setFilter] = useState<ReviewStatus | "all">("all");
   const [selected, setSelected] = useState(0);
-  const counts = countStatuses(run, reviewStatus);
+  const defaultReviewStatus: ReviewStatus = hasSplitGovernance(run) ? "approved" : "pending";
+  const counts = countStatuses(run, reviewStatus, defaultReviewStatus);
+  const heldCount = heldRumorCount(run);
+  const releasedCount = releasedRumorCount(run);
+  const reviewThreshold = numericConfig(run, "rumour_human_review_min_conf") ?? 0.8;
   const visible = run.rumours.filter((rumour, index) => {
-    const status = reviewStatus[rumourKey(rumour, index)] || "pending";
+    const status = reviewStatus[rumourKey(rumour, index)] || (hasSplitGovernance(run) ? "approved" : "pending");
     return filter === "all" || status === filter;
   });
 
@@ -625,8 +638,8 @@ function ReviewQueue({ run, reviewStatus, setReviewStatus }: ViewProps) {
         <p className="eyebrow">Governance · human checkpoint · analyst input</p>
         <h1>Analyst Review queue</h1>
         <p className="lede small">
-          This is where analyst input becomes a governance decision. Every flagged rumor stops here before
-          it can reach an external surface.
+          This is where high-stakes rumor alerts would stop for analyst input before publication. Released
+          alerts remain visible with unverified-source disclaimers.
         </p>
       </section>
 
@@ -635,19 +648,26 @@ function ReviewQueue({ run, reviewStatus, setReviewStatus }: ViewProps) {
           <ShieldCheck size={18} />
           <div>
             <span className="eyebrow amber-text">Policy</span>
-            <p>Every rumor with rumour_confidence ≥ 0.70 requires analyst review before publication.</p>
+            <p>
+              High-confidence rumors enter the governance track. Items matching the high-stakes hold policy
+              are withheld before publication; released alerts stay labeled as unverified.
+            </p>
             <div className="policy-grid">
               <span><strong>Owner</strong> Analyst Review</span>
-              <span><strong>SLA</strong> Review before publication, target same business day.</span>
-              <span><strong>Pending now</strong> {counts.pending} of {run.rumours.length}</span>
+              <span><strong>Hold trigger</strong> confidence ≥ {reviewThreshold.toFixed(2)} and high-stakes rumour type.</span>
+              <span><strong>This run</strong> {fmt(heldCount)} held · {fmt(releasedCount)} released</span>
             </div>
           </div>
         </div>
 
         <div className="input-required">
-          <strong>Input required</strong>
-          <span>Approve, reject, or escalate each pending rumor.</span>
-          <span>{counts.pending} pending of {run.rumours.length}</span>
+          <strong>{heldCount > 0 ? "Input required" : "No held items in this run"}</strong>
+          <span>
+            {heldCount > 0
+              ? "Approve, reject, or escalate each held rumor."
+              : "Inspect the released high-confidence alerts and source evidence."}
+          </span>
+          <span>{fmt(heldCount)} held of {fmt(run.metadata.rumours_flagged)}</span>
         </div>
 
         <div className="status-tabs">
@@ -666,7 +686,7 @@ function ReviewQueue({ run, reviewStatus, setReviewStatus }: ViewProps) {
         <div className="queue-list">
           {visible.map((rumour) => {
             const originalIndex = run.rumours.indexOf(rumour);
-            const status = reviewStatus[rumourKey(rumour, originalIndex)] || "pending";
+            const status = reviewStatus[rumourKey(rumour, originalIndex)] || (hasSplitGovernance(run) ? "approved" : "pending");
             const expanded = selected === originalIndex;
             return (
               <article className={`queue-card ${expanded ? "expanded" : ""}`} key={rumourKey(rumour, originalIndex)}>
@@ -684,20 +704,20 @@ function ReviewQueue({ run, reviewStatus, setReviewStatus }: ViewProps) {
                     <div className="detail-grid">
                       <span><strong>Detected</strong>{rumour.date ? formatDate(rumour.date) : "Saved run"}</span>
                       <span><strong>Rumor type</strong>{rumour.rumour_type}</span>
-                      <span><strong>Confidence</strong>{fixed(rumour.rumour_confidence)} · review required</span>
+                      <span><strong>Confidence</strong>{fixed(rumour.rumour_confidence)} · {status === "approved" ? "released alert" : "review required"}</span>
                     </div>
                     <a href={`https://www.reddit.com${rumour.permalink || ""}`} target="_blank" rel="noreferrer">
                       Source thread
                     </a>
                     <div className="action-row">
                       <button className="approve" onClick={() => setStatus(originalIndex, "approved")} type="button">
-                        <CheckCircle2 size={14} /> Approve for publication
+                        <CheckCircle2 size={14} /> Mark released
                       </button>
                       <button className="reject" onClick={() => setStatus(originalIndex, "rejected")} type="button">
                         <XCircle size={14} /> Reject
                       </button>
                       <button className="escalate" onClick={() => setStatus(originalIndex, "escalated")} type="button">
-                        <AlertTriangle size={14} /> Escalate
+                        <AlertTriangle size={14} /> Escalate for review
                       </button>
                       <span className="mono subtle">Session-only · no persistence</span>
                     </div>
@@ -711,8 +731,8 @@ function ReviewQueue({ run, reviewStatus, setReviewStatus }: ViewProps) {
         <div className="audit-note">
           <Circle size={16} />
           <p>
-            Prototype audit note: review actions update local UI state only. In production, each action would
-            be written to an immutable audit log with reviewer identity and timestamp.
+            Prototype audit note: review actions update local UI state only. In production, held actions
+            would be written to an immutable audit log with reviewer identity and timestamp.
           </p>
         </div>
       </section>
@@ -805,7 +825,7 @@ function TrustPanel() {
       </div>
       <div className="trust-item">
         <ShieldCheck size={16} />
-        <div><strong>Governance</strong><p>Rumors at or above 0.70 confidence are routed to human review before publication.</p></div>
+        <div><strong>Governance</strong><p>High-stakes rumors are held for review; released alerts remain marked as unverified.</p></div>
       </div>
     </article>
   );
@@ -816,8 +836,8 @@ function RunScope({ run }: { run: RunDataset }) {
     <aside className="run-scope">
       <span className="eyebrow">Run scope</span>
       <strong>{runDate(run)}</strong>
-      <small>One-week run · {dateRange(run)}</small>
-      <p>Frontend cache from a completed pipeline run. Multi-week trends are not claimed.</p>
+      <small>{runWindowLabel(run)} · {dateRange(run)}</small>
+      <p>Frontend cache from a completed pipeline run. Treat outputs as decision support, not a forecast.</p>
     </aside>
   );
 }
@@ -941,18 +961,22 @@ function BarList({ rows, total }: { rows: Array<[string, number]>; total: number
   );
 }
 
-function DailyChart({ points }: { points: Array<{ day: string; bullish: number; bearish: number; neutral: number; post_count: number }> }) {
+function StackedTimelineChart({
+  points,
+}: {
+  points: Array<{ label?: string; day?: string; bullish: number; bearish: number; neutral: number; post_count: number }>;
+}) {
   const max = Math.max(...points.map((point) => point.post_count), 1);
   return (
     <div className="daily-chart">
       {points.map((point) => (
-        <div className="day-col" key={point.day}>
+        <div className="day-col" key={point.label || point.day}>
           <div className="stack" style={{ height: `${Math.max(30, (point.post_count / max) * 150)}px` }}>
             <span className="green-bg" style={{ flex: point.bullish || 0.01 }} />
             <span className="neutral-bg" style={{ flex: point.neutral || 0.01 }} />
             <span className="red-bg" style={{ flex: point.bearish || 0.01 }} />
           </div>
-          <small>{shortDate(point.day)}</small>
+          <small>{point.label || shortDate(point.day || "")}</small>
         </div>
       ))}
     </div>
@@ -1041,10 +1065,10 @@ function postsForTicker(run: RunDataset, ticker: string) {
   return run.posts.filter((post) => post.primary_ticker === ticker);
 }
 
-function countStatuses(run: RunDataset, statuses: Record<string, ReviewStatus>) {
+function countStatuses(run: RunDataset, statuses: Record<string, ReviewStatus>, defaultStatus: ReviewStatus = "pending") {
   return run.rumours.reduce(
     (acc, rumour, index) => {
-      const status = statuses[rumourKey(rumour, index)] || "pending";
+      const status = statuses[rumourKey(rumour, index)] || defaultStatus;
       acc[status] += 1;
       return acc;
     },
@@ -1092,10 +1116,65 @@ function runDate(run: RunDataset) {
   return timestamp ? timestamp.slice(0, 10) : run.id.replace("run_", "");
 }
 
+function runDays(run: RunDataset) {
+  return Array.from(new Set(run.daily.map((point) => point.day).filter(Boolean))).sort();
+}
+
+function runDayCount(run: RunDataset) {
+  return runDays(run).length || 0;
+}
+
+function runWindowLabel(run: RunDataset) {
+  const count = runDayCount(run);
+  if (!count) return "saved run";
+  return count >= 28 ? `${count}-day expanded run` : `${count}-day saved run`;
+}
+
+function monthlyFromDaily(
+  points: Array<{ day: string; bullish: number; bearish: number; neutral: number; post_count: number }>
+) {
+  const byMonth = new Map<string, { bullish: number; bearish: number; neutral: number; post_count: number }>();
+  points.forEach((point) => {
+    const month = point.day.slice(0, 7);
+    const bucket = byMonth.get(month) || { bullish: 0, bearish: 0, neutral: 0, post_count: 0 };
+    bucket.bullish += (point.bullish / 100) * point.post_count;
+    bucket.bearish += (point.bearish / 100) * point.post_count;
+    bucket.neutral += (point.neutral / 100) * point.post_count;
+    bucket.post_count += point.post_count;
+    byMonth.set(month, bucket);
+  });
+  return Array.from(byMonth.entries())
+    .sort(([left], [right]) => left.localeCompare(right))
+    .map(([month, bucket]) => ({
+      label: monthLabel(month),
+      post_count: bucket.post_count,
+      bullish: bucket.post_count ? (bucket.bullish / bucket.post_count) * 100 : 0,
+      bearish: bucket.post_count ? (bucket.bearish / bucket.post_count) * 100 : 0,
+      neutral: bucket.post_count ? (bucket.neutral / bucket.post_count) * 100 : 0,
+    }));
+}
+
 function dateRange(run: RunDataset) {
-  const days = run.daily.map((point) => point.day).sort();
+  const days = runDays(run);
   if (!days.length) return "saved output files";
   return `${days[0]} → ${days[days.length - 1]}`;
+}
+
+function hasSplitGovernance(run: RunDataset) {
+  return run.metadata.rumours_released !== undefined || run.metadata.rumours_pending_review !== undefined;
+}
+
+function releasedRumorCount(run: RunDataset) {
+  return run.metadata.rumours_released ?? run.rumours.length;
+}
+
+function heldRumorCount(run: RunDataset) {
+  return run.metadata.rumours_pending_review ?? run.rumours.length;
+}
+
+function numericConfig(run: RunDataset, key: string) {
+  const value = run.metadata.config?.[key];
+  return typeof value === "number" ? value : undefined;
 }
 
 function formatDate(value: string) {
@@ -1108,8 +1187,26 @@ function shortDate(value: string) {
   return `${month}/${day}`;
 }
 
+function monthLabel(value: string) {
+  const [year, month] = value.split("-");
+  const date = new Date(Number(year), Number(month) - 1, 1);
+  return date.toLocaleString("en-US", { month: "short", year: "numeric" });
+}
+
 function netSentiment(ticker: TickerSummary) {
   return (ticker.bullish_pct || 0) - (ticker.bearish_pct || 0);
+}
+
+function confidenceDeltaCopy(left: TickerSummary, right: TickerSummary) {
+  const leftConfidence = left.avg_confidence || 0;
+  const rightConfidence = right.avg_confidence || 0;
+  const comparison =
+    Math.abs(leftConfidence - rightConfidence) < 0.005
+      ? "matches"
+      : leftConfidence > rightConfidence
+        ? "is higher than"
+        : "is lower than";
+  return `${left.ticker}'s average classifier confidence (${fixed(left.avg_confidence)}) ${comparison} ${right.ticker}'s (${fixed(right.avg_confidence)}) in this run.`;
 }
 
 function fmt(value: number | undefined) {

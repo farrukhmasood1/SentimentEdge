@@ -57,7 +57,7 @@ export async function buildRunFromFiles(files: FileList): Promise<RunDataset> {
   const rumours = rumourFile ? parseSentimentCsv(await rumourFile.text()) : [];
 
   const run: RunDataset = {
-    id: metadata.run_dir?.split("/").pop() || `uploaded_run_${new Date().toISOString()}`,
+    id: metadata.run_dir?.split(/[\\/]/).pop() || `uploaded_run_${new Date().toISOString()}`,
     run_dir: metadata.run_dir,
     metadata,
     source_files: Array.from(byName.keys()),

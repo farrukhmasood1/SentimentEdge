@@ -12,6 +12,8 @@ export interface RunMetadata {
   errors?: number;
   tickers_found?: number;
   rumours_flagged?: number;
+  rumours_released?: number;
+  rumours_pending_review?: number;
   avg_confidence?: number;
   sarcastic_count?: number;
   config?: Record<string, number | string | boolean>;
