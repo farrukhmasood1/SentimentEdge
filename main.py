@@ -10,8 +10,9 @@ Each run produces:
     trace.txt              ← full terminal output
     sentiment_results.csv  ← per-post LLM results
     ticker_summary.csv     ← aggregated ticker data
-    rumour_alerts.csv      ← high-confidence rumour posts (if any)
-    run_metadata.json      ← config snapshot + pipeline stats
+    rumour_alerts.csv           ← high-confidence released rumour posts (if any)
+    rumour_pending_review.csv  ← high-stakes rumours held for human review (if any)
+    run_metadata.json          ← config snapshot + pipeline stats
 
 Usage:
   Full pipeline:
@@ -35,7 +36,8 @@ from datetime import datetime
 
 from config import (
     POSTS_FILE, COMMENTS_FILE, API_KEY, BATCH_SIZE,
-    MIN_POST_SCORE, RUMOUR_THRESHOLD, LOW_CONF_THRESHOLD,
+    MIN_POST_SCORE, RUMOUR_THRESHOLD, RUMOUR_HUMAN_REVIEW_MIN_CONF,
+    RUMOUR_HUMAN_REVIEW_TYPES, LOW_CONF_THRESHOLD,
     TOP_N_COMMENTS, SHIFT_THRESHOLD, MIN_POSTS_PER_DAY,
 )
 from utils.logger import create_run_dir, TeeLogger, save_metadata
@@ -98,7 +100,9 @@ def main():
         return
 
     # ── Agent 4: Aggregate ────────────────────────────────────────────────────
-    ticker_summary, rumour_alerts, df_llm = run_aggregator(df_llm, run_dir)
+    ticker_summary, rumour_alerts, rumour_pending_review, df_llm = run_aggregator(
+        df_llm, run_dir
+    )
 
     # ── Agent 5: Output ───────────────────────────────────────────────────────
     # Show reports for the top tickers by post count
@@ -109,7 +113,9 @@ def main():
     )
 
     for ticker in top_tickers:
-        query_ticker(ticker, ticker_summary, rumour_alerts, df_llm)
+        query_ticker(
+            ticker, ticker_summary, rumour_alerts, df_llm, rumour_pending_review
+        )
 
     run_trend_alerts(df_llm)
 
@@ -117,12 +123,15 @@ def main():
         compare_tickers(top_tickers[0], top_tickers[1], ticker_summary, df_llm)
 
     # ── Save metadata and close logger ────────────────────────────────────────
+    n_rumour_total = len(rumour_alerts) + len(rumour_pending_review)
     _save_metadata_and_close(
         logger, run_dir, pipeline_start,
         n_posts_raw=n_posts_raw, n_comments_raw=n_comments_raw,
         n_filtered=n_filtered, n_analyzed=n_analyzed, errors=errors,
         tickers_found=len(ticker_summary),
-        rumours_flagged=len(rumour_alerts),
+        rumours_flagged=n_rumour_total,
+        rumours_released=len(rumour_alerts),
+        rumours_pending_review=len(rumour_pending_review),
         avg_confidence=round(float(df_llm['confidence'].mean()), 2) if n_analyzed > 0 else 0,
         sarcastic_count=int(df_llm['is_sarcastic'].sum()) if n_analyzed > 0 else 0,
     )
@@ -136,13 +145,15 @@ def _save_metadata_and_close(logger, run_dir, pipeline_start, **stats):
         'run_timestamp':             datetime.now().isoformat(),
         'run_dir':                   run_dir,
         'config': {
-            'batch_size':            BATCH_SIZE,
-            'min_post_score':        MIN_POST_SCORE,
-            'rumour_threshold':      RUMOUR_THRESHOLD,
-            'low_conf_threshold':    LOW_CONF_THRESHOLD,
-            'top_n_comments':        TOP_N_COMMENTS,
-            'shift_threshold':       SHIFT_THRESHOLD,
-            'min_posts_per_day':     MIN_POSTS_PER_DAY,
+            'batch_size':                 BATCH_SIZE,
+            'min_post_score':            MIN_POST_SCORE,
+            'rumour_threshold':          RUMOUR_THRESHOLD,
+            'rumour_human_review_min_conf': RUMOUR_HUMAN_REVIEW_MIN_CONF,
+            'rumour_human_review_types': list(RUMOUR_HUMAN_REVIEW_TYPES),
+            'low_conf_threshold':        LOW_CONF_THRESHOLD,
+            'top_n_comments':            TOP_N_COMMENTS,
+            'shift_threshold':           SHIFT_THRESHOLD,
+            'min_posts_per_day':         MIN_POSTS_PER_DAY,
         },
         'pipeline_duration_seconds': elapsed,
         **stats,
@@ -187,6 +198,7 @@ def replay(run_dir=None):
     sentiment_path = os.path.join(run_dir, 'sentiment_results.csv')
     summary_path   = os.path.join(run_dir, 'ticker_summary.csv')
     rumours_path   = os.path.join(run_dir, 'rumour_alerts.csv')
+    pending_path   = os.path.join(run_dir, 'rumour_pending_review.csv')
 
     if not os.path.exists(sentiment_path):
         print(f'✗ sentiment_results.csv not found in {run_dir}')
@@ -200,6 +212,11 @@ def replay(run_dir=None):
     rumour_alerts  = (
         pd.read_csv(rumours_path, index_col=0)
         if os.path.exists(rumours_path)
+        else pd.DataFrame()
+    )
+    rumour_pending_review = (
+        pd.read_csv(pending_path, index_col=0)
+        if os.path.exists(pending_path)
         else pd.DataFrame()
     )
 
@@ -218,7 +235,9 @@ def replay(run_dir=None):
     )
 
     for ticker in top_tickers:
-        query_ticker(ticker, ticker_summary, rumour_alerts, df_llm)
+        query_ticker(
+            ticker, ticker_summary, rumour_alerts, df_llm, rumour_pending_review
+        )
 
     run_trend_alerts(df_llm)
 

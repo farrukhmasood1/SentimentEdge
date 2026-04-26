@@ -1,0 +1,29 @@
+{
+  "run_timestamp": "2026-04-25T18:17:09.490831",
+  "run_dir": "outputs\\runs\\run_20260425_174443",
+  "config": {
+    "batch_size": 500,
+    "min_post_score": 10,
+    "rumour_threshold": 0.7,
+    "rumour_human_review_min_conf": 0.8,
+    "rumour_human_review_types": [
+      "acquisition_rumour"
+    ],
+    "low_conf_threshold": 0.6,
+    "top_n_comments": 5,
+    "shift_threshold": 15,
+    "min_posts_per_day": 3
+  },
+  "pipeline_duration_seconds": 1946.4,
+  "n_posts_raw": 6919,
+  "n_comments_raw": 945096,
+  "n_filtered": 1458,
+  "n_analyzed": 500,
+  "errors": 0,
+  "tickers_found": 68,
+  "rumours_flagged": 7,
+  "rumours_released": 7,
+  "rumours_pending_review": 0,
+  "avg_confidence": 0.62,
+  "sarcastic_count": 308
+}

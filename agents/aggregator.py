@@ -1,38 +1,43 @@
 """
 SentimentEdge — Agent 4: Aggregator
-Combines per-post LLM results into two output tracks:
+Combines per-post LLM results into output tracks:
   Track 1 — ticker-level sentiment summaries (engagement-weighted)
-  Track 2 — high-confidence rumour alerts (rumour_confidence >= threshold)
+  Track 2 — released rumour alerts (high-confidence, not requiring human hold)
+  Track 2b — rumour_pending_review (high-stakes: held for human review; saved to CSV)
 
 All outputs are saved to the timestamped run directory so every run is
 preserved and auditable.
 
 Inputs:  df_llm (from Sentiment Agent), run_dir
-Outputs: ticker_summary, rumour_alerts, df_llm (with month column added)
+Outputs: ticker_summary, rumour_released, rumour_pending_review, df_llm (with month column added)
 """
 
 import os
 import pandas as pd
-from config import RUMOUR_THRESHOLD, LOW_CONF_THRESHOLD, LOW_SAMPLE_THRESHOLD
+from config import (
+    RUMOUR_THRESHOLD,
+    RUMOUR_HUMAN_REVIEW_MIN_CONF,
+    RUMOUR_HUMAN_REVIEW_TYPES,
+    LOW_CONF_THRESHOLD,
+    LOW_SAMPLE_THRESHOLD,
+)
 
 
 def run_aggregator(df_llm, run_dir):
     """
-    Groups per-post sentiment data into ticker summaries and rumour alerts.
-    Saves three CSVs to run_dir.
+    Groups per-post sentiment data into ticker summaries and split rumour tracks.
+    Saves sentiment/ticker CSVs; saves rumour_alerts (released) and
+    rumour_pending_review (held) when non-empty.
 
     Inputs:
         df_llm   — analyzed posts DataFrame from Sentiment Agent
         run_dir  — timestamped run folder path (from logger.create_run_dir)
 
     Outputs:
-        ticker_summary — DataFrame indexed by primary_ticker with columns:
-                         post_count, bullish_pct, bearish_pct, neutral_pct,
-                         avg_confidence, avg_relevance, sarcastic_count,
-                         avg_engagement, low_confidence, low_sample
-        rumour_alerts  — DataFrame of posts where is_rumour=True and
-                         rumour_confidence >= RUMOUR_THRESHOLD
-        df_llm         — input DataFrame with 'month' column added
+        ticker_summary — DataFrame indexed by primary_ticker
+        rumour_released — high-confidence rumours shown in RUMOUR ALERTS
+        rumour_pending_review — held rows (excluded from RUMOUR ALERTS)
+        df_llm — input DataFrame with 'month' column added
     """
     print('\n' + '=' * 55)
     print('AGENT 4 — AGGREGATOR')
@@ -40,7 +45,7 @@ def run_aggregator(df_llm, run_dir):
 
     if len(df_llm) == 0:
         print('  ⚠  df_llm is empty — returning empty outputs.')
-        return pd.DataFrame(), pd.DataFrame(), df_llm
+        return pd.DataFrame(), pd.DataFrame(), pd.DataFrame(), df_llm
 
     print(f'Input: {len(df_llm)} analyzed posts')
 
@@ -61,11 +66,22 @@ def run_aggregator(df_llm, run_dir):
     ticker_summary['low_confidence'] = ticker_summary['avg_confidence'] < LOW_CONF_THRESHOLD
     ticker_summary['low_sample']     = ticker_summary['post_count']     < LOW_SAMPLE_THRESHOLD
 
-    # ── Track 2: rumour alerts ────────────────────────────────────────────────
-    rumour_alerts = df_llm[
+    # ── Track 2: high-confidence rumours → released vs human-review queue ────
+    high_conf = df_llm[
         (df_llm['is_rumour'] == True) &
         (df_llm['rumour_confidence'] >= RUMOUR_THRESHOLD)
     ].copy()
+
+    if len(high_conf) == 0:
+        rumour_released = pd.DataFrame()
+        rumour_pending_review = pd.DataFrame()
+    else:
+        pending_mask = (
+            (high_conf['rumour_confidence'] >= RUMOUR_HUMAN_REVIEW_MIN_CONF) &
+            (high_conf['rumour_type'].isin(RUMOUR_HUMAN_REVIEW_TYPES))
+        )
+        rumour_pending_review = high_conf[pending_mask].copy()
+        rumour_released = high_conf[~pending_mask].copy()
 
     # ── Monthly trend (added to df_llm for Output Agent) ─────────────────────
     df_llm = df_llm.copy()
@@ -81,9 +97,15 @@ def run_aggregator(df_llm, run_dir):
     print(f'\n  Ticker summary ({len(ticker_summary)} tickers):')
     print(ticker_summary.head(10).to_string())
 
-    print(f'\n  Rumour alerts (confidence >= {RUMOUR_THRESHOLD}): {len(rumour_alerts)}')
-    if len(rumour_alerts) == 0:
-        print('  (No high-confidence rumours detected — this is normal)')
+    n_total = len(high_conf)
+    n_held = len(rumour_pending_review)
+    n_released = len(rumour_released)
+    print(f'\n  High-confidence rumours (>= {RUMOUR_THRESHOLD}): {n_total} total')
+    if n_total == 0:
+        print('  (No high-confidence rumours — this is normal)')
+    else:
+        print(f'    Released to reports:           {n_released}')
+        print(f'    Pending human review (held):  {n_held}  → rumour_pending_review.csv')
 
     print(f'\n  Monthly trend:')
     for month, row in monthly.iterrows():
@@ -94,14 +116,16 @@ def run_aggregator(df_llm, run_dir):
     # ── Save outputs to run directory ─────────────────────────────────────────
     _save(df_llm,         run_dir, 'sentiment_results.csv')
     _save(ticker_summary, run_dir, 'ticker_summary.csv')
-    if len(rumour_alerts) > 0:
-        _save(rumour_alerts, run_dir, 'rumour_alerts.csv')
+    if n_released > 0:
+        _save(rumour_released, run_dir, 'rumour_alerts.csv')
+    if n_held > 0:
+        _save(rumour_pending_review, run_dir, 'rumour_pending_review.csv')
 
     print(f'\n✓ Aggregator complete')
     print(f'   Tickers found:   {len(ticker_summary)}')
-    print(f'   Rumours flagged: {len(rumour_alerts)}')
+    print(f'   Rumours (total high-conf): {n_total}')
 
-    return ticker_summary, rumour_alerts, df_llm
+    return ticker_summary, rumour_released, rumour_pending_review, df_llm
 
 
 # ── Private helper ────────────────────────────────────────────────────────────

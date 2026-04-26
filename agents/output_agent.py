@@ -5,7 +5,7 @@ Human-facing layer. Three report functions:
   2. run_trend_alerts() — daily sentiment shifts over last 7 days
   3. compare_tickers()  — side-by-side comparison of two tickers
 
-Inputs:  ticker_summary, rumour_alerts, df_llm (from Aggregator)
+Inputs:  ticker_summary, rumour_alerts, df_llm, rumour_pending_review (from Aggregator)
 Outputs: formatted terminal reports
 """
 
@@ -15,12 +15,19 @@ from config import LOW_CONF_THRESHOLD, LOW_SAMPLE_THRESHOLD, SHIFT_THRESHOLD, MI
 
 W = 62  # report width
 
+# Governance copy for held high-stakes rumours (document-only review; see README)
+RUMOUR_REVIEWER_LABEL = "Designated compliance or editorial reviewer"
+RUMOUR_REVIEW_SLA_HOURS = 24
+
 
 # ══════════════════════════════════════════════════════════════════════════════
 # FUNCTION 1 — query_ticker
 # ══════════════════════════════════════════════════════════════════════════════
 
-def query_ticker(ticker, ticker_summary, rumour_alerts, df_llm):
+def query_ticker(ticker, ticker_summary, rumour_alerts, df_llm, rumour_pending_review=None):
+    if rumour_pending_review is None:
+        rumour_pending_review = pd.DataFrame()
+
     ticker = ticker.upper().strip()
 
     _header(f'TICKER REPORT — ${ticker}')
@@ -125,6 +132,18 @@ def query_ticker(ticker, ticker_summary, rumour_alerts, df_llm):
             print(f'  Confidence  {r["rumour_confidence"]:.2f}')
             print(f'  Source      reddit.com{r["permalink"]}')
             print(f'  ⚠  Unverified social media speculation only.')
+
+    pending_for_ticker = (
+        rumour_pending_review[rumour_pending_review['primary_ticker'] == ticker]
+        if len(rumour_pending_review) > 0 else pd.DataFrame()
+    )
+    if len(pending_for_ticker) > 0:
+        n = len(pending_for_ticker)
+        _section('HELD — HIGH-STAKES RUMOUR (HUMAN REVIEW)')
+        print(f'  {n} alert(s) withheld from the report above — not auto-published from the model alone.')
+        print(f'  Queue file:  rumour_pending_review.csv  (this run directory)')
+        print(f'  Reviewer:    {RUMOUR_REVIEWER_LABEL}')
+        print(f'  Target SLA:  triage within {RUMOUR_REVIEW_SLA_HOURS}h (per team policy; evidence in Phase 3 report).')
 
     _footer(df_llm)
 

@@ -19,6 +19,9 @@ MIN_POST_SCORE = 10    # minimum upvote score to pass Filter Agent
 
 # ── Aggregator thresholds ─────────────────────────────────────────────────────
 RUMOUR_THRESHOLD     = 0.7   # minimum rumour_confidence to surface an alert
+# High-stakes rumours: held for human review (see README — governance). Not shown as released alerts.
+RUMOUR_HUMAN_REVIEW_MIN_CONF = 0.8
+RUMOUR_HUMAN_REVIEW_TYPES   = ('acquisition_rumour',)  # must match sentiment_agent JSON schema
 LOW_CONF_THRESHOLD   = 0.6   # below this avg_confidence triggers a warning
 LOW_SAMPLE_THRESHOLD = 5     # below this post_count triggers a low-sample warning
 

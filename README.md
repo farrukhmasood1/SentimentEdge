@@ -22,8 +22,8 @@ Or set `API_KEY` directly in `config.py` (not recommended for shared repos).
 **3. Confirm data files are in place**
 ```
 data/
-  posts.jsonl
-  comments.jsonl
+  r_wallstreetbets_posts.jsonl
+  r_wallstreetbets_comments.jsonl
 ```
 
 ---
@@ -41,8 +41,9 @@ outputs/runs/run_YYYYMMDD_HHMMSS/
   trace.txt              ← full terminal output (all five agents)
   sentiment_results.csv  ← per-post LLM results
   ticker_summary.csv     ← aggregated ticker stats
-  rumour_alerts.csv      ← flagged rumour posts (if any)
-  run_metadata.json      ← config snapshot + pipeline stats
+  rumour_alerts.csv           ← released high-confidence rumour lines (if any)
+  rumour_pending_review.csv  ← high-stakes rumours held for human review (if any)
+  run_metadata.json          ← config snapshot + pipeline stats
 ```
 
 Logs are not overwritten — each run creates a new directory.
@@ -77,6 +78,20 @@ Key settings in `config.py`:
 | `MIN_POST_SCORE` | 10 | Minimum upvote score to pass filter |
 | `MODEL` | claude-sonnet-4-20250514 | Claude model used |
 | `MAX_TOKENS` | 400 | Max tokens per LLM response |
+| `RUMOUR_THRESHOLD` | 0.7 | Minimum `rumour_confidence` to enter either rumour track |
+| `RUMOUR_HUMAN_REVIEW_MIN_CONF` | 0.8 | With `RUMOUR_HUMAN_REVIEW_TYPES`, rows go to human review, not the released report |
+| `RUMOUR_HUMAN_REVIEW_TYPES` | `acquisition_rumour` | Types treated as high-stakes (tuple in `config.py`) |
+
+---
+
+## Rumour governance and human review (Option A)
+
+High-confidence model outputs are split in the **Aggregator** so that the highest-stakes pattern (configurable, default: `rumour_confidence >= 0.8` **and** `rumour_type` in `RUMOUR_HUMAN_REVIEW_TYPES`) is **not** shown in the **RUMOUR ALERTS** block. Those posts are written only to **`rumour_pending_review.csv`**.
+
+- **Who reviews:** a **designated compliance or editorial reviewer** (named role; adjust in your Phase 3 report if your team uses a different title).  
+- **SLA (team policy):** target triage within **24 hours**; adjust in the report if you choose another window.  
+- **How review is evidenced (Option A):** the pipeline does **not** require merging approved rows back into `rumour_alerts.csv`. Review and approve/reject decisions are documented in the **Phase 3 final report and/or video** (e.g. narrative, screenshot of the queue, one worked example).  
+- **User-facing path:** the terminal **RUMOUR ALERTS** section only lists **released** rows from `rumour_alerts.csv`. Pending rows never auto-publish from the model alone.
 
 ---
 
