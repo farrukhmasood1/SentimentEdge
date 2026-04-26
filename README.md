@@ -131,7 +131,6 @@ SentimentEdge/
   docs/
     architecture_diagram.pdf
     SentimentEdge_Phase2_Full_Report.pdf
-    ground_truth_labels.xlsx
     screenshots/                 ← workflow screenshots
 
   eval/
