@@ -1,0 +1,28 @@
+{
+  "input_file": "eval\\sarcasm_annotation_sample_human_output.xlsx",
+  "person_1_column": "person_1_label - Moid",
+  "person_2_column": "person_2_label - Afaq",
+  "n_rows": 100,
+  "krippendorff_alpha_nominal": -0.0020633680365387264,
+  "pairwise_agreement_rate": 0.87,
+  "n_both_labeled": 100,
+  "n_pairwise_agree": 87,
+  "n_pairwise_disagree": 13,
+  "gold_counts": {
+    "S": 31,
+    "N": 42,
+    "U": 14,
+    "missing_or_unresolved": 13
+  },
+  "gold_source_counts": {
+    "consensus": 87,
+    "unresolved_disagreement": 13
+  },
+  "model_vs_gold_binary": {
+    "n_used_for_pr_f1": 73,
+    "precision_sarcastic_positive": 0.5675675675675675,
+    "recall_sarcastic_positive": 0.6774193548387096,
+    "f1_sarcastic_positive": 0.6176470588235294,
+    "note": "Gold S=True, N=False; rows with gold U or unresolved disagreement excluded."
+  }
+}
