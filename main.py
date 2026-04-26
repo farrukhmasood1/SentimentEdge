@@ -176,7 +176,7 @@ def _latest_run_dir():
             for d in os.listdir(runs_root)
             if d.startswith('run_') and os.path.isdir(os.path.join(runs_root, d))
         )
-    return max(dirs) if dirs else None  # lexicographic max == most recent timestamp
+    return max(dirs, key=os.path.basename) if dirs else None  # sort by folder name only, not full path
 
 
 def replay(run_dir=None):
