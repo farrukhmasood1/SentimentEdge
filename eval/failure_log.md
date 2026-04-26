@@ -92,3 +92,18 @@ Documents failure cases discovered during prototyping and testing.
 | **severity** | Medium |
 | **fix_attempted** | `permalink` added explicitly to the `results.append()` dict in `run_sentiment_agent()`. Column is now present in `df_llm` directly. Workaround removed. |
 | **current_status** | Fixed in modular refactor |
+
+---
+
+## F-06 — Krippendorff's alpha near zero on sarcasm annotation
+
+| Field | Value |
+|---|---|
+| **failure_id** | F-06 |
+| **date** | 2026-04-25 (Phase 3 benchmark run) |
+| **version_tested** | v0.3 — Phase 3 final |
+| **what_triggered_the_problem** | Phase 2 feedback required running the sarcasm ground-truth benchmark. Two annotators (Moid and Afaq) independently labeled 100 posts as S (sarcastic), N (not sarcastic), or U (uncertain). Krippendorff's alpha was computed on the 100-post sample. |
+| **what_happened** | Pairwise agreement was 87% but Krippendorff's alpha (nominal) came out at **-0.002** — effectively zero. This means the 87% agreement is explained almost entirely by class imbalance (42 N vs 31 S in the gold set): both annotators defaulted to N on ambiguous cases, producing surface agreement without genuine concordance. Alpha corrects for chance agreement and reveals that annotators disagreed on the cases that mattered. The Phase 2 protocol set a minimum threshold of 0.67; this result falls far below it. |
+| **severity** | High |
+| **fix_attempted** | Per the protocol, an alpha below 0.67 requires revising annotation guidelines and re-annotating. The 13 unresolved disagreements (gold_source = unresolved_disagreement) were inspected manually. Root cause: the S/N boundary was applied differently for posts that use financial jargon sarcastically (e.g., "This is fine 🔥" about a portfolio loss). A revised guideline would require annotators to treat any ironic framing of a financial loss as S regardless of emoji or tone markers. Re-annotation was not completed within Phase 3 scope. |
+| **current_status** | Open — guideline revision identified but re-annotation not completed. Model precision=0.568, recall=0.677, F1=0.618 reported on the 73 non-uncertain posts using the current gold labels. These numbers should be treated as indicative rather than definitive given the low inter-annotator agreement. |

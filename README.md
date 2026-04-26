@@ -10,6 +10,33 @@ Five-agent sequential pipeline for analyzing r/wallstreetbets sentiment using th
 
 ---
 
+## Phase 2 Feedback — What Was Addressed in Phase 3
+
+Phase 2 score: **93 / 100**. Three items were flagged for Phase 3:
+
+**1. Human governance checkpoint for rumour alerts** ✅
+> *"Decide what the trigger is... who owns the queue... Without this, the residual risk in the rumour-misuse row remains unmitigated."*
+
+Built into the Aggregator. Posts with `rumour_confidence >= 0.8` **and** `rumour_type = acquisition_rumour` are written only to `rumour_pending_review.csv` and never auto-published. Config keys: `RUMOUR_HUMAN_REVIEW_MIN_CONF` and `RUMOUR_HUMAN_REVIEW_TYPES` in `config.py`. In the main run (7 rumours flagged), none matched `acquisition_rumour` at ≥ 0.8 confidence, so `rumours_pending_review = 0` — the mechanism is live but did not trigger on this dataset. Screenshots: `docs/screenshots/06_rumour_review_queue.png`.
+
+**2. Sarcasm ground-truth benchmark** ✅ (run, with honest failure)
+> *"Phase 3 is where empirical benchmark results go... Without the numbers, the benchmark exists on paper only."*
+
+Benchmark executed on 100-post sample (annotators: Moid and Afaq). Results in `eval/sarcasm_metrics.json`:
+- Krippendorff's alpha: **-0.002** (minimum threshold was 0.67 — **FAIL**, documented as F-06 in failure log)
+- Pairwise agreement: 87% (inflated by class imbalance — alpha corrects for chance)
+- Model precision: **0.568** | recall: **0.677** | F1: **0.618** (on 73 non-uncertain posts)
+- Root cause: annotators diverged on ironic financial-loss posts; guideline revision identified but re-annotation not completed within Phase 3 scope.
+
+**3. 4-week dataset expansion** ✅
+> *"A multi-week run is the shortest path to a prototype that actually exercises every branch."*
+
+Main run (`outputs/main_run/run_20260425_174443/`) covers March–April 2026:
+- **6,919** raw posts | **945,096** comments | **1,458** filtered | **500** analyzed | **68** tickers | **7** rumours flagged
+- Monthly timeline, trend alerts, and ticker comparison views all active on real data.
+
+---
+
 ## Setup
 
 **1. Install dependencies**
@@ -41,7 +68,7 @@ python main.py
 
 Each run saves to a timestamped directory:
 ```
-outputs/runs/run_YYYYMMDD_HHMMSS/
+outputs/main_run/run_YYYYMMDD_HHMMSS/
   trace.txt              ← full terminal output
   sentiment_results.csv  ← per-post LLM results
   ticker_summary.csv     ← aggregated ticker stats
@@ -127,8 +154,11 @@ SentimentEdge/
 
   data/
     raw/                         ← JSONL source files (not in git, see Setup)
+    processed/                   ← intermediate files (currently empty; pipeline writes to outputs/)
+    manifest.json                ← dataset description and file inventory
 
   docs/
+    final_report.pdf             ← Phase 3 final report (TODO: add before submission)
     architecture_diagram.pdf
     SentimentEdge_Phase2_Full_Report.pdf
     screenshots/                 ← workflow screenshots
@@ -142,11 +172,10 @@ SentimentEdge/
     case_outputs/                ← per-test evidence files TC-01 to TC-08
 
   outputs/
-    runs/                        ← new pipeline runs saved here
+    main_run/                    ← primary evidence run + any new runs go here
+      run_20260425_174443/       ← MAIN RUN: 4+ weeks data, 500 posts, 68 tickers
     sample_runs/
-      run_20260412_110302/       ← reference run (283 posts, 59 tickers)
-    demo_outputs/
-    exported_artifacts/
+      run_20260412_110302/       ← earlier reference run (283 posts, 59 tickers)
 
   web/
     src/                         ← React + TypeScript frontend
@@ -164,16 +193,19 @@ SentimentEdge/
   phase_submissions/
     phase1/
     phase2/                      ← Phase 2 report PDF
-    phase3/                      ← final submission materials
+    phase3/                      ← SUBMISSION_CHECKLIST.md + final materials (add before submitting)
 ```
 
 ---
 
 ## Evaluation Summary
 
-Run evidence is in `outputs/sample_runs/run_20260412_110302/`:
-- **1,559** raw posts loaded | **283** analyzed | **59** tickers found | **3** rumours flagged
+**Primary run:** `outputs/main_run/run_20260425_174443/` (4+ weeks of data)
+- **6,919** raw posts loaded | **500** analyzed | **68** tickers found | **7** rumours flagged
 - Dataset: r/wallstreetbets, April 2026
+
+**Reference run:** `outputs/sample_runs/run_20260412_110302/` (single-week slice used for test case evidence)
+- **1,559** raw posts loaded | **283** analyzed | **59** tickers found | **3** rumours flagged
 
 | Category | Cases | Result |
 |---|---|---|
@@ -182,9 +214,14 @@ Run evidence is in `outputs/sample_runs/run_20260412_110302/`:
 
 Full results in `eval/evaluation_results.csv`. Evidence files in `eval/case_outputs/`.
 
-Reproduce all reports without an API key:
+Reproduce all reports without an API key (reference run):
 ```
 python main.py --replay outputs/sample_runs/run_20260412_110302
+```
+
+Replay the main run:
+```
+python main.py --replay outputs/main_run/run_20260425_174443
 ```
 
 ---

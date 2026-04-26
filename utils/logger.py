@@ -19,7 +19,7 @@ def create_run_dir():
     Example: outputs/runs/run_20260411_143022/
     """
     timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-    run_dir   = os.path.join('outputs', 'runs', f'run_{timestamp}')
+    run_dir   = os.path.join('outputs', 'main_run', f'run_{timestamp}')
     os.makedirs(run_dir, exist_ok=True)
     return run_dir
 

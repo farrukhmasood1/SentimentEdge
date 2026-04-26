@@ -1,0 +1,32 @@
+{
+  "dataset": "r/wallstreetbets PushShift Archive",
+  "source": "PushShift Reddit API (archived export)",
+  "files": [
+    {
+      "filename": "r_wallstreetbets_posts.jsonl",
+      "location": "data/raw/",
+      "description": "Reddit posts from r/wallstreetbets. Each line is one post in JSONL format.",
+      "fields": ["id", "title", "selftext", "score", "num_comments", "created_utc", "permalink", "author"],
+      "size_note": "~6,919 posts covering the April 2026 dataset window",
+      "in_git": false,
+      "reason_excluded": "File size; add to data/raw/ before running pipeline"
+    },
+    {
+      "filename": "r_wallstreetbets_comments.jsonl",
+      "location": "data/raw/",
+      "description": "Reddit comments from r/wallstreetbets. Linked to posts via parent_id field.",
+      "fields": ["id", "body", "score", "created_utc", "parent_id", "link_id", "author"],
+      "size_note": "~945,096 comments; ~401MB",
+      "in_git": false,
+      "reason_excluded": "401MB — exceeds git LFS limits; add to data/raw/ before running pipeline"
+    }
+  ],
+  "processed": {
+    "location": "data/processed/",
+    "note": "Intermediate processed files would be written here in a future version. Current pipeline processes data in-memory and writes final outputs directly to outputs/runs/."
+  },
+  "sample_run_outputs": {
+    "location": "outputs/sample_runs/run_20260412_110302/",
+    "description": "Reference run outputs (1,559 raw posts, 283 analyzed, 59 tickers). Reproducible via: python main.py --replay outputs/sample_runs/run_20260412_110302"
+  }
+}

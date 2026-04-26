@@ -65,6 +65,13 @@ Major additions for Phase 3 submission.
 - All 8 required screenshots added to docs/screenshots/
 - README updated with folder guide, evaluation summary, known limitations, team members
 
+**Sarcasm benchmark results (Phase 2 feedback item 2):**
+- 100-post sample annotated by Moid and Afaq (S / N / U labels)
+- Krippendorff's alpha: -0.002 — below 0.67 minimum threshold (see F-06 in failure_log.md)
+- Pairwise agreement: 87% (inflated by class imbalance)
+- Model precision: 0.568 | recall: 0.677 | F1: 0.618 (73 non-uncertain posts)
+- Evidence: eval/sarcasm_metrics.json, eval/sarcasm_annotation_sample_human_output.xlsx
+
 **Pending:**
 - Final report PDF (docs/final_report.pdf)
 - 5-minute demo video (media/demo_video_link.txt)

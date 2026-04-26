@@ -21,6 +21,7 @@ build/
 data/**/*.jsonl
 data/**/*.csv
 data/**/*.json
+!data/manifest.json
 
 # Run outputs
 data/runs/
