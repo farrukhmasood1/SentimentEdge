@@ -149,6 +149,16 @@ SentimentEdge/
     demo_outputs/
     exported_artifacts/
 
+  web/
+    src/                         ← React + TypeScript frontend
+    public/runs/cache.json       ← pre-cached run data for dashboard
+    package.json
+    vite.config.ts
+
+  scripts/
+    cache_frontend_runs.py       ← builds cache.json from run CSVs
+    build_sarcasm_annotation_sheet.py
+
   media/
     demo_video_link.txt          ← 5-minute project video link
 
@@ -185,5 +195,5 @@ python main.py --replay outputs/sample_runs/run_20260412_110302
 - **Filter retention 18.2%** — 64% of r/wallstreetbets posts have deleted bodies. Filter Rule 1 (body OR comments) mitigates this but cannot fully recover deleted content.
 - **Avg confidence 0.67** — April 2026 market downturn drove a 49.5% sarcasm rate across the dataset. Heavy irony depresses confidence scores by design.
 - **Ticker coverage** — 283 posts across 59 tickers yields avg 4.8 posts per ticker. A larger or multi-week dataset would produce statistically stronger per-ticker signals.
-- **Terminal-only output** — reports render in the terminal and are saved to `trace.txt`. A Streamlit dashboard is planned for Phase 3.
+- **Web dashboard is read-only** — the React frontend displays cached run data from `web/public/runs/cache.json`. It does not run the pipeline live; a new run requires the Python pipeline and then re-caching.
 - **Data files not in repo** — both JSONL files must be placed in `data/raw/` manually before running the full pipeline.
