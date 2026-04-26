@@ -125,7 +125,7 @@ def main() -> None:
     runs = []
     seen = set()
     for runs_root in RUNS_ROOTS:
-        for run_dir in sorted(runs_root.glob("run_*")):
+        for run_dir in sorted(runs_root.glob("run_*"), reverse=True):
             required = ["run_metadata.json", "ticker_summary.csv", "sentiment_results.csv"]
             if run_dir in seen:
                 continue
