@@ -158,8 +158,9 @@ SentimentEdge/
     manifest.json                ← dataset description and file inventory
 
   docs/
-    final_report.pdf             ← Phase 3 final report (TODO: add before submission)
-    architecture_diagram.pdf
+    SentimentEdge_Phase3_Final_Report.pdf  ← Phase 3 final report
+    Phase3_SentimentEdge_ Architecture Diagram.pdf  ← Phase 3 architecture diagram
+    architecture_diagram.pdf     ← Phase 2 architecture diagram
     SentimentEdge_Phase2_Full_Report.pdf
     screenshots/                 ← workflow screenshots
 
@@ -167,7 +168,7 @@ SentimentEdge/
     test_cases.md                ← 8 test cases with full evidence
     test_cases.csv               ← same cases in CSV format
     evaluation_results.csv       ← results for all 8 cases + 4 success criteria
-    failure_log.md               ← 5 documented failure cases
+    failure_log.md               ← 6 documented failure cases (F-01 to F-06)
     version_notes.md             ← v0.1 prototype → v0.2 modular
     case_outputs/                ← per-test evidence files TC-01 to TC-08
 
