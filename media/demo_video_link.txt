@@ -1,6 +1,6 @@
-Demo video link — add URL here once recorded.
+Demo video link: https://drive.google.com/file/d/1jUHZLClYRM7KH9Ywth_V4Ycxdj4JORf3/view?usp=sharing
 
-5-minute project video covering:
+This is a ~5 minute project video covering:
 - Problem and target user
 - Architecture overview
 - Full pipeline walkthrough (replay mode)
