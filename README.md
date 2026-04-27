@@ -158,10 +158,8 @@ SentimentEdge/
     manifest.json                ← dataset description and file inventory
 
   docs/
-    SentimentEdge_Phase3_Final_Report.pdf  ← Phase 3 final report
+    SentimentEdge_Phase3_Final_Report.pdf        ← Phase 3 final report
     Phase3_SentimentEdge_ Architecture Diagram.pdf  ← Phase 3 architecture diagram
-    architecture_diagram.pdf     ← Phase 2 architecture diagram
-    SentimentEdge_Phase2_Full_Report.pdf
     screenshots/                 ← workflow screenshots
 
   eval/
@@ -192,9 +190,9 @@ SentimentEdge/
     demo_video_link.txt          ← 5-minute project video link
 
   phase_submissions/
-    phase1/
-    phase2/                      ← Phase 2 report PDF
-    phase3/                      ← SUBMISSION_CHECKLIST.md + final materials (add before submitting)
+    phase1/                      ← Phase 1 submission PDF
+    phase2/                      ← Phase 2 submission PDF
+    phase3/                      ← Phase 3 final submission materials
 ```
 
 ---
@@ -212,6 +210,9 @@ SentimentEdge/
 |---|---|---|
 | Functional test cases (TC-01 to TC-08) | 8 | 8 PASS |
 | Success criteria (SC-01 to SC-04) | 4 | 4 FAIL (documented) |
+| Phase 2 feedback — sarcasm benchmark (SC-05) | 1 | FAIL (Krippendorff alpha -0.002) |
+| Phase 2 feedback — governance checkpoint (SC-06) | 1 | PASS |
+| Phase 2 feedback — 4-week expansion (SC-07) | 1 | PASS |
 
 Full results in `eval/evaluation_results.csv`. Evidence files in `eval/case_outputs/`.
 
@@ -231,6 +232,6 @@ python main.py --replay outputs/main_run/run_20260425_174443
 
 - **Filter retention 18.2%** — 64% of r/wallstreetbets posts have deleted bodies. Filter Rule 1 (body OR comments) mitigates this but cannot fully recover deleted content.
 - **Avg confidence 0.67** — April 2026 market downturn drove a 49.5% sarcasm rate across the dataset. Heavy irony depresses confidence scores by design.
-- **Ticker coverage** — 283 posts across 59 tickers yields avg 4.8 posts per ticker. A larger or multi-week dataset would produce statistically stronger per-ticker signals.
+- **Ticker coverage** — 500 posts across 68 tickers in the main run yields avg 7.4 posts per ticker. Only 3 tickers reached the 5-post threshold in the reference run; the 4-week expansion improved this but a larger dataset would produce statistically stronger per-ticker signals.
 - **Web dashboard is read-only** — the React frontend displays cached run data from `web/public/runs/cache.json`. It does not run the pipeline live; a new run requires the Python pipeline and then re-caching.
 - **Data files not in repo** — both JSONL files must be placed in `data/raw/` manually before running the full pipeline.
